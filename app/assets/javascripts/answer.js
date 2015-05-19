@@ -1,10 +1,9 @@
 var ready;
 ready = function() {
 
-	$('.show_answer').on('click', function(){
-		$(this).fadeOut();
-		$('.js_hidden_answer').fadeIn();
-
+	$('.js-show-answer').on('click', function(){
+		$('.hidden-answer').addClass('active');
+		$(this).remove()
 	});
 
 };

@@ -1,9 +1,21 @@
 <%= form_for @question do |f| %>
-	<%= f.text_field :title, placeholder: 'Vul de vraag in!' %>
-	<%= f.text_field :answer, placeholder: 'Geef het juiste antwoord!' %>
-	<%= f.label :language, 'Taalkeuze' %>
-	<%= f.collection_select(:language_id, Language.all, :id, :title) %>
-	<%= f.label :category, 'Category' %>
-	<%= f.collection_select(:category_id, Category.all, :id, :title) %>
-	<%= f.submit 'Versturen' %>
+	<div class='field'>
+		<%= f.label :title, 'Vul een vraag in!' %>
+		<%= f.text_field :title, placeholder: 'Vul de vraag in!' %>
+	</div>
+	<div class='field'>
+		<%= f.label :title, 'Geef het juiste antwoord!' %>
+		<%= f.text_field :answer, placeholder: 'Geef het juiste antwoord!' %>
+	</div>
+	<div class='field'>
+		<%= f.label :language, 'Taalkeuze' %>
+		<%= f.collection_select(:language_id, Language.all, :id, :title) %>
+	</div>
+	<div class='field'>
+		<%= f.label :category, 'Category' %>
+		<%= f.collection_select(:category_id, Category.all, :id, :title) %>
+	</div>
+	<div class='actions'>
+		<%= f.submit 'Versturen' %>
+	</div>
 <% end %>
