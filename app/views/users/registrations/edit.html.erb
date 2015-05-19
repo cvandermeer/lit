@@ -1,0 +1,87 @@
+<div class="left">
+  <div class="container">
+    <%= render 'shared/profile' %>
+  </div>
+
+  <%= render 'shared/competency_list' %>
+
+</div>
+
+<div class="right">
+  <div class="container">
+
+    <h2>Profiel bewerken</h2>
+    <div class="form clearfix">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
+        <%= devise_error_messages! %>
+      <h4 class="border-none">Profiel informatie</h4>
+      <ul>
+        <li>
+          <%= f.label :email, 'Email adres' %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </li>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <li>
+          <%= f.label :name, 'Voor/achternaam' %>
+          <%= f.text_field :name %>
+        </li>
+
+        <li>
+          <%= f.label :avatar, 'Profiel foto' %>
+          <%= f.file_field :avatar %>
+        </li>
+
+        <li>
+          <%= f.label :student_number, 'Student nummer' %>
+          <%= f.text_field :student_number %>  
+        </li>
+
+        <li>
+          <%= f.label :mobile, 'Mobiel nummer' %>
+          <%= f.text_field :mobile %>
+        </li>
+
+      </ul>
+
+      <h4>Wachtwoord veranderen</h4>
+
+      <ul>  
+        <li>
+          <%= f.label :password, 'Nieuw wachtwoord' %> <i>(Vul hier niks in als je het wachtwoord niet wilt veranderen!)</i><br />
+          <%= f.password_field :password, autocomplete: 'off' %>
+        </li>
+
+        <li>
+          <%= f.label :password_confirmation, 'Wachtwoord herhalen' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: 'off' %>
+        </li>
+      </ul>
+
+      <h4>Bevestig met je wachtwoord!</h4>
+
+      <ul>
+        <li>
+          <%= f.label :current_password, 'Wachtwoord' %> <i>(Vul je huidige wachtwoord in om de veranderingen te bevestigen)</i><br />
+          <%= f.password_field :current_password, autocomplete: 'off' %>
+        </li>
+
+        <li>
+          <%= f.submit 'Bewerken', class:'btn orange edit left bigger' %>
+        </li>
+      </ul>
+
+      <% end %>
+
+      <div class='clearfix'></div>
+
+      <h4>Account verwijderen</h4>
+
+      <p>Niet tevreden?</p> 
+      <%= button_to 'Mijn account verwijderen?', registration_path(resource_name), data: { confirm: 'Weet je het zeker, dit kan niet ongedaan worden gemaakt' }, method: :delete, class: 'btn link left' %>
+    </div>
+  </div>
+</div>
