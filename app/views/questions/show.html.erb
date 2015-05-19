@@ -1,1 +1,6 @@
-<%= @question.title %>
+<p><%= @question.title %></p>
+<p><%= @question.category.title %></p>
+<p><%= @question.language.title %></p>
+
+<a href='#' class='show_answer'>Toon antwoord</a>
+<div class='js_hidden_answer'><h2><%= @question.answer %></h2></div>

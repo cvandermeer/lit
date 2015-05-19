@@ -1,5 +1,5 @@
 class Language < ActiveRecord::Base
 
 	### RELATIONS ###
-	belongs_to :question
+	has_many :questions
 end

@@ -1,8 +1,8 @@
 class Question < ActiveRecord::Base
 
 	### RELATIONS ###
-	has_one :language
-	has_one :category
+	belongs_to :category
+	belongs_to :language
 
 	### VALIDATIONS ###
 	validates :title, presence: true
