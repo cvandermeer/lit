@@ -36,8 +36,10 @@ class QuestionsController < ApplicationController
 		if answer.id == @question.correct_answer_id
 			current_user.points = current_user.points + 1
 			current_user.save
+			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: true)
 			redirect_to root_path, notice: 'Nice'
 		else
+			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: false)
 			redirect_to @question, notice: 'fail'
 		end
 	end
