@@ -1,6 +1,6 @@
 <p><%= @question.title %></p>
-<p><%= @question.category.title %></p>
-<p><%= @question.language.title %></p>
+<p>Categorie: <%= @question.category.title %></p>
+<p>Taal: <%= @question.language.title %></p>
 
 <div class='js-show-answer'>Toon antwoord</div>
 <div class='hidden-answer'><i><%= @question.answer %></i></div>
