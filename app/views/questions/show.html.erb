@@ -3,7 +3,7 @@
 <p>Taal: <%= @question.language.title %></p>
 
 <ul>
-<% @question.answers.each do |answer| %>
+<% @question.answers.shuffle.each do |answer| %>
 	<li>
 		<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id) %>
 	</li>
