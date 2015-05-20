@@ -1,0 +1,17 @@
+<h2><%= current_user.name %></h2>
+
+<% if current_user.avatar? %>
+	<%= image_tag current_user.avatar.url(:thumb) %>
+<% else %>
+	<%= current_user.name.chars.first %>
+<% end %>
+
+
+<ul>
+	<li>
+		Email: <%= current_user.email %>
+	</li>
+	<li>
+		Punten: <%= current_user.points %>
+	</li>
+</ul>

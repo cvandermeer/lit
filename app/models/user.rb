@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   ### RELATIONS ###
   has_many :questions
+  has_many :user_results
 
   ### VALIDATIONS ###
   validates :name, presence: true
@@ -19,4 +20,7 @@ class User < ActiveRecord::Base
   		self.save
   	end
   end
+
+  ## UPLOADER ##
+  mount_uploader :avatar, ImageUploader
 end

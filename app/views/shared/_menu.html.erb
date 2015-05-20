@@ -1,11 +1,19 @@
 <% if user_signed_in? %>
+
 	<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
-	<%= link_to current_user.name, edit_user_registration_path %>
+	
+	<%= link_to current_user.name, show_user_path %>
+	
+	<% if controller_name == 'users' && action_name == 'show' %>
+		<%= link_to 'Profiel aanpassen', edit_user_registration_path %>
+	<% end %>
+	
 	<% if current_user.admin == true %>
 		<%= link_to questions_unchecked_questions_path do %>
 		  <%= Question.where(approved: false).count %> ongecheckte vragen
 		<% end %>
 	<% end %>
+
 <% end %>	
 
 
