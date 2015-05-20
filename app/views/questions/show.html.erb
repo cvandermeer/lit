@@ -2,5 +2,13 @@
 <p>Categorie: <%= @question.category.title %></p>
 <p>Taal: <%= @question.language.title %></p>
 
-<div class='js-show-answer'>Toon antwoord</div>
-<div class='hidden-answer'><i><%= @question.answer %></i></div>
+<ul>
+<% @question.answers.each do |answer| %>
+	<li>
+		<%= answer.title %>
+		<% if answer.id == @question.correct_answer_id %>
+			Correcte vraag
+		<% end %>
+	</li>
+<% end %>
+</ul>

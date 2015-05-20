@@ -8,4 +8,8 @@
 
 Category.create([{ title: 'Lezen'}, { title: 'Schrijven' }]) 
 Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands' }])
-User.create(name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true)
+
+users = User.create([{name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true}, 
+						 {name: 'Test persoon', email: 'test@test.nl', password: 'testtest'}])
+
+

@@ -4,6 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
           :rememberable, :validatable
 
+  ### RELATIONS ###
+  has_many :questions
+
+  ### VALIDATIONS ###
+  validates :name, presence: true
+
   after_create :user_defaults
 
   def user_defaults	

@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = Question.new(question_params)
+		@question.user_id = current_user.id
 		if @question.save
 			redirect_to root_path, notice: 'Vraag aangemaakt'
 		else
@@ -37,7 +38,7 @@ class QuestionsController < ApplicationController
 		end
 
 		def question_params
-			params.require(:question).permit(:title, :answer, :language_id, :category_id)
+			params.require(:question).permit(:title, :language_id, :category_id, answers_attributes: [:id, :title, :_destroy])
 		end
 
 end
