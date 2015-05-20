@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-	before_action :set_question, only: [:show, :approve_question]
+	before_action :set_question, only: [:show, :approve_question, :submit_answer]
 
 	def show
 
@@ -28,6 +28,17 @@ class QuestionsController < ApplicationController
 		@question.approved = true
 		if @question.save
 			redirect_to questions_unchecked_questions_path
+		end
+	end
+
+	def submit_answer
+		answer = Answer.find(params[:answer_id])
+		if answer.id == @question.correct_answer_id
+			current_user.points = current_user.points + 1
+			current_user.save
+			redirect_to root_path, notice: 'Nice'
+		else
+			redirect_to @question, notice: 'fail'
 		end
 	end
 	
