@@ -12,7 +12,8 @@
 
 <%= render 'shared/notice' %>
 
-<h1>LIT</h1>
+<h1><%= link_to 'LIT', root_path %></h1> <%= link_to 'terug', :back if action_name != 'home' %>
+
 <%= yield %>
 
 </body>
