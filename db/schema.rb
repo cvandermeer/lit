@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150519113800) do
     t.string   "answer"
     t.integer  "category_id"
     t.integer  "language_id"
+    t.string   "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

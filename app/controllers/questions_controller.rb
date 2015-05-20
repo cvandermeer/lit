@@ -3,7 +3,6 @@ class QuestionsController < ApplicationController
 	before_action :set_question, only: [:show]
 
 	def show
-
 	end
 
 	def new
@@ -20,7 +19,6 @@ class QuestionsController < ApplicationController
 	end
 
 	private
-
 		def set_question
 			@question = Question.find(params[:id])
 		end
@@ -28,5 +26,4 @@ class QuestionsController < ApplicationController
 		def question_params
 			params.require(:question).permit(:title, :answer, :language_id, :category_id)
 		end
-
 end
