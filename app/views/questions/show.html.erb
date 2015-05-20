@@ -1,6 +1,14 @@
-<p><%= @question.title %></p>
 <p><%= @question.category.title %></p>
 <p><%= @question.language.title %></p>
+<h3><%= @question.title %></h3>
 
-<div class='js-show-answer'>Toon antwoord</div>
-<div class='hidden-answer'><i><%= @question.answer %></i></div>
+<ul>
+<% @question.answers.each do |answer| %>
+	<li>
+		<%= answer.title %>
+		<% if answer.id == @question.correct_answer_id %>
+			Correcte vraag
+		<% end %>
+	</li>
+<% end %>
+</ul>

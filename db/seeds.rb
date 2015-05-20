@@ -8,3 +8,4 @@
 
 Category.create([{ title: 'Lezen'}, { title: 'Schrijven' }]) 
 Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands' }])
+User.create(email: 'test@test.nl', name: 'Test persoon', password: 'testtest')
