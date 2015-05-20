@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   after_create :user_defaults
 
-  def user_defaults
+  def user_defaults	
   	if self.admin == nil
   		self.admin = false
   		self.save

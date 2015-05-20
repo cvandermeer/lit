@@ -2,7 +2,7 @@
 	<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
 	<% if current_user.admin == true %>
 		<%= link_to questions_unchecked_questions_path do %>
-		  <%= Question.where(approved: false).count %> onbeantwoorde vragen
+		  <%= Question.where(approved: false).count %> ongecheckte vragen
 		<% end %>
 	<% end %>
 <% end %>

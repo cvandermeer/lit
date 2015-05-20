@@ -1,5 +1,5 @@
 <ul>
 	<% @questions.each do |q| %>
-		<li><%= q.title %></li>
+		<li><%= q.title %> <%= link_to 'goedkeuren', approve_path(q) %></li>
 	<% end %>
 </ul>

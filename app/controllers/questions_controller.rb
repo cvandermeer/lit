@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-	before_action :set_question, only: [:show]
+	before_action :set_question, only: [:show, :approve_question]
 
 	def show
 
@@ -23,6 +23,13 @@ class QuestionsController < ApplicationController
 		@questions = Question.where(approved: false)
 	end
 
+	def approve_question
+		@question.approved = true
+		if @question.save
+			redirect_to questions_unchecked_questions_path
+		end
+	end
+	
 	private
 
 		def set_question
