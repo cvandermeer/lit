@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   def user_defaults	
   	if self.admin == nil
   		self.admin = false
+      self.points = 0
   		self.save
   	end
   end

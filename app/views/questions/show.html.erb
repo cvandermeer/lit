@@ -5,10 +5,7 @@
 <ul>
 <% @question.answers.each do |answer| %>
 	<li>
-		<%= answer.title %>
-		<% if answer.id == @question.correct_answer_id %>
-			Correcte vraag
-		<% end %>
+		<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id) %>
 	</li>
 <% end %>
 </ul>
