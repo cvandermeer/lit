@@ -19,6 +19,10 @@ class QuestionsController < ApplicationController
 		end
 	end
 
+	def unchecked_questions
+		@questions = Question.where(approved: false)
+	end
+
 	private
 
 		def set_question
