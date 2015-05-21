@@ -12,8 +12,6 @@ gem 'devise'
 gem 'nested_form'
 gem 'carrierwave'
 gem 'rmagick'
-gem 'bourbon'
-gem 'bitters'
 
 group :development, :test do
   gem 'byebug'

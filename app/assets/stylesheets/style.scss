@@ -1,0 +1,16 @@
+.hidden-answer{
+	height: 0px;
+	overflow: hidden;
+	transition: 0.3s;
+	&.active {
+		height: 12px;
+	}
+}
+
+.js-show-answer {
+	cursor: pointer;
+	text-decoration: underline;
+	&:hover {
+		text-decoration: none;
+	}
+}
