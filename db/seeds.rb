@@ -11,3 +11,7 @@ Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands'
 
 User.create([{name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true, points: 0}, 
 						 {name: 'Test persoon', email: 'test@test.nl', password: 'testtest', admin: false, points: 0}])
+
+52.times do
+  WordOfTheWeek.create(title:'Application')
+end

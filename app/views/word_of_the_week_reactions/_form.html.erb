@@ -1,0 +1,5 @@
+<%= form_for(@word_of_the_week_reaction) do |f| %>
+  <%= f.text_field :title, placeholder: 'reageren...' %>
+  <%= f.hidden_field(:word_of_the_week_id, :value => params[:id]) %>
+  <%= f.submit 'Antwoorden', data: { disable_with: 'Aan het versturen...' }, class: 'btn submit' %>
+<% end %> 

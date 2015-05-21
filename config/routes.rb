@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'word_of_the_week_reactions/new'
+
   root to: 'static_pages#home'
   
   ### users ###
@@ -15,5 +17,9 @@ Rails.application.routes.draw do
   ### static_pages ###
   get 'static_pages/pick_category'
   get 'static_pages/pick_language'
+
+  ### word of the week ###
+  resources :word_of_the_weeks, only: [:index, :edit, :update, :show]
+  resources :word_of_the_week_reactions
 end
 

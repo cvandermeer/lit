@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520135431) do
+ActiveRecord::Schema.define(version: 20150521123512) do
 
   create_table "answers", force: :cascade do |t|
     t.string  "title"
@@ -57,5 +57,16 @@ ActiveRecord::Schema.define(version: 20150520135431) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "word_of_the_week_reactions", force: :cascade do |t|
+    t.string   "title"
+    t.string   "user_id"
+    t.string   "word_of_the_week_id"
+    t.datetime "created_at"
+  end
+
+  create_table "word_of_the_weeks", force: :cascade do |t|
+    t.string "title"
+  end
 
 end

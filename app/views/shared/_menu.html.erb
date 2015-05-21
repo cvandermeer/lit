@@ -11,6 +11,7 @@
 	<% if current_user.admin == true %>
 		<%= link_to questions_unchecked_questions_path do %>
 		  <%= Question.where(approved: false).count %> ongecheckte vragen
+		  <%= link_to 'Woord van de week', word_of_the_weeks_path %>
 		<% end %>
 	<% end %>
 
