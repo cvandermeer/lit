@@ -8,13 +8,15 @@
 </head>
 <body>
 
-<%= render 'shared/menu' %>
-
-<%= render 'shared/notice' %>
-
+<header>
+	<%= render 'shared/menu' %>
+	<%= render 'shared/notice' %>
+</header>
 <h1><%= link_to 'LIT', root_path %></h1> <%= link_to 'terug', :back if action_name != 'home' %>
 
 <%= yield %>
+
+<div class='overlay'></div>
 
 </body>
 </html>
