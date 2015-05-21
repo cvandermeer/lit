@@ -1,8 +1,12 @@
 class WordOfTheWeeksController < ApplicationController
-  before_action :set_word_of_the_week, only: [:edit, :update]
+  before_action :set_word_of_the_week, only: [:edit, :update, :show]
 
   def index
     @word_of_the_weeks = WordOfTheWeek.all
+  end
+
+  def show
+    @word_of_the_week_reaction = WordOfTheWeekReaction.new
   end
 
   def edit
