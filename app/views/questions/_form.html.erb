@@ -1,27 +1,29 @@
-<%= error_messages_for @question %>
+<fieldset>
+	<%= error_messages_for @question %>
 
-<%= nested_form_for @question do |f| %>
-	<div class='field'>
-		<%= f.label :title, 'Vul een vraag in!' %>
-		<%= f.text_field :title, placeholder: 'Vul de vraag in!' %>
-	</div>
-	<div class='field'>
-		<%= f.label :language, 'Taalkeuze' %>
-		<%= f.collection_select(:language_id, Language.all, :id, :title) %>
-	</div>
-	<div class='field'>
-		<%= f.label :category, 'Category' %>
-		<%= f.collection_select(:category_id, Category.all, :id, :title) %>
-	</div>
-	<%= f.fields_for :answers do |answer| %>
+	<%= nested_form_for @question do |f| %>
 		<div class='field'>
-			<%= answer.text_field :title, placeholder: 'Voeg een vraag toe!' %>
-			<%= answer.link_to_remove "Remove this task" %>
+			<%= f.label :title, 'Vul een vraag in!' %>
+			<%= f.text_field :title, placeholder: 'Vul de vraag in!' %>
+		</div>
+		<div class='field'>
+			<%= f.label :language, 'Taalkeuze' %>
+			<%= f.collection_select(:language_id, Language.all, :id, :title) %>
+		</div>
+		<div class='field'>
+			<%= f.label :category, 'Category' %>
+			<%= f.collection_select(:category_id, Category.all, :id, :title) %>
+		</div>
+		<%= f.fields_for :answers do |answer| %>
+			<div class='field'>
+				<%= answer.text_field :title, placeholder: 'Voeg een vraag toe!' %>
+				<%= answer.link_to_remove "Remove this task" %>
+			</div>
+		<% end %>
+		<p><%= f.link_to_add "Antwoord toevoegen!", :answers %></p>
+		
+		<div class='actions'>
+			<%= f.submit 'Versturen' %>
 		</div>
 	<% end %>
-	<p><%= f.link_to_add "Antwoord toevoegen!", :answers %></p>
-	
-	<div class='actions'>
-		<%= f.submit 'Versturen' %>
-	</div>
-<% end %>
+</fieldset>

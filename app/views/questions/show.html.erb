@@ -2,10 +2,9 @@
 <p>Categorie: <%= @question.category.title %></p>
 <p>Taal: <%= @question.language.title %></p>
 
-<ul>
+
 <% @question.answers.shuffle.each do |answer| %>
-	<li>
-		<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id) %>
-	</li>
+	<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id),
+			class: 'button' %>
 <% end %>
-</ul>
+
