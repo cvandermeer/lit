@@ -26,6 +26,8 @@ class QuestionsController < ApplicationController
 
 	def approve_question
 		@question.approved = true
+		@question.user.points = @question.user.points + 10
+		@question.user.save
 		if @question.save
 			redirect_to questions_unchecked_questions_path
 		end
