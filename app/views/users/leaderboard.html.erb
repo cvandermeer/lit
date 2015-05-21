@@ -1,7 +1,18 @@
 <p>Topscore</p>
 
-<ul>
-	<% @users.each do |user| %>
-		<li><%= user.points %> <%= user.name %></li>
-	<% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Punten</th>
+      <th>Gebruiker</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @users.each do |user| %>
+    <tr>
+      <td><%= user.points %></td>
+      <td><%= user.name %></td>
+    </tr>
+  	<% end %>
+  </tbody>
+</table>
