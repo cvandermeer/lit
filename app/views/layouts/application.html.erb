@@ -14,6 +14,8 @@
 
 <h1><%= link_to 'LIT', root_path %></h1> <%= link_to 'terug', :back if action_name != 'home' %>
 
+Woord van week <%= Time.now.strftime("%U").to_i + 1 %>
+
 <%= yield %>
 
 </body>
