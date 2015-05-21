@@ -12,9 +12,9 @@
 
 <%= render 'shared/notice' %>
 
-<h1><%= link_to 'LIT', root_path %></h1> <%= link_to 'terug', :back if action_name != 'home' %>
-
-Woord van week: <%= WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1).title %>
+<h1><%= link_to 'LIT', root_path %></h1>
+<p>Woord van week: <%= WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1).title %></p>
+<p><%= link_to 'terug', :back if action_name != 'home' %></p>
 
 <%= yield %>
 
