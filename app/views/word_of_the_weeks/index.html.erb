@@ -1,0 +1,23 @@
+<table> 
+  <thead>
+    <th>
+      Weeknummer
+    </th>
+    <th>
+      Woord
+    </th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <% @word_of_the_weeks.each do |w| %>
+        <tr>
+          <td><%= w.id %></td>
+          <td><%= w.title %></td>
+          <td><%= link_to 'Aanpassen', edit_word_of_the_week_path(w) %></td>
+        </tr>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+ 
