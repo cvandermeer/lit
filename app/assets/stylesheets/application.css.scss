@@ -1,0 +1,10 @@
+@import 'bourbon';
+@import 'base/base';
+
+body {
+  margin: 20px auto;
+  width: 800px;
+  a {
+  	padding: 0 10px 0 0;
+  }
+}
