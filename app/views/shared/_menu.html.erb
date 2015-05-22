@@ -1,20 +1,34 @@
-<% if user_signed_in? %>
+<div class='hamburger'>
+	<div>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</div>
 
-	<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
-	
-	<%= link_to current_user.name, show_user_path %>
+<ul class='menu'>
+<% if user_signed_in? %>
+	<li>
+		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
+	</li>
+	<li>
+		<%= link_to current_user.name, show_user_path %>
+	</li>
 	
 	<% if controller_name == 'users' && action_name == 'show' %>
-		<%= link_to 'Profiel aanpassen', edit_user_registration_path %>
+		<li>
+			<%= link_to 'Profiel aanpassen', edit_user_registration_path %>
+		</li>
 	<% end %>
 	
 	<% if current_user.admin == true %>
+		<li>
 		<%= link_to questions_unchecked_questions_path do %>
 		  <%= Question.where(approved: false).count %> ongecheckte vragen
 		  <%= link_to 'Woord van de week', word_of_the_weeks_path %>
 		<% end %>
+		</li>
 	<% end %>
-
 <% end %>	
-
+</ul>
 
