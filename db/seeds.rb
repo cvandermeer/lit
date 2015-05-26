@@ -15,3 +15,5 @@ User.create([{name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', ad
 52.times do
   WordOfTheWeek.create(title:'Application')
 end
+
+Answer.create(title: 'Time is up!')

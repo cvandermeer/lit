@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
 			redirect_to root_path, notice: 'Nice'
 		else
 			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: false)
-			redirect_to @question, notice: 'fail'
+			redirect_to root_path, notice: 'fail'
 		end
 	end
 	
