@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'bourbon'
 gem 'bitters'
+gem "highcharts-rails", "~> 3.0.0"
 
 group :development, :test do
   gem 'byebug'
