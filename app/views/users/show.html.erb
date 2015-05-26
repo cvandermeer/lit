@@ -27,211 +27,71 @@
 <script type="text/javascript">
   var ready;
   ready = function() {
-    $(function () {
-      Highcharts.setOptions({
-        colors: ['#00BA25', '#FA0000']
-      });
+    function initChart(id, goodAnswers, badAnswers, textTitle) {
+      if ( goodAnswers > 0 || badAnswers > 0 ) {
 
-      $('#chart_fries').highcharts({
-          chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false
-          },
-          title: {
-              text: 'Fries'
-          },
-          tooltip: {
-              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                      style: {
-                          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              type: 'pie',
-              name: 'Percentage',
-              data: [
-                  ['Goed beantwoord',  <%= current_user.user_results.where(language_id: 1, correctly_answered: true).count %>],
-                  ['Fout beantwoord',  <%= current_user.user_results.where(language_id: 1, correctly_answered: false).count %>],
-              ]
-          }]
-      });
-    });
+        Highcharts.setOptions({
+          colors: ['#00BA25', '#FA0000']
+        });
 
-    $(function () {
-      Highcharts.setOptions({
-        colors: ['#00BA25', '#FA0000']
-      });
+        $(id).highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: textTitle
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Percentage',
+                data: [
+                    ['Goed beantwoord',  goodAnswers],
+                    ['Fout beantwoord',  badAnswers],
+                ]
+            }]
+        });
+     
+      }
+    };
+    
+    var id = '#chart_fries';
+    var goodAnswers = <%= current_user.user_results.where(language_id: 1, correctly_answered: true).count %>;
+    var badAnswers = <%= current_user.user_results.where(language_id: 1, correctly_answered: false).count %>;
+    var textTitle = 'Fries';
+    initChart(id, goodAnswers, badAnswers, textTitle);
 
-      $('#chart_engels').highcharts({
-          chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false
-          },
-          title: {
-              text: 'Engels'
-          },
-          tooltip: {
-              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                      style: {
-                          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              type: 'pie',
-              name: 'Percentage',
-              data: [
-                  ['Goed beantwoord',  <%= current_user.user_results.where(language_id: 2, correctly_answered: true).count %>],
-                  ['Fout beantwoord',  <%= current_user.user_results.where(language_id: 2, correctly_answered: false).count %>],
-              ]
-          }]
-      });
-    });
-    $(function () {
-      Highcharts.setOptions({
-        colors: ['#00BA25', '#FA0000']
-      });
+    id = '#chart_engels';
+    goodAnswers = <%= current_user.user_results.where(language_id: 2, correctly_answered: true).count %>;
+    badAnswers = <%= current_user.user_results.where(language_id: 2, correctly_answered: false).count %>;
+    textTitle = 'Engels';
+    initChart(id, goodAnswers, badAnswers, textTitle);
 
-      $('#chart_dutch').highcharts({
-          chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false
-          },
-          title: {
-              text: 'Nederlands'
-          },
-          tooltip: {
-              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                      style: {
-                          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              type: 'pie',
-              name: 'Percentage',
-              data: [
-                  ['Goed beantwoord',  <%= current_user.user_results.where(language_id: 3, correctly_answered: true).count %>],
-                  ['Fout beantwoord',  <%= current_user.user_results.where(language_id: 3, correctly_answered: false).count %>],
-              ]
-          }]
-      });
-    });
-
-    $(function () {
-      Highcharts.setOptions({
-        colors: ['#00BA25', '#FA0000']
-      });
-
-      $('#chart_reading').highcharts({
-          chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false
-          },
-          title: {
-              text: 'Lezen'
-          },
-          tooltip: {
-              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                      style: {
-                          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              type: 'pie',
-              name: 'Percentage',
-              data: [
-                  ['Goed beantwoord',  <%= current_user.user_results.where(category_id: 1, correctly_answered: true).count %>],
-                  ['Fout beantwoord',  <%= current_user.user_results.where(category_id: 1, correctly_answered: false).count %>],
-              ]
-          }]
-      });
-    });
-
-    $(function () {
-      Highcharts.setOptions({
-        colors: ['#00BA25', '#FA0000']
-      });
-
-      $('#chart_writing').highcharts({
-          chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false
-          },
-          title: {
-              text: 'Schrijven'
-          },
-          tooltip: {
-              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-          },
-          plotOptions: {
-              pie: {
-                  allowPointSelect: true,
-                  cursor: 'pointer',
-                  dataLabels: {
-                      enabled: true,
-                      format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                      style: {
-                          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                      }
-                  }
-              }
-          },
-          series: [{
-              type: 'pie',
-              name: 'Percentage',
-              data: [
-                  ['Goed beantwoord',  <%= current_user.user_results.where(category_id: 2, correctly_answered: true).count %>],
-                  ['Fout beantwoord',  <%= current_user.user_results.where(category_id: 2, correctly_answered: false).count %>],
-              ]
-          }]
-      });
-    });
+    id = '#chart_nederlands';
+    goodAnswers = <%= current_user.user_results.where(language_id: 3, correctly_answered: true).count %>;
+    badAnswers = <%= current_user.user_results.where(language_id: 3, correctly_answered: false).count %>;
+    textTitle = 'Nederlands';
+    initChart(id, goodAnswers, badAnswers, textTitle);
 
   }
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
 </script>
