@@ -1,9 +1,8 @@
 var ready;
 ready = function() {
 
-	$('.hamburger').on('click', function() {
-		$(this).toggleClass('active');
-		$('.menu, .overlay').toggleClass('active');
+	$('.hamburger, .overlay').on('click', function() {
+		$('.menu, .overlay, .hamburger').toggleClass('active');
 	});
 
 }

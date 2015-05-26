@@ -11,14 +11,13 @@
 <header>
 	<%= render 'shared/menu' %>
 	<%= render 'shared/notice' %>
+	<span class='back'>
+		<%= link_to 'terug', :back if action_name != 'home' %>
+	</span>
+	<h1><%= link_to 'LIT', root_path %></h1>
 </header>
 
-<h1><%= link_to 'LIT', root_path %></h1>
 
-<% if user_signed_in? %>
-  <p>Woord van week: <%= link_to WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1).title, WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1) %></p>
-<% end %>
-<p><%= link_to 'terug', :back if action_name != 'home' %></p>
 
 <%= yield %>
 

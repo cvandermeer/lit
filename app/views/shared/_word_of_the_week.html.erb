@@ -1,0 +1,3 @@
+<% if user_signed_in? %>
+  <p>Woord van week: <%= link_to WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1).title, WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1) %></p>
+<% end %>
