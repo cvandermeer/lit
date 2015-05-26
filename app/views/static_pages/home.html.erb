@@ -1,21 +1,13 @@
 <%= render 'profile_overview' %>
 
-<%= render 'points_overview' %>
-
 <%= render 'shared/word_of_the_week' %>
 
-<p>
-	<%= link_to 'Vraag toevoegen', new_question_path %>
-</p>
-<p>
-	<%= link_to 'Geef mij een vraag!', @question %>
-</p>
-<p>
-	<%= link_to 'Categorie kiezen', static_pages_pick_category_path %>
-</p>
-<p>
-	<%= link_to 'Taal kiezen', static_pages_pick_language_path %>
-</p>
-<p>
-	<%= link_to 'Topscore', leaderboard_path %>
-</p>
+<%= link_to 'Vraag toevoegen', new_question_path, class: 'btn' %>
+
+<%= link_to 'Geef mij een vraag!', @question, class: 'btn' %>
+
+<%= link_to 'Categorie kiezen', static_pages_pick_category_path, class: 'btn' %>
+
+<%= link_to 'Taal kiezen', static_pages_pick_language_path, class: 'btn' %>
+
+<%= link_to 'Topscore', leaderboard_path, class: 'btn' %>

@@ -33,6 +33,7 @@ header {
   height: 100%;
   top: 0;
   right: 0;
+  cursor: pointer;
   background: rgba(0,0,0,0.2);
   @include transition( 0.3s );
   &.active {

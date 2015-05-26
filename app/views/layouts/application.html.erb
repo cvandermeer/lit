@@ -11,10 +11,13 @@
 <header>
 	<%= render 'shared/menu' %>
 	<%= render 'shared/notice' %>
+	<span class='back'>
+		<%= link_to 'terug', :back if action_name != 'home' %>
+	</span>
 	<h1><%= link_to 'LIT', root_path %></h1>
 </header>
 
-<p><%= link_to 'terug', :back if action_name != 'home' %></p>
+
 
 <%= yield %>
 
