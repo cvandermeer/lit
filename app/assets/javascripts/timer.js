@@ -8,7 +8,7 @@ ready = function() {
 		valOne = val[0];
 		newHref = valOne + '=1';
 		setTimeout(function() {
-			window.location.replace(newHref);
+			//window.location.replace(newHref);
 		}, 10000);
 	}
 
