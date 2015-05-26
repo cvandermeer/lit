@@ -1,0 +1,41 @@
+<div class='points-overview'>
+	<div  class='circle'>
+    <h6>Frysk</h6>
+		<div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+
+  // We need to make a loop :)
+
+ 	var circleWidth = $('.circle').width()
+
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Frysk', 'Punten'],
+      ['<%= @user_results_false %> Goede antwoorden', <%= @user_results_false %>], 
+      ['<%= @user_results_true %> Fouten antwoorden', <%= @user_results_true %> ]
+    ]);
+
+    var options = {
+      colors: ['#477DCA','#999'],
+      width: circleWidth,
+      height: circleWidth,
+      pieSliceText: 'label',
+      legend: {position: 'none'},
+      chartArea: {left:0,top:0,width:'100%',height:'100%'}
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('chart-fries'));
+
+    chart.draw(data, options);
+  }
+</script>

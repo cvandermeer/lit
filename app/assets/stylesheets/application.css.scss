@@ -2,17 +2,30 @@
 @import 'base/base';
 
 body {
-  margin: 20px auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 800px;
   overflow: hidden;
+  padding: 0 12px;
   a {
   	padding: 0 10px 0 0;
   }
 }
 
+header {
+  height: 40px;
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    padding-right: 40px;
+  }
+}
+
+
 @import 'menu';
 @import 'buttons';
+@import 'profile';
+@import 'points';
 
 .overlay {
   z-index: 100;

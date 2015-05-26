@@ -1,0 +1,17 @@
+.mini-thumb {
+	position: relative;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	float: left;
+	img {
+		position: absolute;
+		margin: auto;
+	}
+}
+
+.profile-info {
+	display: table;
+	height: 80px;
+	padding: 10px;
+}
