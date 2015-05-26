@@ -1,0 +1,10 @@
+.timer {
+	height: 10px;
+	width: 0%;
+	clear: both;
+	@include transition(all, 10s, linear);
+	background: #333;
+	&.start {
+		width: 100%;
+	}
+}
