@@ -1,12 +1,18 @@
 class QuestionsController < ApplicationController
 
 	before_action :set_question, only: [:show, :approve_question, :submit_answer]
+	before_action :set_new_question, only: [:new, :new_write_word, :new_choose_image]
 
 	def show
 	end
 
 	def new
-		@question = Question.new
+	end
+
+	def new_write_word
+	end
+
+	def new_choose_image
 	end
 
 	def create
@@ -14,8 +20,12 @@ class QuestionsController < ApplicationController
 		@question.user_id = current_user.id
 		if @question.save
 			redirect_to root_path, notice: 'Vraag aangemaakt'
-		else
+		elsif @question.category_id == 1
 			render 'new', notice: 'Vraag aanmaak mislukt'
+		elsif @question.category_id == 2
+			render 'new_choose_image', notice: 'Vraag aanmaak mislukt'
+		else
+			render 'new_write_word', notice: 'Vraag aanmaak mislukt'
 		end
 	end
 
@@ -50,7 +60,11 @@ class QuestionsController < ApplicationController
 			@question = Question.find(params[:id])
 		end
 
+		def set_new_question
+			@question = Question.new
+		end
+
 		def question_params
-			params.require(:question).permit(:title, :language_id, :category_id, answers_attributes: [:id, :title, :_destroy])
+			params.require(:question).permit(:title, :image, :language_id, :category_id, answers_attributes: [:id, :title, :image, :_destroy])
 		end
 end

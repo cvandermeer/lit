@@ -1,3 +1,8 @@
+<% if @question.image %>
+	<div class='question-image'>
+		<%= image_tag @question.image.url(:thumb) %>
+	</div>
+<% end %>
 <p><%= @question.title %></p>
 <p>Categorie: <%= @question.category.title %></p>
 <p>Taal: <%= @question.language.title %></p>

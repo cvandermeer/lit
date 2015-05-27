@@ -7,14 +7,10 @@
 			<%= f.file_field :image %>	
 		</div>
 		<div class='field'>
-			<%= f.label :title, 'Vul een vraag in!' %>
-			<%= f.text_field :title, placeholder: 'Vul de vraag in!' %>
-		</div>
-		<div class='field'>
 			<%= f.label :language, 'Taalkeuze' %>
 			<%= f.collection_select(:language_id, Language.all, :id, :title) %>
 		</div>
-		<%= f.hidden_field :category_id, value: 1 %>
+		<%= f.hidden_field :category_id, value: 3 %>
 
 		<%= f.label :answer, 'Juiste antwoord' %>
 		<%= f.fields_for :answers do |answer| %>

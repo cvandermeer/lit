@@ -4,6 +4,11 @@ class Answer < ActiveRecord::Base
 	belongs_to :question
 
 	### VALIDATIONS ###
-	validates :title, presence: true
+  # Look in the question model
+
+	## UPLOADER ##
+  mount_uploader :image, ImageUploader
+
+  private
 
 end
