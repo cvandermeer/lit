@@ -56,7 +56,7 @@
 .write-word {
 	position: relative;
 	.letters {
-		position: relative;
+		//position: relative;
 	}
 	.letter {
 		margin: 12px;
@@ -68,8 +68,10 @@
 		font-weight: bold;
 		background: #477DCA;
 		cursor: pointer;
+		  @include transition( 0.3s );
+
 	}
-	.dots {
+	.dot {
 		width: 5px;
 		height: 5px;
 		background: #333;
