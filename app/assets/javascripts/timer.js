@@ -3,9 +3,9 @@ ready = function() {
 	
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
+
 		// trigger wrong answer
-		console.log($('.answer').attr('href'))
-		var val = $('.answer').attr('href').split('=');
+		var val = $('.js-answer-trigger').attr('href').split('=');
 		valOne = val[0];
 		newHref = valOne + '=1';
 
@@ -14,7 +14,7 @@ ready = function() {
 		 	window.location.replace(newHref);
 		}, 10000);
 		
-		$('.answer').on('click', function() {
+		$('.js-answer-trigger').on('click', function() {
 			clearTimeout(timer);
 		});
 	}
