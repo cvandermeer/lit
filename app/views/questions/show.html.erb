@@ -1,17 +1,42 @@
-<% if @question.image %>
-	<div class='question-image'>
-		<%= image_tag @question.image.url(:thumb) %>
-	</div>
-<% end %>
-<p><%= @question.title %></p>
-<p>Categorie: <%= @question.category.title %></p>
-<p>Taal: <%= @question.language.title %></p>
+<div class='question'>
+	<% if @question.category_id == 1 %>
+		<h2>Beantwoord de vraag!</h2>
+		<% if @question.image %>
+			<div class='question-image'>
+				<%= image_tag @question.image.url(:thumb) %>
+			</div>
+		<% end %>
 
-<div class='answer-container'>
-	<% @question.answers.shuffle.each do |answer| %>
-		<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id),
-				class: 'answer' %>
+		<p><%= @question.title %></p>
+		<p>Categorie: <%= @question.category.title %></p>
+		<p>Taal: <%= @question.language.title %></p>
+
+		<div class='answer-container'>
+			<% @question.answers.shuffle.each do |answer| %>
+				<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id),
+						class: 'js-answer-trigger answer' %>
+			<% end %>
+		</div>
+
+	<% elsif @question.category_id == 2 %>
+
+		<h2>Kies de afbeelding bij het woord!</h2>
+		<div class='title'>
+			<h4><%= @question.title %></h4>
+		</div>
+		<div class='image-container'>
+			<% @question.answers.shuffle.each do |answer| %>
+				<a class='js-answer-trigger' href='<%= submit_answer_path(@question, answer_id: answer.id) %>'>
+					<%= image_tag answer.image.url(:thumb) %>
+				</a>
+			<% end %>
+		</div>
+
+	<% elsif @question.category == 3 %>
+
+
+
 	<% end %>
-</div>
 
-<div class='timer'></div>
+	<div class='timer'></div>
+</div>
