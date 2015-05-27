@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
   
   ### users ###
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'user', to: 'users#show', as: 'show_user'
   get '/leaderboard', to: 'users#leaderboard', as: 'leaderboard'
   
