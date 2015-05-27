@@ -1,3 +1,4 @@
+.name-chars,
 .mini-thumb {
 	position: relative;
 	height: 100px;
@@ -9,6 +10,17 @@
 		margin: auto;
 	}
 }
+
+.name-chars {
+	height: 68px;
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 32px;
+	color: #999;
+	text-align: center;
+	margin-top: 32px;
+}
+
 
 .profile-info {
 	display: table;

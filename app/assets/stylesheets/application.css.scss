@@ -26,6 +26,7 @@ header {
 @import 'profile';
 @import 'points';
 @import 'timer';
+@import 'questions';
 
 .overlay {
   z-index: 100;
@@ -40,4 +41,28 @@ header {
   &.active {
     width: 100%;
   }
+}
+
+
+/* Clear Floated Elements 
+------------------------------------------------------*/
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }

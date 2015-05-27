@@ -9,11 +9,13 @@ Rails.application.routes.draw do
   get '/leaderboard', to: 'users#leaderboard', as: 'leaderboard'
   
   ### questions ###
+  get 'questions/new_choose_image', to: 'questions#new_choose_image', as: 'new_choose_image'
+  get 'questions/new_write_word', to: 'questions#new_write_word', as: 'new_write_word'  
   resources :questions, only: [:show, :new, :create]
   get 'questions/unchecked_questions', path: '/unchecked_questions'
   get 'questions/:id/submit_answer', to: 'questions#submit_answer', as: 'submit_answer'
   get 'questions/:id/approve_question', to: 'questions#approve_question', as: 'approve'
-  
+
   ### static_pages ###
   get 'static_pages/pick_category'
   get 'static_pages/pick_language'

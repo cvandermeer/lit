@@ -4,14 +4,20 @@ ready = function() {
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
 		// trigger wrong answer
-		var val = $('.button').attr('href').split('=');
+		console.log($('.answer').attr('href'))
+		var val = $('.answer').attr('href').split('=');
 		valOne = val[0];
 		newHref = valOne + '=1';
-		setTimeout(function() {
-			window.location.replace(newHref);
-		}, 10000);
-	}
 
+		var timer;
+		timer = setTimeout(function() {
+		 	window.location.replace(newHref);
+		}, 10000);
+		
+		$('.answer').on('click', function() {
+			clearTimeout(timer);
+		});
+	}
 }
 
 $(document).ready(ready);
