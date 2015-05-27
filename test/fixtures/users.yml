@@ -2,3 +2,5 @@ one:
   email: test@example.com
   name: test
   encrypted_password: $2a$10$uO.M1IKUdpjTkF4dQ26akO06d0gy7NKCSiGHcMXSaLyCyMXRFeeO.
+  admin: 1
+  points: 0
