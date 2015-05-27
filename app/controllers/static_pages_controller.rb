@@ -1,17 +1,17 @@
 class StaticPagesController < ApplicationController
   
   def home
-  	@question = Question.where(approved: true).order('RANDOM()').first
+  	@question = Question.where(approved: true).offset(rand(Question.count)).first
   end
 
   def pick_category
-  	@reading = Question.where(category: 1, approved: true).order('RANDOM()').first
-  	@writing = Question.where(category: 2, approved: true).order('RANDOM()').first
+  	@reading = Question.where(category: 1, approved: true).offset(rand(Question.count)).first
+  	@writing = Question.where(category: 2, approved: true).offset(rand(Question.count)).first
   end
 
   def pick_language
-  	@dutch = Question.where(language: 3, approved: true).order('RANDOM()').first
-  	@english = Question.where(language: 2, approved: true).order('RANDOM()').first
-  	@frisian = Question.where(language: 1, approved: true).order('RANDOM()').first
+  	@dutch = Question.where(language: 3, approved: true).offset(rand(Question.count)).first
+  	@english = Question.where(language: 2, approved: true).offset(rand(Question.count)).first
+  	@frisian = Question.where(language: 1, approved: true).offset(rand(Question.count)).first
   end
 end
