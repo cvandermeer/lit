@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   ### word of the week ###
   resources :word_of_the_weeks, only: [:index, :edit, :update, :show]
   resources :word_of_the_week_reactions
+
+  ### teams ###
+  resources :teams
 end
 

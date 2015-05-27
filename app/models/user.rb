@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   ### RELATIONS ###
   has_many :questions
   has_many :user_results
+  
+  has_many :memberships
+  has_many :teams, through: :memberships
 
   ### VALIDATIONS ###
   validates :name, presence: true
