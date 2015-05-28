@@ -10,7 +10,9 @@
 <body>
 
 <header>
-	<%= render 'shared/menu' %>
+  <% if user_signed_in? %>
+	  <%= render 'shared/menu' %>
+  <% end %>
 	<%= render 'shared/notice' %>
 	<span class='back'>
 		<%= link_to 'terug', :back if action_name != 'home' %>
