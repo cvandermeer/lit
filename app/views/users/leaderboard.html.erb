@@ -3,15 +3,17 @@
 <table>
   <thead>
     <tr>
-      <th>Punten</th>
+      <th>Positie</th>
       <th>Gebruiker</th>
+      <th>Punten</th>
     </tr>
   </thead>
   <tbody>
-  	<% @users.each do |user| %>
+  	<% @users.each_with_index do |user, index| %>
     <tr>
-      <td><%= user.points %></td>
+      <td><%= index + 1 %></td>
       <td><%= user.name %></td>
+      <td><%= user.points %></td>
     </tr>
   	<% end %>
   </tbody>
