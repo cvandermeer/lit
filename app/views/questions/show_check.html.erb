@@ -1,0 +1,48 @@
+<div class='question'>
+  
+  <h6><%= @question.category.title %></h6>
+  <p>Taal: <%= @question.language.title %></p>
+  
+  <% if @question.image %>
+    <div class='question-image'>
+      <%= image_tag @question.image.url(:thumb) %>
+    </div>
+  <% end %>
+
+  <% if @question.category_id == 1 %> 
+    
+    <h3><%= @question.title %></h3>
+
+    <div class='answer-container'>
+      <% @question.answers.each_with_index do |answer, index| %>
+        <% if index == 0 %>
+          <div class='answer correct_answer'><%= answer.title %></div>
+        <% else %>
+          <div class='answer wrong_answer'><%= answer.title %></div>
+        <% end %>
+      <% end %>
+    </div>
+
+  <% elsif @question.category_id == 2 %>  
+    
+    <h3><%= @question.title %></h3>
+
+    <div class='image-container'>
+      <% @question.answers.each_with_index do |answer, index| %>
+        <% if index == 0 %>
+          <div class='answer correct_answer'><%= image_tag answer.image.url(:thumb) %></div>
+        <% else %>
+          <div class='answer wrong_answer'><%= image_tag answer.image.url(:thumb) %></div>
+        <% end %>        
+      <% end %>
+    </div>
+
+  <% elsif @question.category_id == 3 %>
+    <div class='answer correct_answer'>
+      <%= @question.answers.first.title %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'goedkeuren', approve_path(@question), class: 'btn-default' %>
+

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'questions/unchecked_questions', path: '/unchecked_questions'
   get 'questions/:id/submit_answer', to: 'questions#submit_answer', as: 'submit_answer'
   get 'questions/:id/approve_question', to: 'questions#approve_question', as: 'approve'
+  get 'questions/:id/show_check', to: 'questions#show_check', as: 'show_check'
 
   ### static_pages ###
   get 'static_pages/pick_category'

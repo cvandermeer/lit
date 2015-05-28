@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-	before_action :set_question, only: [:show, :approve_question, :submit_answer]
+	before_action :set_question, only: [:show, :approve_question, :submit_answer, :show_check]
 	before_action :set_new_question, only: [:new, :new_write_word, :new_choose_image]
 
 	def show
@@ -31,6 +31,9 @@ class QuestionsController < ApplicationController
 
 	def unchecked_questions
 		@questions = Question.where(approved: false)
+	end
+
+	def show_check
 	end
 
 	def approve_question
