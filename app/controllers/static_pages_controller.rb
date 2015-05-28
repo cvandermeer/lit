@@ -5,8 +5,9 @@ class StaticPagesController < ApplicationController
   end
 
   def pick_category
-  	@reading = Question.where(category: 1, approved: true).offset(rand(Question.count)).first
-  	@writing = Question.where(category: 2, approved: true).offset(rand(Question.count)).first
+  	@reading = Question.where(category_id: 1, approved: true).offset(rand(Question.count)).first
+    @foto_quiz = Question.where(category_id: 2, approved: true).offset(rand(Question.count)).first
+  	@writing = Question.where(category_id: 3, approved: true).offset(rand(Question.count)).first
   end
 
   def pick_language
