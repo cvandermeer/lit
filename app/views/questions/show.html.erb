@@ -1,15 +1,17 @@
 <div class='question'>
-	<% if @question.category_id == 1 %>
-		<h2>Beantwoord de vraag!</h2>
-		<% if @question.image %>
-			<div class='question-image'>
-				<%= image_tag @question.image.url(:thumb) %>
-			</div>
-		<% end %>
+	
+	<h6><%= @question.category.title %></h6>
+	<p>Taal: <%= @question.language.title %></p>
+	
+	<% if @question.image %>
+		<div class='question-image'>
+			<%= image_tag @question.image.url(:thumb) %>
+		</div>
+	<% end %>
 
-		<p><%= @question.title %></p>
-		<p>Categorie: <%= @question.category.title %></p>
-		<p>Taal: <%= @question.language.title %></p>
+	<% if @question.category_id == 1 %>	
+		
+		<h3><%= @question.title %></h3>
 
 		<div class='answer-container'>
 			<% @question.answers.shuffle.each do |answer| %>
@@ -18,12 +20,10 @@
 			<% end %>
 		</div>
 
-	<% elsif @question.category_id == 2 %>
+	<% elsif @question.category_id == 2 %>	
+		
+		<h3><%= @question.title %></h3>
 
-		<h2>Kies de afbeelding bij het woord!</h2>
-		<div class='title'>
-			<h4><%= @question.title %></h4>
-		</div>
 		<div class='image-container'>
 			<% @question.answers.shuffle.each do |answer| %>
 				<a class='js-answer-trigger' href='<%= submit_answer_path(@question, answer_id: answer.id) %>'>
@@ -32,11 +32,17 @@
 			<% end %>
 		</div>
 
-	<% elsif @question.category == 3 %>
-
-
-
+	<% elsif @question.category_id == 3 %>
+	<div class='write-word'>
+		<div data-answer='<%= @question.answers.first.title %>' class='js-write-word dots-container clearfix'></div>
+		
+		<div class='js-set-letters letters clearfix'></div>
+		
+	</div>
 	<% end %>
 
-	<div class='timer'></div>
+	<% if @question.category_id != 3%>
+		<div class='timer'></div>
+	<% end %>
+
 </div>

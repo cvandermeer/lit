@@ -11,7 +11,7 @@ ready = function() {
 
 		var timer;
 		timer = setTimeout(function() {
-		 	window.location.replace(newHref);
+			window.location.replace(newHref);
 		}, 10000);
 		
 		$('.js-answer-trigger').on('click', function() {

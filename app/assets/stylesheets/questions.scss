@@ -52,3 +52,31 @@
 		padding: 0;
 	}
 }
+
+.write-word {
+	position: relative;
+	.letters {
+		//position: relative;
+	}
+	.letter {
+		margin: 12px;
+		border-radius: 4px;
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+		color: #fff;
+		float: left;
+		padding: 12px 16px;
+		font-weight: bold;
+		background: #477DCA;
+		cursor: pointer;
+		  @include transition( 0.3s );
+
+	}
+	.dot {
+		width: 5px;
+		height: 5px;
+		background: #333;
+		border-radius: 100%;
+		float: left;
+		margin: 43px 32px;
+	}
+}
