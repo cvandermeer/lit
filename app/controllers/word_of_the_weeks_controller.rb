@@ -1,5 +1,6 @@
 class WordOfTheWeeksController < ApplicationController
   before_action :set_word_of_the_week, only: [:edit, :update, :show]
+  before_action :check_admin, only: [:edit, :update, :index]
 
   def index
     @word_of_the_weeks = WordOfTheWeek.all
@@ -28,5 +29,11 @@ class WordOfTheWeeksController < ApplicationController
 
     def word_of_the_week_params
       params.require(:word_of_the_week).permit(:title)
+    end
+
+    def check_admin
+      if !current_user.admin == true
+        redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!'
+      end
     end
 end

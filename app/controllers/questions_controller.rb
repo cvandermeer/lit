@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 
 	before_action :set_question, only: [:show, :approve_question, :submit_answer, :show_check]
 	before_action :set_new_question, only: [:new, :new_write_word, :new_choose_image]
+	before_action :check_admin, only: [:unchecked_questions, :show_check, :approve_question]
 
 	def show
 	end
@@ -69,5 +70,11 @@ class QuestionsController < ApplicationController
 
 		def question_params
 			params.require(:question).permit(:title, :image, :language_id, :category_id, answers_attributes: [:id, :title, :image, :_destroy])
+		end
+
+		def check_admin
+			if !current_user.admin == true
+				redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!'
+			end
 		end
 end
