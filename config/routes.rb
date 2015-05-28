@@ -24,5 +24,6 @@ Rails.application.routes.draw do
 
   ### teams ###
   resources :teams
+  get '/teams/:id/join_team' => 'teams#join_team', as: "join_team"
 end
 
