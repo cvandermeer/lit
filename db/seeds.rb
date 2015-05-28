@@ -6,14 +6,37 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Category.create([{ title: 'Normale vragen'}, { title: 'Kies de juiste afbeelding' }, { title: 'Schrijf het woord bij de afbeelding' }]) 
-Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands' }])
+if ENV['deseed'] 
+   #Do your deseeding action here
+   Category.all.each do |c|
+   	c.destroy
+   end
 
-User.create([{name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true, points: 0}, 
-						 {name: 'Test persoon', email: 'test@test.nl', password: 'testtest', admin: false, points: 0}])
+   Language.all.each do |l|
+   	l.destroy
+   end
 
-52.times do
-  WordOfTheWeek.create(title:'Application')
+   Answer.find(1).destroy
+
+   User.find(1).destroy
+   User.find(2).destroy
+
+elsif ENV['reseed']
+  #Do your seeding here.
+
+	Category.create([{ title: 'Normale vragen'}, { title: 'Kies de juiste afbeelding' }, { title: 'Schrijf het woord bij de afbeelding' }]) 
+	Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands' }])
+
+	User.create([{id: 1, name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true, points: 0}, 
+							 {id: 2, name: 'Test persoon', email: 'test@test.nl', password: 'testtest', admin: false, points: 0}])
+
+	Answer.create(id: 1, title: 'Time is up!')
+
 end
 
-Answer.create(title: 'Time is up!')
+if ENV['word_of_the_week']
+	52.times do
+	  WordOfTheWeek.create(title:'Application')
+	end
+end
+
