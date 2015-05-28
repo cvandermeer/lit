@@ -27,6 +27,13 @@ ready = function() {
 
 		// Giving the letter a position absolute
 		setPositionOfLetter();
+
+		/*
+			What to do:
+			Trigger reposition on elements
+				On resize
+				On rotation
+		*/
 	}
 
 }
