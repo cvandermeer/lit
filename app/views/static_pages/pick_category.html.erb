@@ -1,7 +1,7 @@
 <h2>Kies een categorie</h2>
 
-<%= link_to 'Lezen', @reading, class: 'btn' %>
+<%= link_to @reading.category.title, @reading, class: 'btn' if !@reading.nil? %>
 
-<%= link_to 'Foto quiz', @foto_quiz, class: 'btn' %>
+<%= link_to @foto_quiz.category.title, @foto_quiz, class: 'btn' if !@foto_quiz.nil? %>
 
-<%= link_to 'Schrijven', @writing, class: 'btn' %>
+<%= link_to @writing.category.title, @writing, class: 'btn' if !@writing.nil? %>

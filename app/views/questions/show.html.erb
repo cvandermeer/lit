@@ -33,12 +33,14 @@
 		</div>
 
 	<% elsif @question.category_id == 3 %>
-		<div class='write-word'>
-			<div data-answer='<%= @question.answers.first.title %>' class='js-write-word dots-container clearfix'></div>
-			
-			<div class='js-set-letters letters clearfix'></div>
-			
-		</div>
+
+	<div class='write-word'>
+		<div data-answer='<%= @question.answers.first.title %>' data-answer-id='<%= @question.answers.first.id %>' class='js-write-word dots-container clearfix'></div>
+
+		<div class='js-set-letters letters clearfix'></div>
+		
+	</div>
+
 	<% end %>
 
 	<% if @question.category_id != 3%>
