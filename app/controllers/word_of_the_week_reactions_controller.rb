@@ -5,7 +5,7 @@ class WordOfTheWeekReactionsController < ApplicationController
 
   def create
     @word_of_the_week_reaction = WordOfTheWeekReaction.new(word_of_the_week_reaction_params)
-    @word_of_the_week_reaction.user_id = current_user.id
+    @word_of_the_week_reaction.user = current_user
     if @word_of_the_week_reaction.save
       redirect_to @word_of_the_week_reaction.word_of_the_week, notice: 'Reactie toegevoegd'
     else

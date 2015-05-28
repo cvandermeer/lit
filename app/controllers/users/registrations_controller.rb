@@ -8,7 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:name, :avatar, :email, :password, :password_confirmation, :current_password, :facebook_image_url)
+    params.require(:user).permit(:name, :avatar, :email, :password, :password_confirmation, :facebook_image_url)
   end
 
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 end

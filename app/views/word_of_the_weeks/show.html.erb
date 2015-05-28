@@ -3,7 +3,7 @@
 <ul>
   <% @word_of_the_week.word_of_the_week_reactions.each do |w| %>
     <li>
-      <%= w.title %> <i>door <%= User.find(w.user_id).name %> (<%= w.created_at.strftime('%H:%M %d-%m-%Y') %>)</i>
+      <%= w.title %> <i>door <%= w.user.name %> (<%= w.created_at.strftime('%H:%M %d-%m-%Y') %>)</i>
     </li>
   <% end %>
 </ul>

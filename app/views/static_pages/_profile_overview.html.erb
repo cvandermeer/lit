@@ -12,7 +12,10 @@
 	<% end %>
 	<div class='profile-info'>
 		<h4><%= current_user.name %></h4>
-		<h5><%= current_user.email %></h5> 
+		<h5><%= current_user.email %></h5>
+		<li>
+			<%= link_to 'Profiel aanpassen', edit_user_registration_path %>
+		</li>
 		<i>
 			<%= current_user.points %>
 			<%= 'punt' if current_user.points == 1  %>

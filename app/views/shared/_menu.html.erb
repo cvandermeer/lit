@@ -13,13 +13,7 @@
 	</li>
 	<li>
 		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
-	</li>
-	<% if controller_name == 'users' && action_name == 'show' %>
-		<li>
-			<%= link_to 'Profiel aanpassen', edit_user_registration_path %>
-		</li>
-	<% end %>
-	
+	</li>	
 	<% if current_user.admin == true %>
 		<li>
 		<%= link_to questions_unchecked_questions_path do %>

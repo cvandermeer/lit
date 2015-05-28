@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   ### RELATIONS ###
   has_many :questions
   has_many :user_results
+  has_many :word_of_the_week_reactions
 
   ### VALIDATIONS ###
   validates :name, presence: true
