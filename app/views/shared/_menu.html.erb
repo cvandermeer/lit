@@ -10,9 +10,6 @@
 <% if user_signed_in? %>	
 	<li>
 		<%= link_to current_user.name, show_user_path %>
-	</li>
-	<li>
-		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
 	</li>	
 	<% if current_user.admin == true %>
 		<li>
@@ -22,6 +19,9 @@
 		<% end %>
 		</li>
 	<% end %>
+	<li>
+		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
+	</li>
 <% end %>	
 </ul>
 
