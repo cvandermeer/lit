@@ -10,7 +10,7 @@ ready = function() {
 	
 	if( $('.js-write-word').length ) {
 		correctAnswer = $('.js-write-word').attr('data-answer').toUpperCase();
-
+		$('.js-write-word').attr('data-answer', '')
 		// Setting the points in the view
 		for (var i = 0; i < correctAnswer.length; i++) {
 			$('.js-write-word').append('<div class="dot" data-set="0" data-letter-id="" data-letter=""></div>');
@@ -134,7 +134,7 @@ function letterClicked(el) {
 				return false
 			}
 		});
-
+		
 		if (givenLetters.length == correctAnswer.length) {
 			var oldElId = $('.js-write-word .dot:last-child').attr('data-letter-id');
 			var oldEl;
@@ -148,13 +148,13 @@ function letterClicked(el) {
 			$(oldEl).attr('data-set', '0');
 			setLetterToOldPosition(oldEl);
 		}
-		
+
 		$(dot).attr('data-set', 1);
 		$(dot).attr('data-letter-id', elId);
 		$(dot).attr('data-letter', elLetter)
 		
 		checkIfAlDotsAreTake();
-
+		
 		setLetterOnTheDot(dot, el);		
 		
 	}
@@ -170,13 +170,8 @@ function checkIfAlDotsAreTake() {
 		givenLetters += $(this).attr('data-letter');
 	});
 
-	if (givenLetters.length == correctAnswer.length) {
-		if (givenLetters == correctAnswer) {
-			console.log('Nice')
-		} else {
-			console.log('Wrong')
-		}
-	}
+	checkIfAnswerIsCorrect(givenLetters);
+
 }
 
 /*
@@ -211,8 +206,23 @@ function setLetterToOldPosition(el) {
 	Checking if the given answer is correct
 */
 
-function checkIfAnswerIsCorrect() {
-	console.log(1);
+function checkIfAnswerIsCorrect(answer) {
+	if (answer.length == correctAnswer.length) {
+		$('.question-notice').remove();
+		if (answer == correctAnswer) {
+			$('.js-set-letters').find('.letter').each(function() {
+				$(this).unbind('click')
+			});
+			$('.letter').css('cursor', 'default');
+
+			var newHref = window.location + '/submit_answer?answer_id=' + $('.js-write-word').attr('data-answer-id');
+			// Add the correct url, to give a point
+			$('.write-word').append('<div class="question-notice"><a class="button" href="'+newHref+'">Well done!</a></div>'); 
+
+		} else {
+			$('.write-word').append('<div class="question-notice"><p>Sorry, not the correct answer</p></div>');
+		}
+	}
 }
 
 
