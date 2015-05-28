@@ -18,6 +18,14 @@
   text-align: center;
 }
 
+.correct_answer{
+  background-color: #8dc63f;
+}
+
+.wrong_answer{
+  background-color: #cd0219;
+}
+
 .btn {
   padding: 24px;
   padding-left: 100px;
@@ -35,4 +43,21 @@
     left: 12px;
     top: 12px;
   }
+}
+
+.btn-default{
+  -webkit-font-smoothing: antialiased;
+  background-color: #477DCA;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  margin: 12px 0;
+  text-align: center;
+  width:100px;
 }
