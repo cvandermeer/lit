@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
   get 'user', to: 'users#show', as: 'show_user'
   get '/leaderboard', to: 'users#leaderboard', as: 'leaderboard'
+  get '/invites', to: 'users#invites', as: 'invites'
   
   ### questions ###
   resources :questions, only: [:show, :new, :create]
@@ -23,7 +24,11 @@ Rails.application.routes.draw do
   resources :word_of_the_week_reactions
 
   ### teams ###
-  resources :teams
-  get '/teams/:id/join_team' => 'teams#join_team', as: "join_team"
+  resources :teams do
+    resources :memberships, only: [:show, :create, :new]
+  end
+
+  get 'memberships/:id/accept_membership', to: 'memberships#accept_membership', as: 'accept_membership'
+  get 'memberships/:id/deny_membership', to: 'memberships#deny_membership', as: 'deny_membership'
 end
 

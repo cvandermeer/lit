@@ -16,5 +16,13 @@
 			<%= 'punt' if current_user.points == 1  %>
 			<%= 'punten' if current_user.points != 1 %>
 		</i>
+		<h5>Teams:</h5>
+		<ul>
+			<li>
+				<% @teams.each do |t| %>
+					<%= t.name %>
+				<% end %>
+			</li>
+		</ul>
 	</div>
 </div>

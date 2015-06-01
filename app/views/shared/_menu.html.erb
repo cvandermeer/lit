@@ -24,12 +24,18 @@
 		<%= link_to 'Teams', teams_path %>
 	</li>
 
+	<li>
+		<%= link_to invites_path do %>
+		  <%= current_user.memberships.where(accepted: nil).count %> Uitnodiging(en)
+		<% end %>
+	</li>
+
 	<% if current_user.admin == true %>
 		<li>
 		<%= link_to questions_unchecked_questions_path do %>
 		  <%= Question.where(approved: false).count %> ongecheckte vragen
-		  <%= link_to 'Woord van de week', word_of_the_weeks_path %>
 		<% end %>
+		<%= link_to 'Woord van de week', word_of_the_weeks_path %>
 		</li>
 	<% end %>
 <% end %>	

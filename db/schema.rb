@@ -27,10 +27,9 @@ ActiveRecord::Schema.define(version: 20150527122714) do
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "team_id"
+    t.boolean "accepted"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -45,15 +44,9 @@ ActiveRecord::Schema.define(version: 20150527122714) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.string   "picture"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "teams_users_joins", id: false, force: :cascade do |t|
-    t.integer "team_id"
+    t.string  "name"
+    t.string  "description"
+    t.string  "picture"
     t.integer "user_id"
   end
 
@@ -74,7 +67,6 @@ ActiveRecord::Schema.define(version: 20150527122714) do
     t.boolean  "admin"
     t.integer  "points"
     t.string   "avatar"
-    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -2,5 +2,12 @@
 	<li><%= image_tag @team.picture.url(:thumb) %></li>
 	<li><%= @team.name %></li>
 	<li><%= @team.description %></li>
+	<li>Team leader: <%= @team.user.name %></li>
+	<h4>Team leden:</h4>
+	<% @team.users.each do |u| %>
+		<%= u.name %>
+	<% end %>
 </ul>
-<p><%= link_to 'Lid worden' %></p>
+<% if current_user == @team.user %>
+	<%= link_to 'Leden uitnodigen', new_team_membership_path(@team) %>
+<% end %>

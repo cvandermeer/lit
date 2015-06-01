@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-	before_action :set_team, only: [:show, :join_team]
+	before_action :set_team, only: [:show]
 
 	def index
 		@teams = Team.all
@@ -11,8 +11,9 @@ class TeamsController < ApplicationController
 
 	def create
 		@team = Team.new(team_params)
+		@team.user = current_user
 		if @team.save
-			redirect_to teams_path, notice: 'Team aangemaakt'
+			redirect_to @team, notice: 'Team aangemaakt'
 		else
 			render 'new', notice: 'Team aanmaken mislukt'
 		end
@@ -24,7 +25,7 @@ class TeamsController < ApplicationController
 	private
 	
 	def team_params
-			params.require(:team).permit(:name, :description, :picture, :join_team)
+		params.require(:team).permit(:name, :description, :picture)
 	end
 
 	def set_team

@@ -1,0 +1,5 @@
+<h2>Uitnodigingen</h2>
+
+<% @memberships.each do |m| %>
+	<%= link_to m.team.name, m.team %> <%= link_to 'Accepteren', accept_membership_path(m) %> <%= link_to 'Weigeren', deny_membership_path(m) %>
+<% end %>

@@ -3,8 +3,7 @@ class CreateMemberships < ActiveRecord::Migration
     create_table :memberships do |t|
       t.integer :user_id
       t.integer :team_id
-
-      t.timestamps null: false
+      t.boolean :accepted	
     end
   end
 end

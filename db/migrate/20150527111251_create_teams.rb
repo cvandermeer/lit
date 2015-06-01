@@ -4,8 +4,7 @@ class CreateTeams < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :picture
-
-      t.timestamps null: false
+      t.integer :user_id
     end
   end
 end
