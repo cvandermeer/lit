@@ -86,4 +86,20 @@ Rails.application.configure do
     :authentication => 'login', # Mandrill supports 'plain' or 'login'
     :domain => 'lit.chrisvandermeer.com', # your domain to identify your server when connecting
   }
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "lit.chrisvandermeer.com",
+    :sender_address => %{"notifier" lit.chrisvandermeer.com},
+    :exception_recipients => %w{cvandermeer@live.nl}
+  }
+
+  config.action_mailer.delivery_method = :sendmail
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   :location => '/usr/sbin/sendmail',
+  #   :arguments => '-i -t'
+  # }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 end

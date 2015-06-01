@@ -32,6 +32,7 @@ group :production do
   gem 'mysql2' 
   # Mysql is de online productie database
   gem 'capistrano', '~> 3.2.1'
+  gem 'exception_notification'
   gem 'capistrano-rails', '~> 1.1'
 end
 
