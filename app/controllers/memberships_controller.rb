@@ -5,6 +5,7 @@ class MembershipsController < ApplicationController
 	def new
 		@membership = Membership.new
 		@users = User.where.not(id: current_user.id)
+		@userlist = @users - @team.users
 	end
 
 	def show
@@ -14,9 +15,9 @@ class MembershipsController < ApplicationController
 		@membership = Membership.new(membership_params)
 		@membership.team_id = @team.id
 		if @membership.save
-			redirect_to root_path, notice: 'Teamuitnodiging verstuurd'
+			redirect_to @team, notice: 'Teamuitnodiging verstuurd'
 		else
-			redirect_to root_path, notice: 'Teamuitnodiging mislukt'
+			redirect_to @team, notice: 'Teamuitnodiging mislukt'
 		end
 	end
 
