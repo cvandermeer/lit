@@ -16,7 +16,13 @@
 
     <div class="field">
       <%= f.label :avatar, 'Profiel foto' %>
-      <%= f.file_field :avatar %>
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url(:thumb), class: 'imagePreview' %>
+      <% else %>
+         <img scr='' class="image_preview" />
+      <% end %>
+      <%= f.file_field :avatar, class: 'imageUpload' %>
+      <%= f.hidden_field :avatar_cache %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

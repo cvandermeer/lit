@@ -41,11 +41,10 @@ class QuestionsController < ApplicationController
 	end
 
 	def update
-		@question.update(question_params)
-    if @question.save
+    if @question.update(question_params)
       redirect_to show_check_path(@question), notice: 'Vraag is aangepast'
     else
-      redirect_to show_check_path(@question), notice: 'Aanpassen mislukt'
+      render 'edit', notice: 'Aanpassen mislukt'
     end
 	end
 
@@ -86,7 +85,7 @@ class QuestionsController < ApplicationController
 		end
 
 		def question_params
-			params.require(:question).permit(:title, :image, :language_id, :category_id, answers_attributes: [:id, :title, :image, :_destroy])
+			params.require(:question).permit(:title, :image, :image_cache, :language_id, :category_id, answers_attributes: [:id, :title, :image, :image_cache, :_destroy])
 		end
 
 		def check_admin
