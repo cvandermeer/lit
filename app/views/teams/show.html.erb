@@ -4,9 +4,11 @@
 	<li><%= @team.description %></li>
 	<li>Team leader: <%= @team.user.name %></li>
 	<h4>Team leden:</h4>
-	<% @team.users.each do |u| %>
-		<%= u.name %>
-	<% end %>
+  <ul>
+  	<% Membership.where(accepted: true, team_id: @team.id).each do |m| %>
+  		<li><%= m.user.name %></li>
+  	<% end %>
+  </ul>
 </ul>
 <% if current_user == @team.user %>
 	<%= link_to 'Leden uitnodigen', new_team_membership_path(@team) %>
