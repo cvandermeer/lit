@@ -1,0 +1,19 @@
+<fieldset>
+  <%= form_for @team do |t| %>
+    <div class='field'>
+      <%= t.label :name, 'Vul een teamnaam in' %><br>
+      <%= t.text_field :name, placeholder: 'Teamnaam' %>
+    </div>
+    <div class='field'>
+      <%= t.label :description, 'Vul een teambeschrijving in' %><br>
+      <%= t.text_field :description, placeholder: 'Beschrijving' %>
+    </div>
+    <div class='field'>
+      <%= t.label :picture, 'Voeg een teamafbeelding toe' %>
+      <%= t.file_field :picture %>
+    </div>
+    <div class='actions'>
+      <%= t.submit "Versturen", data: { disable_with: 'Bezig met versturen...' } %>
+    </div>
+  <% end %>
+</fieldset>

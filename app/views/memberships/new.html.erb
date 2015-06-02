@@ -1,0 +1,10 @@
+<h2>Leden uitnodigen voor <%= @team.name %></h2>
+
+<%= form_for [@team, @membership] do |f| %>
+	<% if @team.memberships.any? %>
+		<%= f.select 'user_id', options_for_select(@userlist.collect{ |u| [u.name, u.id] }) %>
+	<% else %>
+		<%= f.select 'user_id', options_for_select(@users.collect{ |u| [u.name, u.id] }) %>
+	<% end %>
+	<%= f.submit 'opslaan', data: { disable_with: 'Aan het versturen...' }, class: 'btn submit' %>
+<% end %>

@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :user_results
   has_many :word_of_the_week_reactions
+  has_many :memberships
+  has_many :teams, through: :memberships
+  has_many :team
 
   ### VALIDATIONS ###
   validates :name, presence: true

@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
-  
   def home
   	@question = Question.where(approved: true).offset(rand(Question.count)).first
+    @teams = current_user.teams
   end
 
   def pick_category

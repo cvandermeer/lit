@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'user', to: 'users#show', as: 'show_user'
   get '/leaderboard', to: 'users#leaderboard', as: 'leaderboard'
+  get '/invites', to: 'users#invites', as: 'invites'
   
   ### questions ###
   get 'questions/new_choose_image', to: 'questions#new_choose_image', as: 'new_choose_image'
@@ -24,5 +25,13 @@ Rails.application.routes.draw do
   ### word of the week ###
   resources :word_of_the_weeks, only: [:index, :edit, :update, :show]
   resources :word_of_the_week_reactions
+
+  ### teams ###
+  resources :teams do
+    resources :memberships, only: [:show, :create, :new]
+  end
+
+  get 'memberships/:id/accept_membership', to: 'memberships#accept_membership', as: 'accept_membership'
+  get 'memberships/:id/deny_membership', to: 'memberships#deny_membership', as: 'deny_membership'
 end
 
