@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 20150528113858) do
 
   create_table "word_of_the_week_reactions", force: :cascade do |t|
     t.string   "title"
-    t.string   "user_id"
-    t.string   "word_of_the_week_id"
+    t.integer  "user_id"
+    t.integer  "word_of_the_week_id"
     t.datetime "created_at"
   end
 

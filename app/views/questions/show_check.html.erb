@@ -45,4 +45,5 @@
 </div>
 
 <%= link_to 'goedkeuren', approve_path(@question), class: 'btn-default' %>
-
+<%= link_to 'aanpassen', edit_question_path(@question), class: 'btn-default' %>
+<%= link_to 'verwijderen', @question, method: :delete, data: { confirm: 'Weet je het zeker?' }, class: 'btn-default' %>

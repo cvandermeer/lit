@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-	before_action :set_question, only: [:show, :approve_question, :submit_answer, :show_check]
+	before_action :set_question, only: [:show, :approve_question, :submit_answer, :show_check, :edit, :update, :destroy]
 	before_action :set_new_question, only: [:new, :new_write_word, :new_choose_image]
 	before_action :check_admin, only: [:unchecked_questions, :show_check, :approve_question]
 
@@ -35,6 +35,23 @@ class QuestionsController < ApplicationController
 	end
 
 	def show_check
+	end
+
+	def edit
+	end
+
+	def update
+		@question.update(question_params)
+    if @question.save
+      redirect_to show_check_path(@question), notice: 'Vraag is aangepast'
+    else
+      redirect_to show_check_path(@question), notice: 'Aanpassen mislukt'
+    end
+	end
+
+	def destroy
+		@question.destroy
+		redirect_to questions_unchecked_questions_path, notice: 'Vraag is verwijdert'
 	end
 
 	def approve_question
