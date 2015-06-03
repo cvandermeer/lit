@@ -41,12 +41,16 @@
 
 	<% elsif @question.category_id == 3 %>
 
-	<div class='write-word jsData' data-question-id='<%= @question.id %>'>
-		<div data-answer='<%= @question.answers.first.title %>' data-answer-id='<%= @question.answers.first.id %>' class='js-write-word dots-container clearfix'></div>
+		<div class='write-word jsData' data-question-id='<%= @question.id %>'>
+			
+			<div data-answer='<%= @question.answers.first.title %>' data-answer-id='<%= @question.answers.first.id %>' class='js-write-word dots-container clearfix'></div>
 
-		<div class='js-set-letters letters clearfix'></div>
+			<div class='js-set-letters letters clearfix'></div>
 		
-	</div>
+		</div>
+		
+		<%= link_to 'Bevestig antwoord', submit_answer_path(@question, answer_id: 1),
+							class: 'js-answer-trigger answer' %> 
 
 	<% end %>
 

@@ -9,6 +9,7 @@ var ready;
 ready = function() {
 	
 	if( $('.js-write-word').length ) {
+		//console.log($('.js-write-word'))
 		correctAnswer = $('.js-write-word').attr('data-answer').toUpperCase();
 		$('.js-write-word').attr('data-answer', '')
 		// Setting the points in the view
@@ -27,13 +28,6 @@ ready = function() {
 
 		// Giving the letter a position absolute
 		setPositionOfLetter();
-
-		/*
-			What to do:
-			Trigger reposition on elements
-				On resize
-				On rotation
-		*/
 	}
 
 }
@@ -224,10 +218,8 @@ function checkIfAnswerIsCorrect(answer) {
 
 			var newHref = window.location + '/submit_answer?answer_id=' + $('.js-write-word').attr('data-answer-id');
 			// Add the correct url, to give a point
-			$('.write-word').append('<div class="question-notice"><a class="button" href="'+newHref+'">Well done!</a></div>'); 
 
-		} else {
-			$('.write-word').append('<div class="question-notice"><p>Sorry, not the correct answer</p></div>');
+			$('.js-answer-trigger').attr('href', newHref);
 		}
 	}
 }
