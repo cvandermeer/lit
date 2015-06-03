@@ -1,18 +1,18 @@
-<h2><%= current_user.name %></h2>
+<h2><%= @user.name %></h2>
 
-<% if current_user.avatar? %>
-	<%= image_tag current_user.avatar.url(:thumb) %>
+<% if @user.avatar? %>
+	<%= image_tag @user.avatar.url(:thumb) %>
 <% else %>
-	<%= current_user.name.chars.first %>
+	<%= @user.name.chars.first %>
 <% end %>
 
 
 <ul>
 	<li>
-		Email: <%= current_user.email %>
+		Email: <%= @user.email %>
 	</li>
 	<li>
-		Punten: <%= current_user.points %>
+		Punten: <%= @user.points %>
 
 	</li>
 </ul>
@@ -73,20 +73,20 @@
     };
     
     var id = '#chart_fries';points
-    var goodAnswers = <%= current_user.user_results.where(language_id: 1, correctly_answered: true).count %>;
-    var badAnswers = <%= current_user.user_results.where(language_id: 1, correctly_answered: false).count %>;
+    var goodAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: true).count %>;
+    var badAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: false).count %>;
     var textTitle = 'Fries';
     initChart(id, goodAnswers, badAnswers, textTitle);
 
     id = '#chart_engels';
-    goodAnswers = <%= current_user.user_results.where(language_id: 2, correctly_answered: true).count %>;
-    badAnswers = <%= current_user.user_results.where(language_id: 2, correctly_answered: false).count %>;
+    goodAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: true).count %>;
+    badAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: false).count %>;
     textTitle = 'Engels';
     initChart(id, goodAnswers, badAnswers, textTitle);
 
     id = '#chart_nederlands';
-    goodAnswers = <%= current_user.user_results.where(language_id: 3, correctly_answered: true).count %>;
-    badAnswers = <%= current_user.user_results.where(language_id: 3, correctly_answered: false).count %>;
+    goodAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: true).count %>;
+    badAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: false).count %>;
     textTitle = 'Nederlands';
     initChart(id, goodAnswers, badAnswers, textTitle);
 

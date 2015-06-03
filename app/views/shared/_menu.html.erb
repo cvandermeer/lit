@@ -9,7 +9,7 @@
 <ul class='menu'>
 <% if user_signed_in? %>	
 	<li>
-		<%= link_to current_user.name, show_user_path %>
+		<%= link_to current_user.name, current_user %>
 	</li>
 	<li>
 		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
