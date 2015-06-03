@@ -13,3 +13,6 @@
 <% if current_user == @team.user %>
 	<%= link_to 'Leden uitnodigen', new_team_membership_path(@team) %>
 <% end %>
+<p>Punten:
+	<%= @teampoints %>
+</p>

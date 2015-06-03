@@ -20,6 +20,8 @@ class TeamsController < ApplicationController
 	end
 
 	def show
+		@teampoints = 0
+		@team.users.each do |u| @teampoints = @teampoints + u.points end 
 	end
 
 	private

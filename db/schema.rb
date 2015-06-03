@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528113858) do
+ActiveRecord::Schema.define(version: 20150603102330) do
 
   create_table "answers", force: :cascade do |t|
     t.string  "title"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150528113858) do
     t.string  "description"
     t.string  "picture"
     t.integer "user_id"
+    t.integer "points"
   end
 
   create_table "user_results", force: :cascade do |t|
