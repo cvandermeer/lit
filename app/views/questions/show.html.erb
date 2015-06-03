@@ -9,16 +9,21 @@
 		</div>
 	<% end %>
 
+
+
+
 	<% if @question.category_id == 1 %>	
 		
 		<h3><%= @question.title %></h3>
 
-		<div class='answer-container'>
+		<div class='answer-container' data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
 			<% @question.answers.shuffle.each do |answer| %>
 				<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id),
 						class: 'js-answer-trigger answer' %>
 			<% end %>
 		</div>
+
+	
 
 	<% elsif @question.category_id == 2 %>	
 		
@@ -32,6 +37,8 @@
 			<% end %>
 		</div>
 
+
+
 	<% elsif @question.category_id == 3 %>
 
 	<div class='write-word'>
@@ -43,8 +50,6 @@
 
 	<% end %>
 
-	<% if @question.category_id != 3%>
-		<div class='timer'></div>
-	<% end %>
+	<div class='timer'></div>
 
 </div>

@@ -5,7 +5,6 @@ ready = function() {
 		var questionType = $('.js-set-active').attr('data-class-name');
 		$('.question-types').find(questionType).addClass('active')
 	}
-
 }
 
 $(document).ready(ready);
