@@ -3,16 +3,19 @@ ready = function() {
 	
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
-
+		
+		var questionId = $('.jsData').attr('data-question-id')
+		if($('.jsData').attr('data-wrong-answer-id')) {
+			var wrongAnswerId = $('.jsData').attr('data-wrong-answer-id');
+		} else {
+			var wrongAnswerId = 1;
+		}
 		// trigger wrong answer
-		var val = $('.js-answer-trigger').attr('href').split('=');
-		valOne = val[0];
-		newHref = valOne + '=1';
-
+		var newHref = '/questions/' + questionId + '/submit_answer?answer_id=' + wrongAnswerId;
 		var timer;
 		timer = setTimeout(function() {
 			window.location.replace(newHref);
-		}, 10000);
+		}, 30000);
 		
 		$('.js-answer-trigger').on('click', function() {
 			clearTimeout(timer);
