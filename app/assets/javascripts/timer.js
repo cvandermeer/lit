@@ -1,6 +1,8 @@
 var ready;
+
 ready = function() {
-	
+	window.clearTimeout(timer);
+
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
 		
@@ -20,6 +22,7 @@ ready = function() {
 		$('.js-answer-trigger').on('click', function() {
 			clearTimeout(timer);
 		});
+		
 	}
 }
 
