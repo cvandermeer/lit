@@ -6,16 +6,27 @@ ready = function() {
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                $('.imagePreview').attr('src', e.target.result);
+                console.log(input)
+                $(input).parent().find('.imagePreview').attr('src', e.target.result);
             }
             
             reader.readAsDataURL(input.files[0]);
         }
     }
     
-    $(".imageUpload").change(function(){
+    $(".imageUpload").on('change', function(){
         readURL(this);
     });
+
+    $('.addAnswer').on('click', function() {
+        setTimeout(function() {
+            $('.imageUpload').bind('change', function() {
+                readURL(this);
+            }); 
+        }, 300);
+       
+    });
+
 }
 
 $(document).ready(ready);

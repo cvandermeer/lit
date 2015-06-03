@@ -14,14 +14,14 @@
 		
 		<%= f.label :answer, 'Juiste antwoord' %>
 		<%= f.fields_for :answers do |answer| %>
-			<div class='field answer-container'>
-	      <img scr='' class="image_preview" />
-				<%= answer.file_field :image, placeholder: 'test' %>
+			<div class='field'>
+	      <img scr='#', class='imagePreview' />
+				<%= answer.file_field :image, class: 'imageUpload'  %>
 				<%= answer.hidden_field :image_cache %>
 				<%= answer.link_to_remove "Verwijder afbeelding" %>
 			</div>
 		<% end %>
-		<p><%= f.link_to_add "Afbeelding toevoegen!", :answers, class: 'add-answer' %></p>
+		<p><%= f.link_to_add "Afbeelding toevoegen!", :answers, class: 'addAnswer' %></p>
 		
 		<div class='actions'>
 			<%= f.submit 'Versturen', data: { disable_with: 'Aan het versturen...' } %>
