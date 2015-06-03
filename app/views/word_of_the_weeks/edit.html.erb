@@ -1,6 +1,7 @@
 <h2>Woord van week <%= @word_of_the_week.id %> aanpassen</h2> 
 
 <%= form_for @word_of_the_week do |f| %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, placeholder: 'Woord van de week' %>
+  <%= f.text_area :description, placeholder: 'Beschrijving' %>
   <%= f.submit 'Opslaan' %>
 <% end %>

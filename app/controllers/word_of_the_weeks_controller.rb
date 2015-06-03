@@ -28,7 +28,7 @@ class WordOfTheWeeksController < ApplicationController
     end
 
     def word_of_the_week_params
-      params.require(:word_of_the_week).permit(:title)
+      params.require(:word_of_the_week).permit(:title, :description)
     end
 
     def check_admin
