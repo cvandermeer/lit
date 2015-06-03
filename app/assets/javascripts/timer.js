@@ -3,13 +3,15 @@ ready = function() {
 	
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
-		wrongAnswerId = $('.answer-container').attr('data-wrong-answer-id');
+		
+		var questionId = $('.jsData').attr('data-question-id')
+		if($('.jsData').attr('data-wrong-answer-id')) {
+			var wrongAnswerId = $('.jsData').attr('data-wrong-answer-id');
+		} else {
+			var wrongAnswerId = 1;
+		}
 		// trigger wrong answer
-		var val = $('.js-answer-trigger').attr('href').split('=');
-		console.log(val)	
-		valOne = val[0];
-		newHref = valOne + '=' + wrongAnswerId;
-
+		var newHref = '/questions/' + questionId + '/submit_answer?answer_id=' + wrongAnswerId;
 		var timer;
 		timer = setTimeout(function() {
 			window.location.replace(newHref);
