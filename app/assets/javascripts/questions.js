@@ -6,6 +6,11 @@ ready = function() {
 		$('.question-types').find(questionType).addClass('active')
 	}
 
+  if ( $('.jsTriggerAnswers').length ) {
+    $('.jsTriggerAnswers').trigger('click');
+    $('.jsTriggerAnswers').remove()
+  }
+
 }
 
 $(document).ready(ready);
