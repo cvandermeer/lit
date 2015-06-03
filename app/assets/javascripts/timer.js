@@ -14,7 +14,7 @@ ready = function() {
 		var newHref = '/questions/' + questionId + '/submit_answer?answer_id=' + wrongAnswerId;
 		var timer;
 		timer = setTimeout(function() {
-			//window.location.replace(newHref);
+			window.location.replace(newHref);
 		}, 30000);
 		
 		$('.js-answer-trigger').on('click', function() {
