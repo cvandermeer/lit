@@ -72,7 +72,7 @@
       }
     };
     
-    var id = '#chart_fries';points
+    var id = '#chart_fries';
     var goodAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: true).count %>;
     var badAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: false).count %>;
     var textTitle = 'Fries';
