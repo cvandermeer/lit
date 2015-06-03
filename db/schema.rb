@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603102330) do
+ActiveRecord::Schema.define(version: 20150603104025) do
 
   create_table "answers", force: :cascade do |t|
     t.string  "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150603102330) do
     t.integer "user_id"
     t.integer "team_id"
     t.boolean "accepted"
+    t.integer "points"
   end
 
   create_table "questions", force: :cascade do |t|

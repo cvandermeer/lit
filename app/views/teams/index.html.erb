@@ -15,9 +15,9 @@
 	      <td><%= link_to team.name, team %></td>
 	      <td>
 	      	<% teampoints = 0 %>
-					<% team.users.each do |u| teampoints = teampoints + u.points end %>
-					<%= teampoints %>
-				</td>
+	      	<% team.memberships.where(accepted: true).each do |m| teampoints = teampoints + m.points end %>
+	      	<%= teampoints %>
+	      </td>
 	    </tr>
   	<% end %>
   </tbody>

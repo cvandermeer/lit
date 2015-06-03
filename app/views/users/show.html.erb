@@ -13,8 +13,12 @@
 	</li>
 	<li>
 		Punten: <%= current_user.points %>
-
 	</li>
+    <% current_user.memberships.where(accepted: true).each do |m| %>
+      <li>
+          <%= m.team.name %>: <%= m.points %> punten
+      </li>
+    <% end %>
 </ul>
 
 <div id='chart_fries'></div>

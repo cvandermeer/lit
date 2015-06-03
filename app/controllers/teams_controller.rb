@@ -20,8 +20,7 @@ class TeamsController < ApplicationController
 	end
 
 	def show
-		@teampoints = 0
-		@team.users.each do |u| @teampoints = @teampoints + u.points end 
+		@memberships = Membership.where(accepted: true, team_id: @team.id).order(:points).reverse
 	end
 
 	private

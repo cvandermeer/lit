@@ -65,7 +65,11 @@ class QuestionsController < ApplicationController
 	def submit_answer
 		answer = Answer.find(params[:answer_id])
 		if answer.id == @question.correct_answer_id
-			current_user.points = current_user.points + 1
+			current_user.points = current_user.points + 2
+			current_user.memberships.where(accepted: true).each do |m|
+				m.points = m.points + 1 
+				m.save
+			end
 			current_user.save
 			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: true)
 			redirect_to root_path, notice: 'Nice'
