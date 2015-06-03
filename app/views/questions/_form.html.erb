@@ -21,10 +21,9 @@
 			<%= f.collection_select(:language_id, Language.all, :id, :title) %>
 		</div>
 		<%= f.hidden_field :category_id, value: 1 %>
-
+		<%= f.label :answer, 'Antwoorden' %>
 		<%= f.fields_for :answers do |answer| %>
-			<div class='field'>
-				<%= f.label :answer, 'Juiste antwoord' %>
+			<div class='answerfield'>
 				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
 			</div>
 		<% end %>

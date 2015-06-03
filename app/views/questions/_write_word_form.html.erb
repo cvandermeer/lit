@@ -20,7 +20,7 @@
 
 		<%= f.label :answer, 'Juiste antwoord' %>
 		<%= f.fields_for :answers do |answer| %>
-			<div class='field'>
+			<div class='answerfield'>
 				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
 			</div>
 		<% end %>
