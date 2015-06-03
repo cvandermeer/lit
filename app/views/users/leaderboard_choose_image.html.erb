@@ -1,0 +1,20 @@
+<p><%= link_to 'Klassement', leaderboard_path %> | <%= link_to 'Normale vragen', leaderboard_normal_questions_path %> | Kies de juiste afbeelding | <%= link_to 'Schrijf het woord', leaderboard_write_word_path %></p>
+<h2>Klassement kies de afbeelding</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Positie</th>
+      <th>Gebruiker</th>
+      <th>Punten</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each_with_index do |user, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= user.name %></td>
+      <td><%= user.user_results.where(category_id: 2, correctly_answered: true).count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

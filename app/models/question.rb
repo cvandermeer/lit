@@ -12,7 +12,7 @@ class Question < ActiveRecord::Base
 	### CALLBACKS ###
 	after_create :set_correct_answer
 
-	accepts_nested_attributes_for :answers, allow_destroy: true
+	accepts_nested_attributes_for :answers,:reject_if => :all_blank, allow_destroy: true
 
 	### VALIDATIONS ###
 	validates :category_id, presence: true

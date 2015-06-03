@@ -6,8 +6,16 @@ class UsersController < ApplicationController
 		@users = User.all.order(:points).reverse
 	end
 
-  def leaderboard_reading
+  def leaderboard_normal_questions
     @users = User.all.order(:points).reverse
+  end
+
+  def leaderboard_choose_image
+    @users = User.all.order(:points).reverse
+  end
+
+  def leaderboard_write_word
+    @users = User.all.order(:points).reverse 
   end
 
 	def invites
