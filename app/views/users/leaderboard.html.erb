@@ -1,4 +1,5 @@
-<p>Topscore</p>
+<p> Klassement | <%= link_to 'Normale vragen', leaderboard_normal_questions_path %> | <%= link_to 'Kies de juiste afbeelding', leaderboard_choose_image_path %> | <%= link_to 'Schrijf het woord', leaderboard_write_word_path %></p>
+<h2>Algemeen Klassement</h2>
 
 <table>
   <thead>
@@ -12,7 +13,7 @@
   	<% @users.each_with_index do |user, index| %>
     <tr>
       <td><%= index + 1 %></td>
-      <td><%= user.name %></td>
+      <td><%= link_to user.name, user %></td>
       <td><%= user.points %></td>
     </tr>
   	<% end %>

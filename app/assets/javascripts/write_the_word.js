@@ -1,6 +1,5 @@
 
 // Varialbles
-var correctAnswer;
 var answerShuffled;
 var addedLetterToAnswer;
 var givenLetters = '';

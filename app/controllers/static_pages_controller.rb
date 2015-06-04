@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   def home
   	@question = Question.where(approved: true).offset(rand(Question.count)).first
     @teams = current_user.teams
+    @word_of_this_week = WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1)
   end
 
   def pick_category

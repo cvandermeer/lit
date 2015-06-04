@@ -36,7 +36,7 @@ end
 
 if ENV['word_of_the_week']
 	52.times do
-	  WordOfTheWeek.create(title:'Application')
+	  WordOfTheWeek.create(title:'Application', description: 'Application betekent applicatie of programma in het engels')
 	end
 end
 

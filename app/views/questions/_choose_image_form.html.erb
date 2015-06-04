@@ -13,20 +13,14 @@
 		<%= f.hidden_field :category_id, value: 2 %>
 		
 		<%= f.fields_for :answers do |answer| %>
-			<div class='field'>
+			<div class='answerfield'>
 	      <img scr='#', class='imagePreview' />
 	      <%= f.label :answer, 'Juiste afbeelding' %>
 				<%= answer.file_field :image, class: 'imageUpload'  %>
 				<%= answer.hidden_field :image_cache %>
 			</div>
-			<div class='field'>
-	      <img scr='#', class='imagePreview' />
-	      <%= f.label :answer, 'Andere afbeelding' %>
-				<%= answer.file_field :image, class: 'imageUpload'  %>
-				<%= answer.hidden_field :image_cache %>
-			</div>
 		<% end %>
-		<p><%= f.link_to_add "Afbeelding toevoegen!", :answers, class: 'jsTriggerAnswers' %></p>
+		<p><%= f.link_to_add "Afbeelding toevoegen!", :answers, class: 'jsTriggerAnswers2' %></p>
 		
 		<div class='actions'>
 			<%= f.submit 'Versturen', data: { disable_with: 'Aan het versturen...' } %>

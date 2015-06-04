@@ -1,5 +1,7 @@
 var ready;
 
+var btnClicked;
+
 ready = function() {
 
 	if( $('.timer').length ) {
@@ -16,18 +18,20 @@ ready = function() {
 		var timer;
 		timer = setTimeout(function() {
 			if($('.timer').length) {
-				$('body').find('.js-answer-trigger').each(function() {
+				$('body').find('.js-answer-trigger').each(function(e) {
 					$(this).attr('href', newHref);
-					$(this).trigger('click')
+					$(this).trigger('click');
+					btnClicked = e;
 					return false;
 				});
 			}
 		}, 30000);
 		
-		$('.js-answer-trigger').on('click', function() {
+		$('.js-answer-trigger').on('click', function(e) {
 			clearTimeout(timer);
 			$('.timer').removeClass('start');
 			$('.timer').css('width', $('.timer').width() + 'px');
+			btnClicked = e;
 		});
 		
 	}

@@ -21,18 +21,13 @@
 			<%= f.collection_select(:language_id, Language.all, :id, :title) %>
 		</div>
 		<%= f.hidden_field :category_id, value: 1 %>
-
+		<%= f.label :answer, 'Antwoorden' %>
 		<%= f.fields_for :answers do |answer| %>
-			<div class='field'>
-				<%= f.label :answer, 'Juiste antwoord' %>
-				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
-				<%= f.label :answer, 'Andere antwoorden (minimaal 1)' %>
-				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
-				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
+			<div class='answerfield'>
 				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
 			</div>
 		<% end %>
-		<p><%= f.link_to_add "Antwoord toevoegen!", :answers, class: 'jsTriggerAnswers' %></p>
+		<p><%= f.link_to_add "Antwoord toevoegen!", :answers, class: 'jsTriggerAnswers1' %></p>
 		
 		<div class='actions'>
 			<%= f.submit 'Versturen', data: { disable_with: 'Aan het versturen...' } %>

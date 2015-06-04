@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
 	before_action :check_admin, only: [:unchecked_questions, :show_check, :approve_question]
 
 	def show
-		@question_random = Question.where(approved: true).where.not(id: @question.id).offset(rand(Question.count)).first
+		@question_random = Question.where.not(id: @question.id).where(approved: true).offset(rand(Question.count)).first
 	end
 
 	def new

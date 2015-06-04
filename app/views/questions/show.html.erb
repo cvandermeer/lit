@@ -16,15 +16,13 @@
 		
 		<h3><%= @question.title %></h3>
 
-		<div class='answer-container jsData' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
+		<div class='answer-container jsData' data-answer='<%= @question.answers.first.title %>' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
 			<% @question.answers.shuffle.each do |answer| %>
-				<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id),
-						class: 'js-answer-trigger answer' %>
+				<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id), remote: true, class: 'js-answer-trigger answer' %>
 			<% end %>
 		</div>
 
 	
-
 	<% elsif @question.category_id == 2 %>	
 		
 		<h3><%= @question.title %></h3>
