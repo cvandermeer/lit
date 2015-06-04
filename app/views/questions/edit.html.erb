@@ -2,7 +2,9 @@
 	<%= render 'form' %>
 <% elsif @question.category_id == 2 %>
 	<%= render 'choose_image_form' %>
-	<h2>Choose image</h2>
 <% else %>
 	<%= render 'write_word_form' %>
 <% end %>
+
+<div class='jsNoTrigger'></div>
+<%= render 'form' %>
