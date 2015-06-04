@@ -27,9 +27,9 @@
 		
 		<h3><%= @question.title %></h3>
 
-		<div class='jsData image-container' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
+		<div class='jsData image-container' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>' data-answer='<%= @question.answers.first.image.url(:thumb) %>'>
 			<% @question.answers.shuffle.each do |answer| %>
-				<a class='js-answer-trigger' href='<%= submit_answer_path(@question, answer_id: answer.id) %>'>
+				<a class='js-answer-trigger' data-remote='true' href='<%= submit_answer_path(@question, answer_id: answer.id) %>'>
 					<%= image_tag answer.image.url(:thumb) %>
 				</a>
 			<% end %>
@@ -38,9 +38,9 @@
 
 	<% elsif @question.category_id == 3 %>
 
-		<div class='write-word jsData' data-question-id='<%= @question.id %>'>
+		<div class='write-word jsData' data-question-id='<%= @question.id %>' data-answer='<%= @question.answers.first.title %>'>
 			
-			<div data-answer='<%= @question.answers.first.title %>' data-answer-id='<%= @question.answers.first.id %>' class='js-write-word dots-container clearfix'></div>
+			<div data-answer-id='<%= @question.answers.first.id %>' class='js-write-word dots-container clearfix'></div>
 
 			<div class='js-set-letters letters clearfix'></div>
 		

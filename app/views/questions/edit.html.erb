@@ -1,2 +1,10 @@
+<% if @question.category_id == 1 %>
+	<%= render 'form' %>
+<% elsif @question.category_id == 2 %>
+	<%= render 'choose_image_form' %>
+<% else %>
+	<%= render 'write_word_form' %>
+<% end %>
+
 <div class='jsNoTrigger'></div>
-<%= render 'form' %>
+
