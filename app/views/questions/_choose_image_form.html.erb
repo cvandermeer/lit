@@ -15,7 +15,7 @@
 		<%= f.fields_for :answers do |answer| %>
 			<div class='answerfield'>
 	      <img scr='#', class='imagePreview' />
-	      <%= f.label :answer, 'Juiste afbeelding' %>
+	      <%= f.label :answer, 'Kies een afbeelding' %>
 				<%= answer.file_field :image, class: 'imageUpload'  %>
 				<%= answer.hidden_field :image_cache %>
 			</div>
