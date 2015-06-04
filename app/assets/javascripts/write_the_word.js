@@ -8,8 +8,8 @@ var ready;
 ready = function() {
 	
 	if( $('.js-write-word').length ) {
-		//console.log($('.js-write-word'))
-		correctAnswer = $('.js-write-word').attr('data-answer').toUpperCase();
+
+		correctAnswer = correctAnswer.toUpperCase();
 		$('.js-write-word').attr('data-answer', '')
 		// Setting the points in the view
 		for (var i = 0; i < correctAnswer.length; i++) {

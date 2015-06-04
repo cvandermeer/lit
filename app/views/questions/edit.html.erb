@@ -1,1 +1,8 @@
-<%= render 'form' %>
+<% if @question.category_id == 1 %>
+	<%= render 'form' %>
+<% elsif @question.category_id == 2 %>
+	<%= render 'choose_image_form' %>
+	<h2>Choose image</h2>
+<% else %>
+	<%= render 'write_word_form' %>
+<% end %>
