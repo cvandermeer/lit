@@ -18,10 +18,10 @@ ready = function() {
 		var timer;
 		timer = setTimeout(function() {
 			if($('.timer').length) {
-				$('body').find('.js-answer-trigger').each(function(e) {
+				$('body').find('.js-answer-trigger').each(function() {
 					$(this).attr('href', newHref);
 					$(this).trigger('click');
-					btnClicked = e;
+					btnClicked = this;
 					return false;
 				});
 			}
@@ -31,7 +31,7 @@ ready = function() {
 			clearTimeout(timer);
 			$('.timer').removeClass('start');
 			$('.timer').css('width', $('.timer').width() + 'px');
-			btnClicked = e;
+			btnClicked = e.target;
 		});
 		
 	}
