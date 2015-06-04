@@ -11,9 +11,6 @@
 	<li>
 		<%= link_to current_user.name, current_user %>
 	</li>
-	<li>
-		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>
-	</li>
 	<% if controller_name == 'users' && action_name == 'show' %>
 		<li>
 			<%= link_to 'Profiel aanpassen', edit_user_registration_path %>
