@@ -1,6 +1,9 @@
 var ready;
+
+var btnClicked;
+
 ready = function() {
-	
+
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
 		
@@ -14,12 +17,23 @@ ready = function() {
 		var newHref = '/questions/' + questionId + '/submit_answer?answer_id=' + wrongAnswerId;
 		var timer;
 		timer = setTimeout(function() {
-			window.location.replace(newHref);
+			if($('.timer').length) {
+				$('body').find('.js-answer-trigger').each(function(e) {
+					$(this).attr('href', newHref);
+					$(this).trigger('click');
+					btnClicked = e;
+					return false;
+				});
+			}
 		}, 30000);
 		
-		$('.js-answer-trigger').on('click', function() {
+		$('.js-answer-trigger').on('click', function(e) {
 			clearTimeout(timer);
+			$('.timer').removeClass('start');
+			$('.timer').css('width', $('.timer').width() + 'px');
+			btnClicked = e;
 		});
+		
 	}
 }
 

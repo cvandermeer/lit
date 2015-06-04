@@ -6,7 +6,6 @@ ready = function() {
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                console.log(input)
                 $(input).parent().find('.imagePreview').attr('src', e.target.result);
             }
             
@@ -17,15 +16,12 @@ ready = function() {
     $(".imageUpload").on('change', function(){
         readURL(this);
     });
-
-    $('.addAnswer').on('click', function() {
-        setTimeout(function() {
-            $('.imageUpload').bind('change', function() {
-                readURL(this);
-            }); 
-        }, 300);
-       
-    });
+    
+    setTimeout(function() {
+        $('.imageUpload').bind('change', function() {
+            readURL(this);
+        }); 
+    }, 300);
 
 }
 

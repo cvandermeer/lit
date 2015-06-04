@@ -1,6 +1,5 @@
 
 // Varialbles
-var correctAnswer;
 var answerShuffled;
 var addedLetterToAnswer;
 var givenLetters = '';
@@ -28,6 +27,12 @@ ready = function() {
 
 		// Giving the letter a position absolute
 		setPositionOfLetter();
+
+		$('.js-answer-trigger').on('click', function() {
+			$('.js-set-letters').find('.letter').each(function() {
+				$(this).unbind('click')
+			});
+		});
 	}
 
 }
@@ -209,7 +214,6 @@ function setLetterToOldPosition(el) {
 
 function checkIfAnswerIsCorrect(answer) {
 	if (answer.length == correctAnswer.length) {
-		$('.question-notice').remove();
 		if (answer == correctAnswer) {
 			$('.js-set-letters').find('.letter').each(function() {
 				$(this).unbind('click')

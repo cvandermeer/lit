@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 	before_action :check_admin, only: [:unchecked_questions, :show_check, :approve_question]
 
 	def show
+		@question_random = Question.where.not(id: @question.id).where(approved: true).offset(rand(Question.count)).first
 	end
 
 	def new
@@ -68,11 +69,15 @@ class QuestionsController < ApplicationController
 			current_user.points = current_user.points + 1
 			current_user.save
 			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: true)
-			redirect_to root_path, notice: 'Nice'
+			#render @question
+			#redirect_to root_path, notice: 'Nice'
 		else
 			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: false)
-			redirect_to root_path, notice: 'fail'
+			#render @question
+			#redirect_to root_path, notice: 'fail'
 		end
+
+		render json: @question
 	end
 	
 	private

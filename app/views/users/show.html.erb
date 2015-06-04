@@ -76,20 +76,27 @@
     var goodAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: true).count %>;
     var badAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: false).count %>;
     var textTitle = 'Fries';
-    initChart(id, goodAnswers, badAnswers, textTitle);
+
+    if ($('#chart_fries').length) {
+        initChart(id, goodAnswers, badAnswers, textTitle);
+    }
 
     id = '#chart_engels';
     goodAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: true).count %>;
     badAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: false).count %>;
     textTitle = 'Engels';
-    initChart(id, goodAnswers, badAnswers, textTitle);
+    
+    if ($('#chart_engels').length) {
+        initChart(id, goodAnswers, badAnswers, textTitle);
+    }
 
     id = '#chart_nederlands';
     goodAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: true).count %>;
     badAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: false).count %>;
     textTitle = 'Nederlands';
-    initChart(id, goodAnswers, badAnswers, textTitle);
-
+    if ($('#chart_nederlands').length) {
+        initChart(id, goodAnswers, badAnswers, textTitle);
+    }
   }
 
 $(document).ready(ready);

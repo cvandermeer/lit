@@ -27,7 +27,9 @@ header {
 @import 'points';
 @import 'timer';
 @import 'questions';
+@import 'given_answer';
 
+.overlay-popup,
 .overlay {
   z-index: 100;
   position: absolute;
@@ -41,6 +43,11 @@ header {
   &.active {
     width: 100%;
   }
+}
+
+.overlay-popup {
+  z-index: 1000;
+  cursor: default;
 }
 
 
