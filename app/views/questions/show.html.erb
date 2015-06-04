@@ -38,7 +38,6 @@
 		</div>
 
 
-
 	<% elsif @question.category_id == 3 %>
 
 		<div class='write-word jsData' data-question-id='<%= @question.id %>'>
@@ -49,16 +48,18 @@
 		
 		</div>
 		
-		<%= link_to 'Bevestig antwoord', submit_answer_path(@question, answer_id: 1),
-							class: 'js-answer-trigger answer' %> 
+		<%= link_to 'Bevestig antwoord', submit_answer_path(@question, answer_id: 1), remote: true,	class: 'js-answer-trigger answer' %> 
 
 	<% end %>
 
 	<div class='timer'></div>
 
-	<div class='question-notice'>
-		<%= link_to 'Stoppen', root_path, class: 'btn-default' %>
+	<div class='question-popup'>
+		<p></p>
 		<%= link_to 'Volgende', @question_random, class: 'btn-default' %>
+		<%= link_to 'Stoppen', root_path, class: 'btn-default' %>
 	</div>
+
+	<div class="overlay-popup"></div>
 
 </div>

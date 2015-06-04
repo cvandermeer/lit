@@ -69,11 +69,15 @@ class QuestionsController < ApplicationController
 			current_user.points = current_user.points + 1
 			current_user.save
 			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: true)
-			redirect_to root_path, notice: 'Nice'
+			#render @question
+			#redirect_to root_path, notice: 'Nice'
 		else
 			UserResult.create(user: current_user, category: @question.category, language: @question.language, correctly_answered: false)
-			redirect_to root_path, notice: 'fail'
+			#render @question
+			#redirect_to root_path, notice: 'fail'
 		end
+
+		render json: @question
 	end
 	
 	private

@@ -1,7 +1,6 @@
 var ready;
 
 ready = function() {
-	window.clearTimeout(timer);
 
 	if( $('.timer').length ) {
 		$('.timer').addClass('start');
@@ -16,11 +15,19 @@ ready = function() {
 		var newHref = '/questions/' + questionId + '/submit_answer?answer_id=' + wrongAnswerId;
 		var timer;
 		timer = setTimeout(function() {
-			window.location.replace(newHref);
+			if($('.timer').length) {
+				$('body').find('.js-answer-trigger').each(function() {
+					$(this).attr('href', newHref);
+					$(this).trigger('click')
+					return false;
+				});
+			}
 		}, 30000);
 		
 		$('.js-answer-trigger').on('click', function() {
 			clearTimeout(timer);
+			$('.timer').removeClass('start');
+			$('.timer').css('width', $('.timer').width() + 'px');
 		});
 		
 	}
