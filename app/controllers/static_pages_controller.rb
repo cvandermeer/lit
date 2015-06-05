@@ -4,6 +4,11 @@ class StaticPagesController < ApplicationController
     @question = get_questions.offset(rand(get_questions.count)).first
     @teams = current_user.teams
     @word_of_this_week = WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1)
+
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+      render json: @users
+    end
   end
 
   def pick_category

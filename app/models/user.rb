@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%") 
+  end
+
   ## UPLOADER ##
   mount_uploader :avatar, ImageUploader
 end
