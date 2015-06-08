@@ -18,4 +18,8 @@ class Team < ActiveRecord::Base
   def subscribe_leader
   	Membership.create(user_id: self.user.id, team_id: self.id, accepted: true)
   end
+
+  def total_points
+  	self.memberships.sum(:points)
+  end
 end

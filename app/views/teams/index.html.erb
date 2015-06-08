@@ -13,11 +13,7 @@
 	    <tr>
 	      <td><%= index + 1 %></td>
 	      <td><%= link_to team.name, team %></td>
-	      <td>
-	      	<% teampoints = 0 %>
-	      	<% team.memberships.where(accepted: true).each do |m| teampoints = teampoints + m.points end %>
-	      	<%= teampoints %>
-	      </td>
+	      <td><%= team.total_points %></td>
 	    </tr>
   	<% end %>
   </tbody>

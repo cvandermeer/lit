@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
 	before_action :set_team, only: [:show]
 
 	def index
-		@teams = Team.all
+		@teams = Team.all.sort_by {|team| team.total_points }.reverse
 	end
 
 	def new
