@@ -11,21 +11,21 @@ ready = function() {
       for (i = 0; i < 4; i++) {
         $('.jsTriggerAnswers1').trigger('click');
       }
-      $('.answerfield').find('input').css('border', '1px solid red');
-      $('.answerfield').first().find('input').css('border', '1px solid green');
+      $('.answerfield').find('input').css('border', '3px solid red');
+      $('.answerfield').first().find('input').css('border', '3px solid green');
       $('.jsTriggerAnswers1').remove()
     }
     if ( $('.jsTriggerAnswers2').length ) {
       for (i = 0; i < 2; i++) {
         $('.jsTriggerAnswers2').trigger('click');
       }
-      $('.answerfield').find('input').css('border', '1px solid red');
-      $('.answerfield').first().find('input').css('border', '1px solid green');
+      $('.answerfield').find('input').css('border', '3px solid red');
+      $('.answerfield').first().find('input').css('border', '3px solid green');
       $('.jsTriggerAnswers2').remove()
     }
     if ( $('.jsTriggerAnswers3').length ) {
       $('.jsTriggerAnswers3').trigger('click');
-      $('.answerfield').first().find('input').css('border', '1px solid green');
+      $('.answerfield').first().find('input').css('border', '3px solid green');
       $('.jsTriggerAnswers3').remove()
     }
 
