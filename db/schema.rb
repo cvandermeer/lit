@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150603134037) do
     t.integer "user_id"
     t.integer "team_id"
     t.boolean "accepted"
+    t.integer "points"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150603134037) do
     t.string  "description"
     t.string  "picture"
     t.integer "user_id"
+    t.integer "points"
   end
 
   create_table "user_results", force: :cascade do |t|

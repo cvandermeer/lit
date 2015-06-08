@@ -1,7 +1,22 @@
-<p>Teams</p>
+<p>Teams topscore</p>
 
-	<% @teams.each do |team| %>
-      <%= link_to team.name, team, class: 'btn' %>  
-	<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Positie</th>
+      <th>Team</th>
+      <th>Punten</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @teams.each_with_index do |team, index| %>
+	    <tr>
+	      <td><%= index + 1 %></td>
+	      <td><%= link_to team.name, team %></td>
+	      <td><%= team.total_points %></td>
+	    </tr>
+  	<% end %>
+  </tbody>
+</table>
 
-<p><%= link_to "Maak een 	team aan", new_team_path %></p>
+<p><%= link_to "Start een eigen team", new_team_path %></p>
