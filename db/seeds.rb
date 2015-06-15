@@ -24,7 +24,7 @@ if ENV['deseed']
 elsif ENV['reseed']
   #Do your seeding here.
 
-	Category.create([{ title: 'Normale vragen'}, { title: 'Kies de juiste afbeelding' }, { title: 'Schrijf het woord bij de afbeelding' }]) 
+	Category.create([{ title: 'Normale vragen'}, { title: 'Kies de juiste afbeelding' }, { title: 'Afbeelding & Woord' }]) 
 	Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands' }])
 
 	User.create([{id: 1, name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true, points: 0}, 

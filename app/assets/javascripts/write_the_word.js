@@ -129,7 +129,7 @@ function letterClicked(el) {
 		$(dot).attr('data-letter', '');
 
 		setLetterToOldPosition(el);
-	
+		givenLetters = givenLetters.slice(0,-1);
 	// Set the letter to the first empty dot
 	} else if($(el).attr('data-set') == 0){
 		$(el).attr('data-set', '1');
@@ -141,8 +141,8 @@ function letterClicked(el) {
 				return false
 			}
 		});
-		
-		if (givenLetters.length == correctAnswer.length) {
+		//checkIfAlDotsAreTake();
+		if ((givenLetters + elLetter).length > correctAnswer.length) {
 			var oldElId = $('.js-write-word .dot:last-child').attr('data-letter-id');
 			var oldEl;
 			// find old element by id
@@ -153,7 +153,9 @@ function letterClicked(el) {
 				}
 			});
 			$(oldEl).attr('data-set', '0');
+			$(oldEl).removeClass('active');
 			setLetterToOldPosition(oldEl);
+			dot = '.js-write-word .dot:last-child'
 		}
 
 		$(dot).attr('data-set', 1);
@@ -186,8 +188,8 @@ function checkIfAlDotsAreTake() {
 */
 
 function setLetterOnTheDot(dot, el) {
-	var containerOffsetTop = $('.write-word').offset().top + 32;
-	var containerOffsetLeft = $('.write-word').offset().left + 32;
+	var containerOffsetTop = $('.write-word').offset().top - -12;
+	var containerOffsetLeft = $('.write-word').offset().left;
 	var elOffsetTop = Math.round($(dot).offset().top - containerOffsetTop);
 	var elOffsetLeft = Math.round($(dot).offset().left - containerOffsetLeft);
 	$(el).css({
