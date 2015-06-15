@@ -1,0 +1,62 @@
+.question-popup {
+	max-width: 300px;
+	width: 100%;
+	height: 0px;
+	position: fixed;
+	overflow: hidden;
+	top: 50%;
+	z-index: 1001;
+	margin-top: -90px;
+	left: 50%;
+	margin-left: -175px;
+	background: #fff;
+	padding: 0px 25px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.5);
+	border-radius: 4px;
+	@include transition(0.3s);
+	p {
+		font-size: 1px;
+		@include transition(0.3s);
+	}
+	&.active {
+		height: auto;
+		padding: 25px;
+		p {
+			font-size: 14px;
+		}
+	}
+	.btn-default {
+		width: auto;
+		@include transition(0.3s);
+		&.next {
+			background: $blue;
+			&:hover {
+		    background: $blue-hover;
+		    color: #fff
+		  }
+		}
+		&.quit {
+			background: $darker-gray;
+			&:hover {
+				background: $dark-gray;
+				color: #fff;
+			}
+		}
+	}
+	p {
+		text-align: center;
+		span {
+			font-size: 30px;
+			font-family: 'Open Sans', sans serif;
+			font-weight: 200;
+		}
+	}
+	&.correct {
+		border: 1px solid $green;
+		box-shadow: 0 0 5px rgba(88,185,87,.8)
+	}
+	&.fail {
+		border: 1px solid $red;
+		box-shadow: 0 0 5px rgba(219,82,79,.8);
+	}
+}

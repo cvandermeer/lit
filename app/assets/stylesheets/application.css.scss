@@ -6,6 +6,16 @@ $blue: #6fccdd;
 $blue-hover: #64b5c4;
 $gray: #f3f3f3;
 $dark-gray: #b1b1b2;
+$darker-gray: #676767;
+$red: #DB524B;
+$green: #58B957;
+
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
 
 body {
   margin: 0;
@@ -37,13 +47,13 @@ body {
 @import 'points';
 @import 'timer';
 @import 'questions';
-@import 'given_answer';
+@import 'question_popup';
 @import 'charts';
 
 .overlay-popup,
 .overlay {
   z-index: 100;
-  position: absolute;
+  position: fixed;
   width: 0;
   height: 100%;
   top: 0;
