@@ -10,7 +10,7 @@ $dark-gray: #b1b1b2;
 body {
   margin: 0 auto;
   width: 100%;
-  overflow-x:hidden;
+  //overflow-x:hidden;
   background-color: #f8f8f8;
   @include transform(translateX(0px));
   @include transition( 0.3s );
@@ -37,6 +37,7 @@ body {
 @import 'timer';
 @import 'questions';
 @import 'given_answer';
+@import 'charts';
 
 .overlay-popup,
 .overlay {
