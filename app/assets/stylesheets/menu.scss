@@ -1,5 +1,4 @@
 .menu {
-  z-index: 101;
   width: 200px;
   position: fixed;
   right: -200px;
@@ -9,8 +8,8 @@
   @include transition( 0.3s );
   box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
   &.active {
-    right: 0;
-    box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
+    //right: 0;
+    //box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
   }
   a {
     display: block;
@@ -33,10 +32,9 @@
 }
 
 .hamburger {
-  z-index: 102;
   width: 36px;
   height: 36px;
-  position: fixed;
+  position: absolute;
   right: 10px;
   top: 10px;
   box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
@@ -90,8 +88,6 @@
     }
   }
   &.active {
-    right: 200px;
-    box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
     > div {
       @include transform( rotate(45deg) );
     }
