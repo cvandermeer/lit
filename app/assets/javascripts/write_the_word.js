@@ -117,6 +117,7 @@ function letterClicked(el) {
 	var elLetter = $(el).attr('data-letter');
 	if($(el).attr('data-set') == 1) {
 		$(el).attr('data-set', '0');
+		$(el).removeClass('active');
 		$('.js-write-word').find('.dot').each(function() {
 			if($(this).attr('data-letter-id') == elId) {
 				dot = this
@@ -132,6 +133,7 @@ function letterClicked(el) {
 	// Set the letter to the first empty dot
 	} else if($(el).attr('data-set') == 0){
 		$(el).attr('data-set', '1');
+		$(el).addClass('active');
 		// Getting back the correct dot
 		$('.js-write-word').find('.dot').each(function() {
 			if($(this).attr('data-set') == 0) {

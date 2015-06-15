@@ -53,6 +53,11 @@
 	}
 }
 
+.question-image {
+	width: 100%;
+}
+
+
 .write-word {
 	position: relative;
 	.letters {
@@ -69,13 +74,17 @@
 		text-align: center;
 		line-height: 65px;
 		font-weight: bold;
-		background: #fce745;
+		background: #dededd;
 		border-style: none solid solid none;
 		border-width: 4px;
-		border-color: #e2bc23;
+		border-color: #d1d1d0;
 		border-radius: 20%;
 		cursor: pointer;
-		  @include transition( 0.3s );
+		@include transition( 0.3s );
+		&.active {
+			background-color: #fce745;
+			border-color: #e2bc23;
+		}
 	}
 }
 
@@ -86,8 +95,4 @@
 	border-radius: 100%;
 	float: left;
 	margin: 43px 32px;
-}
-
-.imagePreview {
-	max-width: 100px;
 }
