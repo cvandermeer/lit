@@ -1,19 +1,30 @@
 <div class='question'>
 	
 	<h6><%= @question.category.title %></h6>
-	<p>Taal: <%= @question.language.title %></p>
 	
-	<% if @question.image %>
+	<p class="language <%= @question.language.title.downcase %>">
+		<% if @question.category_id == 3 %>
+			Maak het <span><%= @question.language.title %>e</span> woord in letters
+		<% elsif @question.category_id == 2 %>
+			Kies de juiste <span>afbeelding</span> bij het woord
+		<% end %>
+	</p>
+	
+	<% if @question.image? %>
 		<div class='question-image'>
-			<%= image_tag @question.image.url(:thumb) %>
+			<div class="timer-container">
+				<div class='timer'></div>
+			</div>
+			<%= image_tag @question.image %>
 		</div>
 	<% end %>
 
-
-
-
 	<% if @question.category_id == 1 %>	
 		
+		<div class="timer-container">
+			<div class='timer'></div>
+		</div>
+
 		<h3><%= @question.title %></h3>
 
 		<div class='answer-container jsData' data-answer='<%= @question.answers.first.title %>' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
@@ -24,15 +35,24 @@
 
 	
 	<% elsif @question.category_id == 2 %>	
-		
-		<h3><%= @question.title %></h3>
+		<div class="choose-image clearfix">
+			<div class="timer-container">
+				<div class='timer'></div>
+			</div>
 
-		<div class='jsData image-container' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>' data-answer='<%= @question.answers.first.image.url(:thumb) %>'>
-			<% @question.answers.shuffle.each do |answer| %>
-				<a class='js-answer-trigger' data-remote='true' href='<%= submit_answer_path(@question, answer_id: answer.id) %>'>
-					<%= image_tag answer.image.url(:thumb) %>
-				</a>
-			<% end %>
+			<h3><%= @question.title %></h3>
+
+			<div class='jsData' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>' data-answer='<%= @question.answers.first.image.url(:image_cropped) %>'>
+				<% @question.answers.shuffle.each do |answer| %>
+				<div class="image-container">
+					<div>
+						<a class='js-answer-trigger' data-remote='true' href='<%= submit_answer_path(@question, answer_id: answer.id) %>'>
+							<%= image_tag answer.image.url(:image_cropped) %>
+						</a>
+					</div>
+				</div>
+				<% end %>
+			</div>
 		</div>
 
 
@@ -49,8 +69,6 @@
 		<%= link_to 'Bevestig antwoord', submit_answer_path(@question, answer_id: 1), remote: true,	class: 'js-answer-trigger answer' %> 
 
 	<% end %>
-
-	<div class='timer'></div>
 
 	<div class='question-popup'>
 		<p></p>

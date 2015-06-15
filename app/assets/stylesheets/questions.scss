@@ -1,3 +1,79 @@
+.question {
+	h6 {
+		background: $blue;
+		padding: 20px 0;
+		text-align: center;
+		color: #fff;
+		font-size: 22px;
+	}
+	.language {
+		text-align: center;
+		color: $blue;
+		padding: 20px 0;
+		margin: 0;
+		span {
+			text-transform: uppercase;
+		}
+	}
+	.nederlands,
+	.engels,
+	.fries {
+		position: relative;
+		&:before {
+			right: 10px;
+			top: -30px;
+			content: '';
+			border-radius: 100%;
+			box-shadow: 1px 2px 3px rgba(0,0,0,.4);
+			position: absolute;
+			width: 57px;
+			height: 57px;
+			background: asset-url('flag-fries.png');
+		}	
+	}
+	.engels:before {
+		background: asset-url('flag-engels.png');
+	}
+
+	.nederlands:before {
+		background: asset-url('flag-nederlands.png');
+	}
+	.image-container {
+		width: 50%;
+		float: left;
+		> div {
+			padding: 10px;
+			padding-left: 0;
+		}
+		&:last-child {
+			> div {
+				padding-left: 10px;
+				padding-right: 0;
+			}
+		}
+		img {
+			box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+		}
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+		}
+	}
+}
+
+.choose-image {
+	position: relative;
+	h3 {
+		padding: 10px;
+		background: #fff;
+		font-family: 'Open Sans', sans serif;
+		font-weight: 200;
+		text-align: center;
+	}
+}
+
 .question-types {
 	width: 100%;
 	clear: both;
@@ -54,15 +130,16 @@
 }
 
 .question-image {
-	width: 100%;
+	max-width: 320px;
+	margin: 0 auto;
+	img {
+		box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+	}
 }
 
 
 .write-word {
 	position: relative;
-	.letters {
-		//position: relative;
-	}
 	.letter {
 		margin: 10px 0;
 		margin-right: 10px;
@@ -110,6 +187,9 @@
 		right: 0;
 		margin: auto;
 	}
+	&:last-child {
+		margin-right: 0;
+	}
 }
 
 .answer-container {
@@ -123,7 +203,7 @@
   font-size: 16px;
   padding: 20px 30px;
   text-decoration: none;
-  margin: 12px 0;
+  margin: 24px 0 0 0;
   text-align: center;
   font-family: 'Open Sans', sans serif;
   float: right;
