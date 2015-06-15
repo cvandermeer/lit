@@ -1,3 +1,7 @@
-<% if user_signed_in? %>
-  <p>Woord van week: <%= link_to @word_of_this_week.title, @word_of_this_week %> (<%= @word_of_this_week.description %> )</p>
-<% end %>
+<div class="wotw">
+
+	<% if user_signed_in? %>
+	  <p>Woord van week: <%= link_to @word_of_this_week.title, @word_of_this_week %> (<%= @word_of_this_week.description %> )</p>
+	<% end %>
+	
+</div>

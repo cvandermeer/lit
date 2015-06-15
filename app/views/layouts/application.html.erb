@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LIT - Language Improvement Tool</title>
+  <title>Switsj</title>
   <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'/>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="green">
 </head>
 <body>
 
-<header>
-  <% if user_signed_in? %>
-	  <%= render 'shared/menu' %>
-  <% end %>
-	<%= render 'shared/notice' %>
-	<span class='back'>
-		<%= link_to 'terug', :back if action_name != 'home' %>
-	</span>
-	<h1><%= link_to 'LIT', root_path %></h1>
-</header>
+<div id="screen">
+  <header>
+
+<div class="nav">
+    <% if user_signed_in? %>
+  	  <%= render 'shared/menu' %>
+    <% end %>
+  	<%= render 'shared/notice' %>
+  	<span class='back'>
+  		<%= link_to 'terug', :back if action_name != 'home' %>
+  	</span>
+  	<h1 class="logo"><%= link_to 'Switsj', root_path %></h1>
+</div>
+  </header>
 
 <%= yield %>
 
 <div class='overlay'></div>
+</div> 
 
 </body>
 </html>
