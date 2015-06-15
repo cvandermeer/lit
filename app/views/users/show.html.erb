@@ -14,11 +14,11 @@
 	<li>
 		Punten: <%= @user.points %>
 	</li>
-    <% @user.memberships.where(accepted: true).each do |m| %>
-      <li>
-          <%= m.team.name %>: <%= m.points %> punten
-      </li>
-    <% end %>
+		<% @user.memberships.where(accepted: true).each do |m| %>
+			<li>
+					<%= m.team.name %>: <%= m.points %> punten
+			</li>
+		<% end %>
 </ul>
 
 <div id='chart_fries'></div>
@@ -29,79 +29,80 @@
 <div id='chart_writing'></div>
 
 <script type="text/javascript">
-  var ready;
-  ready = function() {
-    function initChart(id, goodAnswers, badAnswers, textTitle) {
-      if ( goodAnswers > 0 || badAnswers > 0 ) {
+	var ready;
+	ready = function() {
+		function initChart(id, goodAnswers, badAnswers, textTitle) {
+			if ( goodAnswers > 0 || badAnswers > 0 ) {
 
-        Highcharts.setOptions({
-          colors: ['#00BA25', '#FA0000']
-        });
+				Highcharts.setOptions({
+					colors: ['#00BA25', '#FA0000']
+				});
 
-        $(id).highcharts({
-            chart: {
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-                text: textTitle
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style: {
-                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Percentage',
-                data: [
-                    ['Goed beantwoord',  goodAnswers],
-                    ['Fout beantwoord',  badAnswers],
-                ]
-            }]
-        });
-     
-      }
-    };
-    
-    var id = '#chart_fries';
-    var goodAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: true).count %>;
-    var badAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: false).count %>;
-    var textTitle = 'Fries';
+				$(id).highcharts({
+						chart: {
+								plotBackgroundColor: null,
+								plotBorderWidth: null,
+								plotShadow: false
+						},
+						title: {
+								text: textTitle
+						},
+						tooltip: {
+								pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+						},
+						plotOptions: {
+								pie: {
+										allowPointSelect: true,
+										cursor: 'pointer',
+										dataLabels: {
+												enabled: true,
+												format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+												style: {
+														color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+												}
+										}
+								}
+						},
+						series: [{
+								type: 'pie',
+								name: 'Percentage',
+								innerSize: '60%',
+								data: [
+										['Goed beantwoord',  goodAnswers],
+										['Fout beantwoord',  badAnswers],
+								]
+						}]
+				});
+		 
+			}
+		};
+		
+		var id = '#chart_fries';
+		var goodAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: true).count %>;
+		var badAnswers = <%= @user.user_results.where(language_id: 1, correctly_answered: false).count %>;
+		var textTitle = 'Fries';
 
-    if ($('#chart_fries').length) {
-        initChart(id, goodAnswers, badAnswers, textTitle);
-    }
+		if ($('#chart_fries').length) {
+				initChart(id, goodAnswers, badAnswers, textTitle);
+		}
 
-    id = '#chart_engels';
-    goodAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: true).count %>;
-    badAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: false).count %>;
-    textTitle = 'Engels';
-    
-    if ($('#chart_engels').length) {
-        initChart(id, goodAnswers, badAnswers, textTitle);
-    }
+		id = '#chart_engels';
+		goodAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: true).count %>;
+		badAnswers = <%= @user.user_results.where(language_id: 2, correctly_answered: false).count %>;
+		textTitle = 'Engels';
+		
+		if ($('#chart_engels').length) {
+				initChart(id, goodAnswers, badAnswers, textTitle);
+		}
 
-    id = '#chart_nederlands';
-    goodAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: true).count %>;
-    badAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: false).count %>;
-    textTitle = 'Nederlands';
-    if ($('#chart_nederlands').length) {
-        initChart(id, goodAnswers, badAnswers, textTitle);
-    }
-  }
+		id = '#chart_nederlands';
+		goodAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: true).count %>;
+		badAnswers = <%= @user.user_results.where(language_id: 3, correctly_answered: false).count %>;
+		textTitle = 'Nederlands';
+		if ($('#chart_nederlands').length) {
+				initChart(id, goodAnswers, badAnswers, textTitle);
+		}
+	}
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
