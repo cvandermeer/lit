@@ -2,7 +2,7 @@ var ready;
 ready = function() {
 
 	$('.hamburger, .overlay').on('click', function() {
-		$('.menu, .overlay, .hamburger').toggleClass('active');
+		$('.menu, .overlay, .hamburger, body').toggleClass('active');
 	});
 
 }

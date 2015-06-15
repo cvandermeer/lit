@@ -7,13 +7,16 @@ $blue-hover: #64b5c4;
 $gray: #f3f3f3;
 $dark-gray: #b1b1b2;
 
-
-
 body {
   margin: 0 auto;
   width: 100%;
   overflow-x:hidden;
   background-color: #f8f8f8;
+  @include transform(translateX(0px));
+  @include transition( 0.3s );
+  &.active {
+    @include transform(translateX(-200px));
+  }
   a {
   	padding: 0 10px 0 0;
     color: $blue;
@@ -21,6 +24,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   max-width: 800px;
   margin: 0 auto;
 }
