@@ -20,6 +20,11 @@ body {
   }
 }
 
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 @import 'header';
 @import 'menu';
 @import 'buttons';
