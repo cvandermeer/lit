@@ -1,5 +1,4 @@
 .menu {
-  z-index: 101;
   width: 200px;
   position: fixed;
   right: -200px;
@@ -9,8 +8,8 @@
   @include transition( 0.3s );
   box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
   &.active {
-    right: 0;
-    box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
+    //right: 0;
+    //box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
   }
   a {
     display: block;
@@ -33,14 +32,12 @@
 }
 
 .hamburger {
-  z-index: 102;
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  right: 0;
-  top: 0;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
   box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
-  background: #fff;
   @include transition( 0.3s );
   cursor: pointer;
   > div {
@@ -51,34 +48,39 @@
     @include transform( rotate(0deg) ); 
   }
   span {
-    width: 30px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     display: block;
     position: fixed;
-    left: 5px;
-    background: #477DCA;
+    left: 50%;
+    margin-left: -4px;
+    background: $dark-gray;
     margin-top: 0;
+    border-radius: 4px;
     @include transition( 0.3s );
     @include transform( rotate(0deg) ); 
     &:first-child {
-      top: 10px;
+      top: 0px;
     }
     &:nth-child(2) {
       top: 50%;
-      margin-top: -2px;
+      margin-top: -4px;
     }
     &:last-child {
-      margin-top: -14px;
+      margin-top: -8px;
       top: 100%;
     }
   }
   &.active,
   &:hover {
     span {
+      height: 5px;
+      left: 7px;
+      width: 30px;
       &:first-child,
       &:last-child {
         top: 50%;
-        margin-top: -2px;
+        margin-top: -4px;
       }
       &:nth-child(2) {
         @include transform( rotate(90deg) );
@@ -86,8 +88,6 @@
     }
   }
   &.active {
-    right: 200px;
-    box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
     > div {
       @include transform( rotate(45deg) );
     }

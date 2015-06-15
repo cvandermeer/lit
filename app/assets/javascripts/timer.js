@@ -20,7 +20,7 @@ ready = function() {
 			if($('.timer').length) {
 				$('body').find('.js-answer-trigger').each(function() {
 					$(this).attr('href', newHref);
-					$(this).trigger('click');
+					//$(this).trigger('click');
 					btnClicked = this;
 					return false;
 				});

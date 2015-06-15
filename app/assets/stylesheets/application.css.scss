@@ -1,26 +1,35 @@
 @import 'bourbon';
 @import 'base/base';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,600,400);
+
+$blue: #6fccdd;
+$blue-hover: #64b5c4;
+$gray: #f3f3f3;
+$dark-gray: #b1b1b2;
 
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 800px;
-  overflow-x:hidden;
+  //overflow-x:hidden;
+  background-color: #f8f8f8;
+  @include transform(translateX(0px));
+  @include transition( 0.3s );
+  &.active {
+    @include transform(translateX(-200px));
+  }
   a {
   	padding: 0 10px 0 0;
+    color: $blue;
   }
 }
 
-header {
-  height: 40px;
-  h1 {
-    font-size: 24px;
-    text-align: center;
-    padding-right: 40px;
-  }
+.wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-
+@import 'header';
 @import 'menu';
 @import 'buttons';
 @import 'profile';
@@ -28,6 +37,7 @@ header {
 @import 'timer';
 @import 'questions';
 @import 'given_answer';
+@import 'charts';
 
 .overlay-popup,
 .overlay {
@@ -49,7 +59,6 @@ header {
   z-index: 1000;
   cursor: default;
 }
-
 
 /* Clear Floated Elements 
 ------------------------------------------------------*/
