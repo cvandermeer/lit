@@ -8,7 +8,7 @@ $gray: #f3f3f3;
 $dark-gray: #b1b1b2;
 
 body {
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
   //overflow-x:hidden;
   background-color: #f8f8f8;
@@ -26,6 +26,7 @@ body {
 .wrapper {
   position: relative;
   max-width: 800px;
+  padding: 0 10px 0 30px; // Dit is een rare bug, geen flauw idee.
   margin: 0 auto;
 }
 

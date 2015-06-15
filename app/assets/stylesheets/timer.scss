@@ -3,8 +3,24 @@
 	width: 0%;
 	clear: both;
 	@include transition(all, 30s, linear);
-	background: #333;
+	background: $blue;
+	position: relative;
+	&:before {
+		content: '';
+		width: 16px;
+		height: 19px;
+		position: absolute;
+		right: -8px;
+		top: -6px;
+		background: asset-url('clock.png');
+		background-size: 16px 19px;
+	}
 	&.start {
 		width: 100%;
 	}
+}
+
+.timer-container {
+	width: 100%;
+	background: $dark-gray;
 }
