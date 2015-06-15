@@ -11,11 +11,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="green">
 </head>
 <body>
-
-<div id="screen">
-  <header>
-
-<div class="nav">
+  
+<header>
     <% if user_signed_in? %>
   	  <%= render 'shared/menu' %>
     <% end %>
@@ -24,8 +21,7 @@
   		<%= link_to 'terug', :back if action_name != 'home' %>
   	</span>
   	<h1 class="logo"><%= link_to 'Switsj', root_path %></h1>
-</div>
-  </header>
+</header>
 
 <%= yield %>
 
