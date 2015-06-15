@@ -23,9 +23,11 @@ ready = function() {
 		var correctAnswerId = post.correct_answer_id;
 		
 		if (givenAnswerId == correctAnswerId) {
-			$('.question-popup p').addClass('correct').append('Goed geantwoord het is: ' + correctAnswer);
+			$('.question-popup p').append('Goed geantwoord: </br><span>' + correctAnswer + '</span>');
+			$('.question-popup').addClass('correct');
 		} else {
-			$('.question-popup p').addClass('fail').append('Fout, het antwoord is: ' + correctAnswer);
+			$('.question-popup p').append('Fout geantwoord, het juiste antwoord is: </br><span>' + correctAnswer + '</span>');
+			$('.question-popup').addClass('fail');
 		}
 		$('.question-popup, .overlay-popup').addClass('active')
 
