@@ -11,17 +11,15 @@
 }
 
 .name-chars {
-	background-image: url('https://scontent-ams3-1.xx.fbcdn.net/hphotos-frc3/v/t1.0-9/1520774_658854700831266_2001682377_n.jpg?oh=ef24e175ee539e09752e4c0ba1706e61&oe=5630F88D');
+	background-color: $blue; 
 	background-size: cover;
 	background-position: center;
-	background-repeat: no-repeat;
 	text-transform: uppercase;
-	font-weight: 800;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 100px;
 	color: #fff;
 	text-align: center;
 	margin-top: 32px;
-	background-color: #ff00c0;
 	height: 190px;
 	width: 190px;
 	border-radius: 50%;
@@ -34,13 +32,12 @@
 .coverphoto {
 	background: linear-gradient(
       rgba(0, 0, 0, 0.60), 
-      rgba(0, 0, 0, 0.60)
-    ),  url('https://scontent-ams3-1.xx.fbcdn.net/hphotos-frc3/t31.0-8/s2048x2048/1172531_583267078390029_1334500424_o.jpg');
+      rgba(0, 0, 0, 0.60));
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	width: 100%;
-	height: 367px;
+	height: 360px;
 	text-align: center;
 }
 	h4,
@@ -56,7 +53,7 @@
 
 .editprofile {
 	background-color: red;
-	background-image: url('images/edit.png');
+	background-image: asset-url('edit.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
