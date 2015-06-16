@@ -17,7 +17,7 @@
           Gebruiker
         <% end -%>
       </td>
-      <td><%= link_to 'verwijderen', user, method: :delete, data: { confirm: 'Weet je het zeker?' } %> <%= link_to 'Admin maken', make_admin_path(user) if user.admin != true %> </td>
+      <td><%= link_to 'verwijderen', user, method: :delete, data: { confirm: 'Weet je het zeker?' } %> <%= link_to 'Admin maken', make_admin_path(user), data: { confirm: 'Weet je het zeker?' } if user.admin != true %> </td>
     </tr>
     <% end %>
   </tbody>
