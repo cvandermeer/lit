@@ -4,8 +4,8 @@ class Membership < ActiveRecord::Base
 	before_create :set_default
 
 	### RELATIONS ###
-	belongs_to :team, dependent: :destroy
-	belongs_to :user, dependent: :destroy
+	belongs_to :team
+	belongs_to :user
 
 	### VALIDATIONS ###
 	validates :user_id, presence: true

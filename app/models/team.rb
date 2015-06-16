@@ -4,9 +4,9 @@ class Team < ActiveRecord::Base
 	after_create :subscribe_leader
 
 	### RELATIONS ###
-	has_many :memberships
+	has_many :memberships, dependent: :destroy
 	has_many :users, through: :memberships
-	belongs_to :user, dependent: :destroy
+	belongs_to :user
 
 	### VALIDATIONS ###
 	validates :name, presence: true

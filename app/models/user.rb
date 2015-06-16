@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   ### RELATIONS ###
   has_many :questions
-  has_many :user_results
-  has_many :word_of_the_week_reactions
-  has_many :memberships
+  has_many :user_results, dependent: :destroy
+  has_many :word_of_the_week_reactions, dependent: :destroy
+  has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships
 
   ### VALIDATIONS ###
