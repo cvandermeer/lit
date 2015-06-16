@@ -142,7 +142,6 @@ function letterClicked(el) {
 			}
 		});
 		//checkIfAlDotsAreTake();
-		console.log(givenLetters)
 		if ((givenLetters + elLetter).length > correctAnswer.length) {
 			var oldElId = $('.js-write-word .dot:last-child').attr('data-letter-id');
 			var oldEl;
