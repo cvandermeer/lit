@@ -1,7 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-  	get_questions = Question.where(approved: true)
-    @question = get_questions.offset(rand(get_questions.count)).first
     @teams = current_user.teams
     @word_of_this_week = WordOfTheWeek.find(Time.now.strftime("%U").to_i + 1)
 
@@ -22,5 +20,10 @@ class StaticPagesController < ApplicationController
   	@dutch = Question.where(language: 3, approved: true).offset(rand(Question.where(language: 3, approved: true).count)).first
   	@english = Question.where(language: 2, approved: true).offset(rand(Question.where(language: 2, approved: true).count)).first
   	@frisian = Question.where(language: 1, approved: true).offset(rand(Question.where(language: 1, approved: true).count)).first
+  end
+
+  def choose_game
+    get_questions = Question.where(approved: true)
+    @question = get_questions.offset(rand(get_questions.count)).first
   end
 end

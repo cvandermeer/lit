@@ -3,9 +3,7 @@
 <div class="clearfix">
 	<%= link_to 'Vraag toevoegen', new_question_path, class: 'btn-home icon add-question' %>
 	<% if Question.where(approved: true).any? %>
-	  <%= link_to 'Spel spelen!', @question, class: 'btn-home icon play' %>
-	  <%= link_to 'Categorie kiezen', static_pages_pick_category_path, class: 'btn-home icon play' %>
-	  <%= link_to 'Taal kiezen', static_pages_pick_language_path, class: 'btn-home icon icon play' %>
+	  <%= link_to 'Spel spelen', static_pages_choose_game_path, class: 'btn-home icon icon play' %>
 	<% end %>
 
 	<%= link_to 'Mijn profiel', current_user, class: 'btn-home icon profile' %>

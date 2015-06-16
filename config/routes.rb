@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   ### static_pages ###
   get 'static_pages/pick_category'
   get 'static_pages/pick_language'
+  get 'static_pages/choose_game'
 
   ### word of the week ###
   resources :word_of_the_weeks, only: [:index, :edit, :update, :show]
