@@ -1,62 +1,61 @@
-.box {
-  padding: 0 20px;
-  margin: 0px;
-}
-
-/*Button effect
-*/
+/* Buttons */
 
 .btn-home {
   position: relative;
-  padding: 25px 40px;
-  padding-left: 80px;
-  margin: 0px 10px 15px 0px;
+  padding: 25px 0;
+  margin: 12px 0;
   border-radius: 5px;
   font-family: 'Open Sans', sans serif;
-  display: inline-table;
-  position: relative;
   font-size: 16px;
   color: #fff;
   text-decoration: none;
   background-color: #6fccdd;
-  border-bottom: 4px solid #64b5c4;
-  width: 32%;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.4);
+  width: 46%;
+  float: left;
+  display: block;
+  text-indent: 80px;
   max-width: auto;
-    &:before {
+  @include transition(0.3s);
+  &:before {
     content: '';
     background: none;
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     position: absolute;
     left: 14px;
     top: 14px;
-    margin-right: 400px;
-    background-image: url('profile-icon.png');
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
+    background-image: asset-url('icon-profile.png');
+  }
+  &:nth-child(odd) {
+    margin-right: 8%;
+  }
+  &:hover {
+    box-shadow: 0 0 0 rgba(0,0,0,.4);
+    color: #fff;
+  }
+  &.add-question:before {
+    background-image: asset-url('icon-add-question.png');
+  }
+  &.leaderboard:before {
+    background-image: asset-url('icon-leaderboard.png');
+  }
+  &.play:before {
+    background-image: asset-url('icon-play.png');
+  }
+  &:after {
+    content: '';
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 12px;
+    top: 21px;
+    @include transform(scale(0.6));
+    background-image: asset-url('next-arrow.png');
   }
 }
 
-.btn-home:active {
-  transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-  border-bottom: 1px solid #64b5c4;
-  margin-bottom: 13px;
-}
-
-.btn-home:hover {
-  color: #fff;
-  opacity: 0.8;
-}
-
-.animate {
-  @include transition(0.3s);
-}
-
-
 .btn-default{
-  -webkit-font-smoothing: antialiased;
   background-color: #477DCA;
   border-radius: 3px;
   color: white;
@@ -70,13 +69,10 @@
   margin: 12px 0;
   text-align: center;
   width:100px;
-} 
+}
 
-
-@media (max-width: 800px) {
+@media (max-width: 550px) {
   .btn-home {
-    position: relative;
     width: 100%;
-    padding: 25px 0px;
   }
 }

@@ -1,7 +1,20 @@
 <div class="wotw">
-
-	<% if user_signed_in? %>
-	  <p>Woord van week: <%= link_to @word_of_this_week.title, @word_of_this_week %> (<%= @word_of_this_week.description %> )</p>
-	<% end %>
-	
+  <div class='title'>
+  	<h4>Woord van week</h4>
+  	<i><%= @word_of_this_week.description %></i>
+  </div>
+  <ul class="clearfix">
+  <% @word_of_this_week.title.chars.each do |c| %>
+  	<% if c.ord != 32%>
+	  	<li>
+	  		<%= c %>
+	  	</li>
+  	<% else %>
+  		<li>
+  		-
+  		</li>
+			<li class="break clearfix"></li>
+  	<% end %>
+  <% end %>
+  </ul>
 </div>
