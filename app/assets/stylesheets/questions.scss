@@ -24,7 +24,8 @@
 			top: -30px;
 			content: '';
 			border-radius: 100%;
-			box-shadow: 1px 2px 3px rgba(0,0,0,.4);
+			//box-shadow: 1px 2px 3px rgba(0,0,0,.4);
+			border: 5px solid #fff;
 			position: absolute;
 			width: 57px;
 			height: 57px;
@@ -53,6 +54,10 @@
 		}
 		img {
 			box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
+			@include transition(0.3s);
+			&:hover {
+				box-shadow: 0 0 0 rgba(0,0,0,0.4);
+			}
 		}
 		a {
 			display: block;
@@ -215,10 +220,12 @@
   text-align: center;
   font-family: 'Open Sans', sans serif;
   float: right;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.4);
   @include transition(0.3s);
   &:hover {
     background: $blue-hover;
-    color: #fff
+    color: #fff;
+    box-shadow: 0px 0px 0px rgba(0,0,0,.4);
   }
 }
 
