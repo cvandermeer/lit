@@ -17,6 +17,7 @@
       border-left: 6px solid transparent;
       border-right: 6px solid transparent;
       border-bottom: 6px solid $blue-hover;
+      top: -6px;
     }
   }
   a {
@@ -42,10 +43,11 @@
   &:before {
     content: '';
     position: absolute;
-    top: -6px;
+    top: 10px;
     right: 10px; 
     width: 0; 
     height: 0; 
+    @include transition( 0.3s );
     border-left: 0px solid transparent;
     border-right: 0px solid transparent;
     border-bottom: 0px solid $blue-hover;
