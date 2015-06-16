@@ -1,21 +1,24 @@
 <div class="coverphoto">
 	<div class='profile-overview'>
-		<!-- <%# if current_user.avatar? %>
-			<div class='mini-thumb'>
-				<%#= image_tag current_user.avatar.url(:mini_thumb) %>
+		<% if current_user.avatar? %>
+			<div class='profile-image'>
+				<%= image_tag current_user.avatar.url(:image_cropped) %>
 			</div>
-		<%# elsif current_user.provider == 'facebook' %>
-			<img src=<%#= current_user.facebook_image_url %>>
-		<%# end %> -->
-		<div class='name-chars'>
+		<% elsif current_user.provider == 'facebook' %>
+		<div class="profile-image facebook-image">
+			<%= image_tag current_user.facebook_image_url, class: 'facebook-img' %>
+		</div>
+		<% else %>
+		<div class='profile-image'>
 			<%= current_user.name.chars.first || current_user.email.chars.first  %>
 		</div>
+		<% end %>
 		<div class='profile-info'>
 			<% if current_user.name %>
-			<h4><%= link_to current_user.name, current_user %><%= link_to '', edit_user_registration_path, class: 'edit-icon' %></h4>
+			<h4><%= link_to current_user.name, edit_user_registration_path, class: 'edit-icon' %></h4>
 			<h5><%= current_user.email %></h5>
 			<% else %>
-				<h4><%= link_to current_user.email, edit_user_registration_path %></h4>
+				<h4><%= link_to current_user.email, edit_user_registration_path, class: 'edit-icon' %></h4>
 			<% end %>
 		</div>
 

@@ -1,17 +1,19 @@
 	<%= render 'profile_overview' %>
 
-<div class="box">
-	<%= link_to 'Vraag toevoegen', new_question_path, class: 'btn-home' %>
+<div class="clearfix">
+	<%= link_to 'Vraag toevoegen', new_question_path, class: 'btn-home icon add-question' %>
 	<% if Question.where(approved: true).any? %>
-	  <%= link_to 'Geef mij een vraag!', @question, class: 'btn-home' %>
-	  <%= link_to 'Categorie kiezen', static_pages_pick_category_path, class: 'btn-home' %>
-	  <%= link_to 'Taal kiezen', static_pages_pick_language_path, class: 'btn-home' %>
+	  <%= link_to 'Spel spelen!', @question, class: 'btn-home icon play' %>
+	  <%# link_to 'Categorie kiezen', static_pages_pick_category_path, class: 'btn-home icon choose-category' %>
+	  <%# link_to 'Taal kiezen', static_pages_pick_language_path, class: 'btn-home icon choose-language' %>
 	<% end %>
 
-	<%= link_to 'Klassement', leaderboard_path, class: 'btn-home' %>
+	<%= link_to 'Mijn profiel', current_user, class: 'btn-home icon profile' %>
+
+	<%= link_to 'Klassement', leaderboard_path, class: 'btn-home icon leaderboard' %>
+
+</div>
 
 	<%= render 'shared/word_of_the_week' %>
 
-	<%= render 'shared/find_user' %>
 
-</div>

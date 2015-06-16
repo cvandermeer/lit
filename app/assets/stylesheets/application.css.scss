@@ -36,7 +36,6 @@ body {
 .wrapper {
   position: relative;
   max-width: 800px;
-  padding: 0 10px 0 30px; // Dit is een rare bug, geen flauw idee.
   margin: 0 auto;
 }
 
@@ -49,6 +48,7 @@ body {
 @import 'questions';
 @import 'question_popup';
 @import 'charts';
+@import 'word_of_the_week';
 
 .overlay-popup,
 .overlay {
