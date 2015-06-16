@@ -36,8 +36,14 @@ class MembershipsController < ApplicationController
 	end
 
 	def destroy
-		@membership.destroy
-		redirect_to root_path, notice: 'Team verlaten'
+		if @membership.team.user_id == current_user.id
+			@membership.destroy
+			@membership.team.destroy
+			redirect_to root_path, notice: 'Team verlaten en verwijderd'
+		else
+			@membership.destroy
+			redirect_to root_path, notice: 'Team verlaten'
+		end
 	end
 
 	private

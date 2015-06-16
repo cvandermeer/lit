@@ -1,7 +1,7 @@
 <ul>
 	<li><%= image_tag @team.picture.url(:thumb) %></li>
 	<li><%= @team.name %></li>
-	<% if current_user.memberships.where(team_id: @team.id).first.accepted == true %>
+	<% if current_user.memberships.where(team_id: @team.id).any? && current_user.memberships.where(team_id: @team.id).first.accepted == true %>
 		<li>
 			<%= link_to 'Team verlaten', current_user.memberships.where(team_id: @team.id).first, method: :delete, data: { confirm: 'Weet je het zeker?' }, class: 'btn-default' %>
 		</li>
