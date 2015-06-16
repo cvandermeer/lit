@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :user_results, dependent: :destroy
   has_many :word_of_the_week_reactions, dependent: :destroy
   has_many :memberships, dependent: :destroy
-  has_many :teams, through: :memberships
+  has_many :teams, through: :memberships, dependent: :destroy
 
   ### VALIDATIONS ###
   validates :name, presence: true
