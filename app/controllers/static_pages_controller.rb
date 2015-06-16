@@ -9,6 +9,7 @@ class StaticPagesController < ApplicationController
       @users = User.search(params[:search]).order("created_at DESC")
       render json: @users
     end
+    @user = current_user
   end
 
   def pick_category
