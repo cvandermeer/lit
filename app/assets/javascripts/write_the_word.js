@@ -2,11 +2,11 @@
 // Varialbles
 var answerShuffled;
 var addedLetterToAnswer;
-var givenLetters = '';
+var givenLetters;
 
 var ready;
 ready = function() {
-	
+	givenLetters = '';
 	if( $('.js-write-word').length ) {
 		correctAnswer = correctAnswer.toUpperCase();
 		$('.js-write-word').attr('data-answer', '')

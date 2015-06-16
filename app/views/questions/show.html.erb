@@ -7,7 +7,9 @@
 			Maak het <span><%= @question.language.title %>e</span> woord in letters
 		<% elsif @question.category_id == 2 %>
 			Kies de juiste <span>afbeelding</span> bij het woord
-		<% end %>
+		<% else %>
+      Kies het <span>Juiste</span> antwoord
+    <% end %>
 	</p>
 	
 	<% if @question.image? %>
