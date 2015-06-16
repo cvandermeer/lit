@@ -1,25 +1,4 @@
-<h2><%= @user.name %></h2>
-
-<% if @user.avatar? %>
-	<%= image_tag @user.avatar.url(:thumb) %>
-<% else %>
-	<%= @user.name.chars.first %>
-<% end %>
-
-
-<ul>
-	<li>
-		Email: <%= @user.email %>
-	</li>
-	<li>
-		Punten: <%= @user.points %>
-	</li>
-		<% @user.memberships.where(accepted: true).each do |m| %>
-			<li>
-					<%= m.team.name %>: <%= m.points %> punten
-			</li>
-		<% end %>
-</ul>
+<%= render 'shared/profile_overview' %>
 
 <div id='chart_fries'></div>
 <div id='chart_engels'></div>
