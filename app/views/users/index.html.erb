@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Gebruikers</th>
+      <th>Rol</th>
+      <th>Acties</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td>
+        <% if user.admin == true %>
+          Admin
+        <% else %>
+          Gebruiker
+        <% end -%>
+      </td>
+      <td><%= link_to 'verwijderen', user, method: :delete, data: { confirm: 'Weet je het zeker?' } %> <%= link_to 'Admin maken', make_admin_path(user) if user.admin != true %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

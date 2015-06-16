@@ -34,6 +34,9 @@
 		<% end %>
 		<%= link_to 'Woord van de week', word_of_the_weeks_path %>
 		</li>
+		<li>
+			<%= link_to 'Gebruikers', users_path %>
+		</li>
 	<% end %>
 	<li>
 		<%= link_to 'Uitloggen', destroy_user_session_path, method: :delete %>

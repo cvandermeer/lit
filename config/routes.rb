@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   
   ### users ###
   devise_for :users, controllers: { registrations: "users/registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, only: :show
+  resources :users, only: [:show, :index, :destroy]
+
+  get '/users/:id/make_admin', to: 'users#make_admin', as: 'make_admin'
   get '/leaderboard', to: 'users#leaderboard', as: 'leaderboard'
   get '/leaderboard_normal_questions', to: 'users#leaderboard_normal_questions', as: 'leaderboard_normal_questions'
   get '/leaderboard_choose_image', to: 'users#leaderboard_choose_image', as: 'leaderboard_choose_image'
