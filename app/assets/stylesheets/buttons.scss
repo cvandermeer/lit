@@ -51,9 +51,27 @@
 }
 
 .animate {
-  transition: all 0.1s;
-  -webkit-transition: all 0.1s;
+  @include transition(0.3s);
 }
+
+
+.btn-default{
+  -webkit-font-smoothing: antialiased;
+  background-color: #477DCA;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  margin: 12px 0;
+  text-align: center;
+  width:100px;
+} 
+
 
 @media (max-width: 800px) {
   .btn-home {
