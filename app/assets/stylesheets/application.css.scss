@@ -49,15 +49,17 @@ body {
 .overlay {
   z-index: 100;
   position: fixed;
-  width: 1px;
-  height: 100%;
+  width: 100%;
+  min-height: 0%;
+  height: 0%;
   top: 0;
   right: 0;
   cursor: pointer;
   background: rgba(0,0,0,0.2);
   @include transition( 0.3s );
   &.active {
-    width: 100%; /* Met overlay ontstaat er een dikke vertraging :( */
+    min-height: 100%; /* Met overlay ontstaat er een dikke vertraging :( */
+    height: 100%;
   }
 }
 
