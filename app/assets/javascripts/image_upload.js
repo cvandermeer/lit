@@ -6,9 +6,8 @@ ready = function() {
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                $(input).parent().find('.imagePreview').attr('src', e.target.result);
+                $(input).parent().find('.imagePreview').append('<img src="'+e.target.result+'", class="image-preview" />');
             }
-            
             reader.readAsDataURL(input.files[0]);
         }
     }
@@ -18,16 +17,15 @@ ready = function() {
     });
     
     setTimeout(function() {
-        $('.imageUpload').bind('change', function() {
+        $('.imageUploadAnswer').bind('change', function() {
             readURL(this);
         }); 
-    }, 300);
+    }, 1000);
 
     if($('.imagePreviewFill').length) {
         $('body').find('.imagePreview').each(function(i) {
             $(this).attr('src', $('.imagePreviewFill').attr('data-image-'+i));
         });
-
     }
 
 }
