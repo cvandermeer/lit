@@ -21,7 +21,7 @@
 
 	<% if @question.category_id == 1 %>
 	<div class='normal-question'>	
-		<% if !@question.image %>
+		<% if !@question.image? %>
 		<div class="timer-container">
 			<div class='timer'></div>
 		</div>
