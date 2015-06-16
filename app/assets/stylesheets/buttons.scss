@@ -3,29 +3,34 @@
   margin: 0px;
 }
 
+/*Button effect
+*/
+
 .btn-home {
-  background-color: $blue;
-  padding: 24px;
-  margin: 20px;
-  padding-left: 100px;
-  width: 30%;
-  max-width: auto;
+  position: relative;
+  padding: 25px 40px;
+  padding-left: 80px;
+  margin: 0px 10px 15px 0px;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans serif;
   display: inline-table;
   position: relative;
-  color: white;
-  margin: 10px 10px;
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 12px 2px rgba(0,0,0,0.15);
-  -moz-box-shadow: 1px 1px 12px 2px rgba(0,0,0,0.15);
-  box-shadow: 1px 1px 12px 2px rgba(0,0,0,0.15);
-  &:before {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #6fccdd;
+  border-bottom: 4px solid #64b5c4;
+  width: 32%;
+  max-width: auto;
+    &:before {
     content: '';
     background: none;
     width: 48px;
     height: 48px;
     position: absolute;
-    left: 12px;
-    top: 12px;
+    left: 14px;
+    top: 14px;
+    margin-right: 400px;
     background-image: url('profile-icon.png');
     background-size: cover;
     background-position: center; 
@@ -33,20 +38,22 @@
   }
 }
 
-.btn-home:before:nth-child(0n+1) {
-    background-color: red;
-}
-
-@media (max-width: 800px) {
-  .btn-home {
-    width: 50%;
-    margin-left: 0px 20px;
-  }
+.btn-home:active {
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid #64b5c4;
+  margin-bottom: 13px;
 }
 
 .btn-home:hover {
-  background-color: $blue-hover;
+  color: #fff;
+  opacity: 0.8;
 }
+
+.animate {
+  @include transition(0.3s);
+}
+
 
 .btn-default{
   -webkit-font-smoothing: antialiased;
@@ -63,4 +70,13 @@
   margin: 12px 0;
   text-align: center;
   width:100px;
+} 
+
+
+@media (max-width: 800px) {
+  .btn-home {
+    position: relative;
+    width: 100%;
+    padding: 25px 0px;
+  }
 }
