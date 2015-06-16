@@ -1,0 +1,28 @@
+<h2>Vragenoverzicht</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Vraag<th>
+      <th>Soort vraag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |q| %>
+    <tr>
+      <td>
+        <%= link_to q.title, show_check_path(q) if q.category_id != 3 %><%= link_to q.answers.first.title, show_check_path(q) if q.category_id == 3 %>
+      </td>
+      <td></td>
+      <td>
+        <% if q.id == 1 %>
+          ABCD vraag
+        <% elsif q.id == 2 %>
+          Kies een afbeelding
+        <% elsif q.id == 3 %>
+          Schrijven
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

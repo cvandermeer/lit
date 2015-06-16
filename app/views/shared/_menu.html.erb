@@ -33,9 +33,8 @@
 		  <%= Question.where(approved: false).count %> ongecheckte vragen
 		<% end %>
 		<%= link_to 'Woord van de week', word_of_the_weeks_path %>
-		</li>
-		<li>
-			<%= link_to 'Gebruikers', users_path %>
+		<%= link_to 'Gebruikers', users_path %>
+		<%= link_to 'Vragenoverzicht', questions_path %>
 		</li>
 	<% end %>
 	<li>

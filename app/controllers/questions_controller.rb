@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
 	before_action :set_question, only: [:show, :approve_question, :submit_answer, :show_check, :edit, :update, :destroy]
 	before_action :set_new_question, only: [:new, :new_write_word, :new_choose_image]
-	before_action :check_admin, only: [:unchecked_questions, :show_check, :approve_question]
+	before_action :check_admin, only: [:unchecked_questions, :show_check, :approve_question, :index]
 
 	def show
 		get_questions = Question.where.not(id: @question.id).where(approved: true)
@@ -16,6 +16,10 @@ class QuestionsController < ApplicationController
 	end
 
 	def new_choose_image
+	end
+
+	def index
+		@questions = Question.where(approved: true)
 	end
 
 	def create
