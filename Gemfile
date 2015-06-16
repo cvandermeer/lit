@@ -33,6 +33,7 @@ gem 'rmagick'
 # Deze gem bied de mogelijkheid tot het verwerken van de afbeeldingen die worden geupload
 
 gem 'bourbon'
+gem 'google-analytics-rails'
 gem 'bitters'
 # Basic styling of the application
 

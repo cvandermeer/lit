@@ -13,6 +13,7 @@
 <body>
   
 <header>
+    <%= analytics_init if Rails.env.production? %>
     <div class="wrapper">
       <% if user_signed_in? %>
     	  <%= render 'shared/menu' %>
