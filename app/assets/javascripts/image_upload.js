@@ -23,6 +23,17 @@ ready = function() {
         }); 
     }, 300);
 
+    if($('.imagePreviewFill').length) {
+        console.log(1);
+        $('body').find('.imagePreview').each(function(i) {
+            console.log(this, i)
+
+            console.log($('.imagePreviewFill').attr('data-image-'+i))
+            $(this).attr('src', $('.imagePreviewFill').attr('data-image-'+i));
+        });
+
+    }
+
 }
 
 $(document).ready(ready);
