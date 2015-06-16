@@ -36,5 +36,6 @@ Rails.application.routes.draw do
 
   get 'memberships/:id/accept_membership', to: 'memberships#accept_membership', as: 'accept_membership'
   get 'memberships/:id/deny_membership', to: 'memberships#deny_membership', as: 'deny_membership'
+  resources :memberships, only: [:destroy]
 end
 

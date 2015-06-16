@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-	before_action :set_membership, only: [:accept_membership, :show, :deny_membership]
+	before_action :set_membership, only: [:accept_membership, :show, :deny_membership, :destroy]
 	before_action :set_team, only: [:new, :create]
 
 	def new
@@ -24,7 +24,7 @@ class MembershipsController < ApplicationController
 	def accept_membership
 		@membership.accepted = true
 		if @membership.save
-			redirect_to root_path, notice: 'Ingeschreven voor team'
+			redirect_to @membership.team, notice: 'Ingeschreven voor team'
 		else
 			redirect_to root_path, notice: 'Inschrijven mislukt'
 		end
@@ -33,6 +33,11 @@ class MembershipsController < ApplicationController
 	def deny_membership
 		@membership.destroy
 		redirect_to root_path, notice: 'Uitnodiging geweigerd'
+	end
+
+	def destroy
+		@membership.destroy
+		redirect_to root_path, notice: 'Team verlaten'
 	end
 
 	private

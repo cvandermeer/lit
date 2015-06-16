@@ -1,6 +1,11 @@
 <ul>
 	<li><%= image_tag @team.picture.url(:thumb) %></li>
 	<li><%= @team.name %></li>
+	<% if current_user.memberships.where(team_id: @team.id).first.accepted == true %>
+		<li>
+			<%= link_to 'Team verlaten', current_user.memberships.where(team_id: @team.id).first, method: :delete, data: { confirm: 'Weet je het zeker?' }, class: 'btn-default' %>
+		</li>
+	<% end %>
 	<li><%= @team.description %></li>
 	<li>Team leader: <%= @team.user.name %></li>
 	<h4>Team leden:</h4>
@@ -28,3 +33,5 @@
 <p>Punten:
 	<%= 'teampoints' %>
 </p>
+
+<%= console %>
