@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
 	def invites
-		@memberships = current_user.memberships
+		@memberships = current_user.memberships.where.not(accepted: true)
 	end
 
   private
