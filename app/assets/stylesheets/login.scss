@@ -13,6 +13,7 @@
 		font-size: 20px;
 		margin-bottom: 40px;
 	}
+
 	.field {
 		margin: 24px auto;
 		position: relative;
@@ -21,22 +22,61 @@
 			font-family: 'Open Sans', sans serif;
 		}
 	}
+
+	input[type='text'],
 	input[type='password'],
 	input[type='email'] {
 		text-indent: 50px;
 		color: $blue-hover !important;
 	}
+
 	form {
 		padding: 36px;
 		border-bottom: 1px solid $gray;
-		input[type='submit'] {
-			width: 100%;
+		
+	}
+
+	input[type='submit'] {
+		width: 50%;
+		float: right;
+	}
+
+	.link-btn {
+		color: #666;
+		margin-top: 16px;
+		font-size: 18px;
+		float: left; 
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
 		}
 	}
-	.checkbox {
-		label {
-			display: inline-block;
+
+	label {
+		display: inline-block;
+	}
+	em {
+		color: $dark-gray;
+	}
+	ul {
+		padding: 0 36px;
+		li {
+			width: 100%;
+			float: left;
+			padding-top: 24px; 
+			a {
+				width: auto;
+				padding: 20px 0;
+				box-shadow: 1px 2px 3px rgba(0,0,0,.4);
+				&:hover {
+					background: $blue-hover;
+					box-shadow: 0 0 0 rgba(0,0,0,.4);
+				}
+			}
 		}
+	}
+	.sign-up {
+		background: $blue;
 	}
 }
 
@@ -48,7 +88,7 @@
 	height: 32px;
 	z-index: 4;
 	left: 12px;
-	top: 49px;
+	top: 55px;
 	position: absolute;
 }
 

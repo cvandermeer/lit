@@ -1,15 +1,9 @@
-<div class="links">
-	<%- if controller_name != 'sessions' %>
-	  <%= link_to "Inloggen", new_session_path(resource_name), class: 'btn-default inloggen' %><br />
-	<% end -%>
-
-	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-	  <%= link_to "Registreren", new_registration_path(resource_name), class: 'btn-default sign-up' %><br />
-	<% end -%>
-
+<ul class="links">
 	<%- if devise_mapping.omniauthable? %>
 	  <%- resource_class.omniauth_providers.each do |provider| %>
-	    <%= link_to "#{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn-default facebook' %><br />
+	    <li>
+	    	<%= link_to "Inloggen met #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn-default facebook' %><br />
+	  	</li>
 	  <% end -%>
 	<% end -%>
-</div>
+</ul>
