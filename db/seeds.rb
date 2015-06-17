@@ -27,8 +27,7 @@ elsif ENV['reseed']
 	Category.create([{ title: 'Normale vragen'}, { title: 'Kies de juiste afbeelding' }, { title: 'Afbeelding & Woord' }]) 
 	Language.create([{ title: 'Fries' }, {  title: 'Engels' }, { title: 'Nederlands' }])
 
-	User.create([{id: 1, name: 'Admin', email: 'admin@gmail.com', password: '123qweasd', admin: true, points: 0}, 
-							 {id: 2, name: 'Test persoon', email: 'test@test.nl', password: 'testtest', admin: false, points: 0}])
+	User.create([{id: 1, name: 'Jelle Brandsma', email: 'jelle@switsj.com', password: '123qweasd', admin: true, points: 0}])
 
 	Answer.create(id: 1, title: 'Time is up!')
 
