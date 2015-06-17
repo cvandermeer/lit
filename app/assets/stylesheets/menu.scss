@@ -6,7 +6,7 @@
   height: auto;
   background: $blue-hover; 
   @include transition( 0.3s );
-  box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
   &.active {
     li {
       margin: 10px 0;
@@ -59,7 +59,6 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
   @include transition( 0.3s );
   cursor: pointer;
   > div {

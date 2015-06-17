@@ -12,22 +12,22 @@
 	z-index: 1;
 	background: $green;
 	border: 0px solid $green;
-	box-shadow: 0 0 0px rgba(88,185,87,.8);
+	box-shadow: 0 0 0px rgba(171,203,68,.8);
 	overflow: hidden;
 	@include transition(0.3s);
 	&.fail {
 		background: $red;
 		border: 0px solid $red;
-		box-shadow: 0 0 0px rgba(219,82,79,.8);
+		box-shadow: 0 0 0px rgba(189,32,38,.8);
 		&.active {
 			border: 1px solid $red;
-			box-shadow: 0 0 5px rgba(219,82,79,.8);
+			box-shadow: 0 0 5px rgba(189,32,38,.8);
 		}
 	}
 	&.active {
 		height: 24px;
 		padding: 12px 0;
 		border: 1px solid $green;
-		box-shadow: 0 0 5px rgba(88,185,87,.8);
+		box-shadow: 0 0 5px rgba(171,203,68,.8);
 	}
 }
