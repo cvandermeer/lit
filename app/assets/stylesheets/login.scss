@@ -1,76 +1,66 @@
-.inlog-bg {
+.login {
 	background: linear-gradient(
       rgba(0, 0, 0, 0.20), 
       rgba(0, 0, 0, 0.20)), asset-url('S-background.png'); 
 	background-position: center;
 	min-height: 100%;
-}
-
-.field {
-	max-width: 365px;
-	width: 100%;
-	margin: 0 auto;
-	label {
-		padding-top: 50px;
-		color: #b3b1b3;
-		font-family: 'Open Sans', sans serif;
-
-}
-	input {
-		background-color: #f5f5f4;
-		height: 75px;
-		color: $blue;
+	h2 {
+		background-color: $blue;
+		text-align: center;
+		padding: 40px 0px;
+		color: #fff;
 		font-family: 'Open Sans', sans serif;
 		font-size: 20px;
+		margin-bottom: 40px;
+	}
+	.field {
+		margin: 24px auto;
 		position: relative;
-		text-indent: 70px;
-		margin-bottom: 30px;
-		border-radius: 5px;
+		label {
+			color: #b3b1b3;
+			font-family: 'Open Sans', sans serif;
+		}
+	}
+	input[type='password'],
+	input[type='email'] {
+		text-indent: 50px;
+		color: $blue-hover !important;
+	}
+	form {
+		padding: 36px;
+		border-bottom: 1px solid $gray;
+		input[type='submit'] {
+			width: 100%;
+		}
+	}
+	.checkbox {
+		label {
+			display: inline-block;
+		}
 	}
 }
 
+.email-icon,
 .key-icon {
 	background-image: asset-url('key-icon.png');
 	background-repeat: no-repeat;
-	background-size: cover;
-	width: 40px;
-	height: 40px;
-	top: 428px;
-	margin-left: 20px;
+	width: 33px;
+	height: 32px;
 	z-index: 4;
+	left: 12px;
+	top: 49px;
 	position: absolute;
 }
 
 .email-icon {
 	background-image: asset-url('email-icon.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 40px;
-	height: 40px;
-	top: 242px;
-	margin-left: 20px;
-	z-index: 4;
-	position: absolute;
 }
 
 .login-box {
-	max-width: 570px;
-	width: 100%;
-	height: 600px;
+	max-width: 500px;
+	width: 90%;
 	background-color: #fff;
 	margin: 0 auto;
 	border-radius: 5px;
-	-webkit-box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
-  	-moz-box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
-  	box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
-}
-
-.title {
-	background-color: $blue;
-	text-align: center;
-	padding: 40px 0px;
-	color: #fff;
-	font-family: 'Open Sans', sans serif;
-	font-size: 20px;
-	margin-bottom: 40px;
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
 }

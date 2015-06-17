@@ -1,7 +1,7 @@
 <h2 class="title">Inloggen</h2>
 
-<div class="login-box">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="login-box clearfix">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'clearfix'}) do |f| %>
     <div class="field">
       <div class="email-icon"> </div>
         <%= f.label :email %>
@@ -15,14 +15,14 @@
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field">
+      <div class="field checkbox">
         <%= f.check_box :remember_me %>
         <%= f.label :Ingelogd_blijven %>
       </div>
     <% end -%>
 
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Inloggen" %>
     </div>
   <% end %>
 
