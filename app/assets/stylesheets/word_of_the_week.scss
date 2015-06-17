@@ -11,6 +11,7 @@
 		margin: 12px 0;
 	}
 	li {
+		text-transform: uppercase;
 		margin: 10px 0;
 		margin-right: 10px;
 		border-radius: 5px;
@@ -43,7 +44,7 @@
 			background: $blue;
 			color: #fff;
 			font-size: 24px;
-			  padding: 8px 13px 17px 13px;
+			padding: 8px 13px 17px 13px;
 			text-align: center;
 			font-weight: 600;
 			text-indent: 0;

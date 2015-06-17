@@ -22,11 +22,6 @@ body {
   margin: 0;
   width: 100%;
   background-color: #f8f8f8;
-  @include transform(translateX(0px));
-  @include transition( 0.3s );
-  &.active {
-    @include transform(translateX(-200px));
-  }
   a {
   	padding: 0 10px 0 0;
     color: $blue;
@@ -49,20 +44,24 @@ body {
 @import 'question_popup';
 @import 'charts';
 @import 'word_of_the_week';
+@import 'forms';
+@import 'login';
 
 .overlay-popup,
 .overlay {
   z-index: 100;
   position: fixed;
-  width: 0;
-  height: 100%;
+  width: 100%;
+  min-height: 0%;
+  height: 0%;
   top: 0;
   right: 0;
   cursor: pointer;
   background: rgba(0,0,0,0.2);
   @include transition( 0.3s );
   &.active {
-    width: 100%;
+    min-height: 100%; /* Met overlay ontstaat er een dikke vertraging :( */
+    height: 100%;
   }
 }
 

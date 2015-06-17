@@ -23,6 +23,9 @@
 		padding: 25px;
 		p {
 			font-size: 14px;
+			&.answer-title {
+				font-size: 30px;
+			}
 		}
 	}
 	.btn-default {
@@ -33,7 +36,7 @@
 			background: $blue;
 			&:hover {
 		    background: $blue-hover;
-		    color: #fff
+		    color: #fff;
 		  }
 		}
 		&.quit {
@@ -49,15 +52,14 @@
 	}
 	p {
 		text-align: center;
-		span {
-			font-size: 30px;
+		&.answer-title {
 			font-family: 'Open Sans', sans serif;
 			font-weight: 200;
 		}
 	}
 	&.correct {
 		border: 1px solid $green;
-		box-shadow: 0 0 5px rgba(88,185,87,.8)
+		box-shadow: 0 0 5px rgba(88,185,87,.8);
 	}
 	&.fail {
 		border: 1px solid $red;

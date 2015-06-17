@@ -1,5 +1,4 @@
 /* Buttons */
-
 .btn-home {
   position: relative;
   padding: 25px 0;
@@ -69,7 +68,43 @@
   margin: 12px 0;
   text-align: center;
   width:100px;
+  @include transition(0.3s);
+  &:hover {
+    color: #fff;
+  }
 }
+
+.btn-container {
+  width: 100%;
+  margin: 24px 0;
+  li {
+    width: 33.3%;
+    float: left;
+    &:first-child {
+      a {
+        margin: 0;
+      }
+    }
+  }
+  a {
+    width: auto;
+    margin: 0 0 0 12px;
+    padding: 24px;
+  }
+}
+
+.edit {
+  background: $blue;
+}
+
+.correct {
+  background: green;
+}
+
+.delete {
+  background: red;
+}
+
 
 @media (max-width: 550px) {
   .btn-home {
