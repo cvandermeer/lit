@@ -230,16 +230,35 @@
 }
 .correct_answer {
 	border: 1px solid $green !important;
-	box-shadow: 0 0 5px rgba(88,185,87,.8) !important;
+	box-shadow: 0 0 5px rgba(171,203,68,.8) !important;
 	&:hover {
-		box-shadow: 0 0 5px rgba(88,185,87,.8) !important;
+		box-shadow: 0 0 5px rgba(171,203,68,.8) !important;
 	}
 }
 .wrong_answer {
 	border: 1px solid $red !important;
-	box-shadow: 0 0 5px rgba(219,82,79,.8) !important;
+	box-shadow: 0 0 5px rgba(189,32,38,.8) !important;
 	&:hover {
-		box-shadow: 0 0 5px rgba(219,82,79,.8) !important;
+		box-shadow: 0 0 5px rgba(189,32,38,.8) !important;
+	}
+}
+
+label {
+	&.correct_answer {
+		border: none !important;
+		box-shadow: none !important;
+		color: $green;
+		&:hover {
+			box-shadow: none !important;
+		}
+	}
+	&.wrong_answer {
+		border: none !important;
+		box-shadow: none !important;
+		color: $red;
+		&:hover {
+			box-shadow: none !important;
+		}
 	}
 }
 
