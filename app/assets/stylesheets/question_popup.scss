@@ -2,16 +2,15 @@
 	max-width: 300px;
 	width: 100%;
 	height: 0px;
-	position: fixed;
+	position: absolute;
 	overflow: hidden;
-	top: 50%;
 	z-index: 1001;
-	margin-top: -90px;
+	bottom: 40px;
 	left: 50%;
 	margin-left: -175px;
 	background: #fff;
 	padding: 0px 25px;
-	box-shadow: 1px 2px 3px rgba(0,0,0,0.5);
+	box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
 	border-radius: 4px;
 	@include transition(0.3s);
 	p {
@@ -59,10 +58,10 @@
 	}
 	&.correct {
 		border: 1px solid $green;
-		box-shadow: 0 0 5px rgba(88,185,87,.8);
+		box-shadow: 0 0 5px rgba(171,203,68,.8);
 	}
 	&.fail {
 		border: 1px solid $red;
-		box-shadow: 0 0 5px rgba(219,82,79,.8);
+		box-shadow: 0 0 5px rgba(189,32,38,.8);
 	}
 }
