@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
-      user.facebook_image_url = auth.info.image
+      user.facebook_image_url = auth.info.image + '?type=large'
     end
   end
 
