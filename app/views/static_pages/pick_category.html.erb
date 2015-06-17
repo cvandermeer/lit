@@ -1,5 +1,6 @@
-<h2>Kies een categorie</h2>
-<div>
+<h2 class="title">Kies een categorie</h2>
+
+<div class="clearfix">
   <%= link_to @reading.category.title, @reading, class: 'btn-home icon play' if !@reading.nil? %>
   <%= link_to @foto_quiz.category.title, @foto_quiz, class: 'btn-home icon play' if !@foto_quiz.nil? %>
   <%= link_to @writing.category.title, @writing, class: 'btn-home icon play' if !@writing.nil? %>

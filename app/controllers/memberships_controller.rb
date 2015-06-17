@@ -8,9 +8,6 @@ class MembershipsController < ApplicationController
 		@userlist = @users - @team.users
 	end
 
-	def show
-	end
-
 	def create
 		@membership = Membership.new(membership_params)
 		@membership.team_id = @team.id

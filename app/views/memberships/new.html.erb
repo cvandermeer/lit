@@ -1,4 +1,4 @@
-<h2>Leden uitnodigen voor <%= @team.name %></h2>
+<h2 class='title'>Leden uitnodigen voor: <%= @team.name %></h2>
 
 <%= form_for [@team, @membership] do |f| %>
 	<% if @team.memberships.any? %>

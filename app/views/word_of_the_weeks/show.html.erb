@@ -1,5 +1,4 @@
-<h2><%= @word_of_the_week.title %></h2>
-<p>(<%= @word_of_the_week.description %>)</p>
+<%= render 'shared/word_of_the_week', word_of_the_week: @word_of_the_week %>
 
 <ul>
   <% @word_of_the_week.word_of_the_week_reactions.each do |w| %>

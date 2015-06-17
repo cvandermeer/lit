@@ -1,22 +1,20 @@
-<%= link_to @word_of_this_week do %>
-  <div class="wotw">
-    <div class='title'>
-    	<h4>Woord van week</h4>
-    	<i><%= @word_of_this_week.description %></i>
-    </div>
-    <ul class="clearfix">
-    <% @word_of_this_week.title.chars.each do |c| %>
-    	<% if c.ord != 32%>
-  	  	<li>
-  	  		<%= c %>
-  	  	</li>
-    	<% else %>
-    		<li>
-    		-
-    		</li>
-  			<li class="break clearfix"></li>
-    	<% end %>
-    <% end %>
-    </ul>
+<div class="wotw">
+  <div class='title'>
+  	<h4>Woord van week</h4>
+  	<i><%= word_of_the_week.description %></i>
   </div>
-<% end %>
+  <ul class="clearfix">
+  <% word_of_the_week.title.chars.each do |c| %>
+  	<% if c.ord != 32%>
+	  	<li>
+	  		<%= c %>
+	  	</li>
+  	<% else %>
+  		<li>
+  		-
+  		</li>
+			<li class="break clearfix"></li>
+  	<% end %>
+  <% end %>
+  </ul>
+</div>

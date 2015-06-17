@@ -9,9 +9,9 @@
 	<%= link_to 'Mijn profiel', current_user, class: 'btn-home icon profile' %>
 
 	<%= link_to 'Klassement', leaderboard_path, class: 'btn-home icon leaderboard' %>
-
 </div>
 
-<%= render 'shared/word_of_the_week' %>
-
+<%= link_to @word_of_this_week, class: 'margin-fix' do %>
+	<%= render 'shared/word_of_the_week', word_of_the_week: @word_of_this_week %>
+<% end %>
 

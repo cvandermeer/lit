@@ -4,15 +4,6 @@
       rgba(0, 0, 0, 0.20)), asset-url('S-background.png'); 
 	background-position: center;
 	min-height: 100%;
-	h2 {
-		background-color: $blue;
-		text-align: center;
-		padding: 40px 0px;
-		color: #fff;
-		font-family: 'Open Sans', sans serif;
-		font-size: 20px;
-		margin-bottom: 40px;
-	}
 
 	.field {
 		margin: 24px auto;
@@ -52,12 +43,6 @@
 		}
 	}
 
-	label {
-		display: inline-block;
-	}
-	em {
-		color: $dark-gray;
-	}
 	.links {
 		padding: 0 36px;
 		li {
