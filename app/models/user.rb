@@ -9,12 +9,21 @@ class User < ActiveRecord::Base
   has_many :user_results, dependent: :destroy
   has_many :word_of_the_week_reactions, dependent: :destroy
   has_many :memberships, dependent: :destroy
-  has_many :teams, through: :memberships, dependent: :destroy
+  has_many :teams, through: :memberships
 
   ### VALIDATIONS ###
   validates :name, presence: true
 
+  ### CALLBACKS ###
   after_create :user_defaults
+  before_destroy :remove_teams
+
+  def remove_teams
+    Team.where(user_id: self.id).each do |t|
+      t.destroy
+    end
+  end
+
 
   def user_defaults	
   	if self.admin == nil
