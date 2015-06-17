@@ -36,11 +36,11 @@ gem 'bourbon'
 gem 'bitters'
 # Basic styling of the application
 
-gem "highcharts-rails", "~> 3.0.0"
-# Gem voor het weergeven van de diagrammen
-
 gem 'omniauth-facebook'
 # Deze gem bied de mogelijkheid om in teloggen via facebook
+
+gem 'easy_as_pie'
+# Gem voor het weergeven van de diagrammen
 
 group :development, :test do
   gem 'byebug'

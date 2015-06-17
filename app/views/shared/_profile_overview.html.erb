@@ -29,5 +29,14 @@
 			<%= 'punt' if @user.points == 1  %>
 			<%= 'punten' if @user.points != 1 %>
 		</i>
+		<% if @user.user_results.where(language_id: 1).any? %>
+			<%= easy_as_pie @frysk_score %>
+		<% end %>
+		<% if @user.user_results.where(language_id: 2).any? %>
+			<%= easy_as_pie @english_score %>
+		<% end %>
+		<% if @user.user_results.where(language_id: 3).any? %>
+			<%= easy_as_pie @dutch_score %>
+		<% end %>
 	</div>
 </div>

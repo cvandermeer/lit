@@ -8,6 +8,16 @@ class StaticPagesController < ApplicationController
       render json: @users
     end
     @user = current_user
+
+    if current_user.user_results.where(language_id: 1).any?
+      @frysk_score = ((current_user.user_results.where(language_id: 1, correctly_answered: true).count.to_f / current_user.user_results.where(language_id: 1).count.to_f) * 100).round
+    end
+    if current_user.user_results.where(language_id: 2).any?
+      @english_score = ((current_user.user_results.where(language_id: 2, correctly_answered: true).count.to_f / current_user.user_results.where(language_id: 2).count.to_f) * 100).round
+    end
+    if current_user.user_results.where(language_id: 3).any?
+      @dutch_score = ((current_user.user_results.where(language_id: 3, correctly_answered: true).count.to_f / current_user.user_results.where(language_id: 3).count.to_f) * 100).round
+    end
   end
 
   def pick_category
