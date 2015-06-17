@@ -13,7 +13,7 @@
 <body>
   
 <header>
-    <div class="wrapper">
+    <div class="wrapper ">
       <% if user_signed_in? %>
     	  <%= render 'shared/menu' %>
       <% end %>
@@ -27,12 +27,14 @@
     </div>
 </header>
 
-<div class="wrapper">
+<div class="wrapper <%= 'inlog-bg' if !user_signed_in? %>">
   <%= yield %>
 </div>
 
 <div class='overlay'></div>
 </div> 
+
+
 
 </body>
 </html>
