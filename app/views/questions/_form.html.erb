@@ -4,11 +4,11 @@
 	<%= nested_form_for @question, html: { :multipart => true } do |f| %>
 		<div class='field'>
 			<%= f.label :image, 'Voeg een afbeelding toe!' %>
-			<% if @question.image? %>
-        <%= image_tag @question.image.url(:thumb), class: 'imagePreview' %>
-      <% else %>
-         <img scr='' class="imagePreview" />
-      <% end %>
+			<div class="imagePreview">
+				<% if @question.image? %>
+	        <%= image_tag @question.image.url(:thumb), class: 'image-preview' %>
+	      <% end %>
+      </div>
 			<%= f.file_field :image, class: 'imageUpload' %>
 			<%= f.hidden_field :image_cache %>
 		</div>
@@ -27,10 +27,10 @@
 				<%= answer.text_field :title, placeholder: 'Voeg een antwoord toe!' %>
 			</div>
 		<% end %>
-		<p><%= f.link_to_add "Antwoord toevoegen!", :answers, class: 'jsTriggerAnswers1' %></p>
+		<p><%= f.link_to_add "Antwoord toevoegen!", :answers, class: 'jsTriggerAnswers', data_trigger_times: '4' %></p>
 		
 		<div class='actions'>
-			<%= f.submit 'Versturen', data: { disable_with: 'Aan het versturen...' } %>
+			<%= f.submit 'Versturen', data: { disable_with: 'Aan het versturen...' }, class: 'btn new' %>
 		</div>
 	<% end %>
 </fieldset>

@@ -23,10 +23,10 @@ ready = function() {
 		var correctAnswerId = post.correct_answer_id;
 		
 		if (givenAnswerId == correctAnswerId) {
-			$('.question-popup p').append('Goed geantwoord: </br><span>' + correctAnswer + '</span>');
+			$('.question-popup p').append('Goed geantwoord: ').after('<p class="answer-title">' + correctAnswer + '</p>');
 			$('.question-popup').addClass('correct');
 		} else {
-			$('.question-popup p').append('Fout geantwoord, het juiste antwoord is: </br><span>' + correctAnswer + '</span>');
+			$('.question-popup p').append('Fout geantwoord, het juiste antwoord is: ').after('<p class="answer-title">' + correctAnswer + '</p>');
 			$('.question-popup').addClass('fail');
 		}
 		$('.question-popup, .overlay-popup').addClass('active')
