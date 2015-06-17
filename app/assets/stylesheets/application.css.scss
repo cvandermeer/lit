@@ -34,6 +34,17 @@ body {
   margin: 0 auto;
 }
 
+h2.title {
+  background-color: $blue;
+  text-align: center;
+  padding: 20px 0px;
+  color: #fff;
+  font-family: 'Open Sans', sans serif;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+
 @import 'header';
 @import 'menu';
 @import 'buttons';
