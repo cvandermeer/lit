@@ -2,7 +2,8 @@ fieldset {
 	background: #fff;
 }
 
-
+input[type='password'],
+input[type='email'],
 input[type="text"],
 textarea {
 	margin: 12px 0 18px 0;
@@ -23,6 +24,9 @@ input[type="submit"] {
 	@include transition(0.3s);
 	background: $blue;
 	float: right;
+	font-size: 18px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
 	box-shadow: 1px 2px 3px rgba(0,0,0,.4);
 	&:hover {
 		background: $blue-hover;

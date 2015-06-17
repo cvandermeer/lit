@@ -1,0 +1,9 @@
+<ul class="links">
+	<%- if devise_mapping.omniauthable? %>
+	  <%- resource_class.omniauth_providers.each do |provider| %>
+	    <li>
+	    	<%= link_to "Inloggen met #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'btn-default facebook' %><br />
+	  	</li>
+	  <% end -%>
+	<% end -%>
+</ul>
