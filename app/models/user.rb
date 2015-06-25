@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :recoverable, :trackable
-  devise :database_authenticatable, :registerable, 
+  devise :database_authenticatable, :registerable,
           :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   ### RELATIONS ###
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
 
-  def user_defaults	
+  def user_defaults
   	if self.admin == nil
   		self.admin = false
       self.points = 0
@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("name LIKE ?", "%#{search}%") 
+    where("name LIKE ?", "%#{search}%")
   end
 
   ## UPLOADER ##

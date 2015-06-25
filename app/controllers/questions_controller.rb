@@ -73,7 +73,7 @@ class QuestionsController < ApplicationController
 		if answer.id == @question.correct_answer_id
 			current_user.points = current_user.points + 2
 			current_user.memberships.where(accepted: true).each do |m|
-				m.points = m.points + 1 
+				m.points = m.points + 1
 				m.save
 			end
 			current_user.save
@@ -84,7 +84,7 @@ class QuestionsController < ApplicationController
 
 		render json: @question
 	end
-	
+
 	private
 		def set_question
 			@question = Question.find(params[:id])

@@ -53,7 +53,7 @@ class MembershipsController < ApplicationController
 		@membership = Membership.find(params[:id])
 	end
 
-	def set_team 
+	def set_team
 		@team = Team.find(params[:team_id])
 	end
 end

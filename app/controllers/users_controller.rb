@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def leaderboard_write_word
-    @users = User.all.order(:points).reverse 
+    @users = User.all.order(:points).reverse
   end
 
 	def invites
@@ -51,13 +51,14 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  def check_admin
-    if !current_user.admin == true
-      redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!'
+    def set_user
+      @user = User.find(params[:id])
     end
-  end
+
+    def check_admin
+      if !current_user.admin == true
+        redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!'
+      end
+    end
+
 end

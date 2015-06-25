@@ -1,32 +1,42 @@
 <ul>
-	<li><%= image_tag @team.picture.url(:thumb) %></li>
-	<li><%= @team.name %></li>
+	<li>
+		<%= image_tag @team.picture.url(:thumb) %>
+	</li>
+	<li>
+		<%= @team.name %>
+	</li>
 	<% if current_user.memberships.where(team_id: @team.id).any? && current_user.memberships.where(team_id: @team.id).first.accepted == true %>
 		<li>
 			<%= link_to 'Team verlaten', current_user.memberships.where(team_id: @team.id).first, method: :delete, data: { confirm: 'Weet je het zeker?' }, class: 'btn-default' %>
 		</li>
 	<% end %>
-	<li><%= @team.description %></li>
-	<li>Team leader: <%= @team.user.name %></li>
-	<h4>Team leden:</h4>
-  
-	<table>
-		<thead>
-			<tr>
-				<th>gebruiker</th>
-				<th>Teampunten</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @memberships.each do |m| %>
-				<tr>
-					<td><%= m.user.name %></td>
-					<td><%= m.points %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<li>
+		<%= @team.description %>
+	</li>
+	<li>
+		Team leader: <%= @team.user.name %>
+	</li>
 </ul>
+
+<h4>Team leden:</h4>
+
+<table>
+	<thead>
+		<tr>
+			<th>gebruiker</th>
+			<th>Teampunten</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @memberships.each do |m| %>
+			<tr>
+				<td><%= m.user.name %></td>
+				<td><%= m.points %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
 <% if current_user == @team.user %>
 	<%= link_to 'Leden uitnodigen', new_team_membership_path(@team) %>
 <% end %>

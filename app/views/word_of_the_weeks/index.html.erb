@@ -1,5 +1,5 @@
 <h2>Huidige weeknummer: <%= Time.now.strftime("%U").to_i + 1 %></h2>
-<table> 
+<table>
   <thead>
     <th>
       Weeknummer
@@ -13,9 +13,15 @@
     <tr>
       <% @word_of_the_weeks.each do |w| %>
         <tr>
-          <td><%= w.id %></td>
-          <td><%= w.title %></td>
-          <td><%= link_to 'Aanpassen', edit_word_of_the_week_path(w) %></td>
+          <td>
+            <%= w.id %>
+          </td>
+          <td>
+            <%= w.title %>
+          </td>
+          <td>
+            <%= link_to 'Aanpassen', edit_word_of_the_week_path(w) %>
+          </td>
         </tr>
       <% end %>
     </tr>

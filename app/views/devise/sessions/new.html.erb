@@ -3,15 +3,15 @@
 <div class="login-box clearfix">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'clearfix'}) do |f| %>
     <div class="field">
-        <div class="email-icon"> </div>
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true %>
+      <div class="email-icon"> </div>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
     </div>
 
     <div class="field">
-        <div class="key-icon"> </div>
-        <%= f.label :wachtwoord %>
-        <%= f.password_field :password, autocomplete: "off" %>
+      <div class="key-icon"> </div>
+      <%= f.label :wachtwoord %>
+      <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -24,12 +24,10 @@
     <div class="actions">
       <%= f.submit "Inloggen" %>
     </div>
-      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>  
-        <%= link_to "Registreren", new_registration_path(resource_name), class: 'link-btn' %><br />
-      <% end -%>
-    <% end %>
-
-
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Registreren", new_registration_path(resource_name), class: 'link-btn' %><br />
+    <% end -%>
+  <% end %>
 
   <%= render "devise/shared/links" %>
 </div>

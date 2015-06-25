@@ -1,7 +1,7 @@
 <div class='question clearfix'>
-  
+
   <h6><%= @question.category.title %></h6>
-  
+
   <p class="language <%= @question.language.title.downcase %>">
     <% if @question.category_id == 3 %>
       Maak het <span><%= @question.language.title %>e</span> woord in letters
@@ -11,7 +11,7 @@
       Kies het <span>Juiste</span> antwoord
     <% end %>
   </p>
-  
+
   <% if @question.image? %>
     <div class='question-image'>
       <%= image_tag @question.image %>
@@ -19,16 +19,16 @@
   <% end %>
 
   <% if @question.category_id == 1 %>
-  <div class='normal-question'> 
+    <div class='normal-question'>
 
-    <h3><%= @question.title %></h3>
+      <h3><%= @question.title %></h3>
 
-    <% @question.answers.each_with_index do |answer, index| %>
-      <div class= 'answer <%= 'correct_answer' if index == 0 %> <%= 'wrong_answer' if index != 0 %>'><%= answer.title %></div>
-    <% end %>
-  </div>
-  
-  <% elsif @question.category_id == 2 %>  
+      <% @question.answers.each_with_index do |answer, index| %>
+        <div class= 'answer <%= 'correct_answer' if index == 0 %> <%= 'wrong_answer' if index != 0 %>'><%= answer.title %></div>
+      <% end %>
+    </div>
+
+  <% elsif @question.category_id == 2 %>
     <div class="choose-image clearfix">
 
       <h3><%= @question.title %></h3>
@@ -58,12 +58,12 @@
           </li>
         <% end %>
       </div>
-    
+
     </div>
 
   <% end %>
-
 </div>
+
 <ul class="btn-container">
   <% if @question.approved != true %>
     <li>

@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
 	before_create :question_defaults
 
 	### RELATIONS ###
-	belongs_to :user 
+	belongs_to :user
 	belongs_to :category
 	belongs_to :language
 	has_many :answers, dependent: :destroy
@@ -32,7 +32,7 @@ class Question < ActiveRecord::Base
 
 	## UPLOADER ##
   mount_uploader :image, ImageUploader
-  
+
   private
 		def add_least_one_is_present
     	if category_id != 3
@@ -43,11 +43,11 @@ class Question < ActiveRecord::Base
     		errors.add(:base, "Voeg een afbeelding toe!")
     	end
     end
-	  
-	  def require_two_answers
+
+		def require_two_answers
 	  	if category_id != 3
-     		errors.add(:base, "Geef minstens twee antwoorden") if self.answers.size < 2
-     	elsif self.answers.size == 0
+				errors.add(:base, "Geef minstens twee antwoorden") if self.answers.size < 2
+			elsif self.answers.size == 0
      		errors.add(:base, "Geef het woord dat bij de afbeelding hoort")
      	end
     end

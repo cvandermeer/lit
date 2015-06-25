@@ -1,7 +1,7 @@
 <div class='question clearfix'>
-	
+
 	<h6><%= @question.category.title %></h6>
-	
+
 	<p class="language <%= @question.language.title.downcase %>">
 		<% if @question.category_id == 3 %>
 			Maak het <span><%= @question.language.title %>e</span> woord in letters
@@ -11,7 +11,7 @@
       Kies het <span>Juiste</span> antwoord
     <% end %>
 	</p>
-	
+
 	<% if @question.image? %>
 		<div class='question-image'>
 			<div class="timer-container">
@@ -22,7 +22,7 @@
 	<% end %>
 
 	<% if @question.category_id == 1 %>
-	<div class='normal-question'>	
+	<div class='normal-question'>
 		<% if !@question.image? %>
 		<div class="timer-container">
 			<div class='timer'></div>
@@ -31,14 +31,14 @@
 
 		<h3><%= @question.title %></h3>
 
-		<div class='answer-container jsData' data-answer='<%= @question.answers.first.title %>' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
+		<div class='answer-container jsData' data-answer='<%= @question.answers.first.title %>' data-question-id='<%= @question.id %>' data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>'>
 			<% @question.answers.shuffle.each do |answer| %>
 				<%= link_to answer.title, submit_answer_path(@question, answer_id: answer.id), remote: true, class: 'js-answer-trigger answer' %>
 			<% end %>
 		</div>
 	</div>
-	
-	<% elsif @question.category_id == 2 %>	
+
+	<% elsif @question.category_id == 2 %>
 		<div class="choose-image clearfix">
 			<div class="timer-container">
 				<div class='timer'></div>
@@ -46,7 +46,7 @@
 
 			<h3><%= @question.title %></h3>
 
-			<div class='jsData' data-question-id='<%= @question.id %>'  data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>' data-answer='<%= @question.answers.first.image.url(:image_cropped) %>'>
+			<div class='jsData' data-question-id='<%= @question.id %>' data-wrong-answer-id='<%= @question.correct_answer_id + 1 %>' data-answer='<%= @question.answers.first.image.url(:image_cropped) %>'>
 				<% @question.answers.shuffle.each do |answer| %>
 				<div class="image-container">
 					<div>
@@ -67,10 +67,10 @@
 				<div data-answer-id='<%= @question.answers.first.id %>' class='js-write-word dots-container clearfix'></div>
 
 			<div class='js-set-letters letters clearfix'></div>
-		
+
 		</div>
-		
-		<%= link_to 'Bevestig antwoord', submit_answer_path(@question, answer_id: 1), remote: true,	class: 'js-answer-trigger answer' %> 
+
+		<%= link_to 'Bevestig antwoord', submit_answer_path(@question, answer_id: 1), remote: true, class: 'js-answer-trigger answer' %>
 
 	<% end %>
 
