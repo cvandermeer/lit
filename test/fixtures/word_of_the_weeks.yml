@@ -1,4 +1,3 @@
-
 word_of_the_week:
   title: Application
   id: <%= Integer(Time.now.strftime('%U')) + 1 %>
