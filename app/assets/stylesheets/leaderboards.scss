@@ -1,0 +1,11 @@
+.sort {
+	li {
+		float: left;
+		width: 30%;
+		text-align: left;
+		&:first-child {
+			width: 10%;
+		}
+	}
+
+}
