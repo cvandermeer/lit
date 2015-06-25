@@ -1,6 +1,8 @@
-<%= form_tag(root_path, :method => "get", remote: true, class: 'jsFindUser') do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Gebruikers zoeken", class: 'jsSearchForm', autocomplete: "off" %>
-<% end %>
+<fieldset>
+	<%= form_tag(root_path, :method => "get", remote: true, class: 'jsFindUser') do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Gebruikers zoeken", class: 'jsSearchForm', autocomplete: "off" %>
+	<% end %>
 
-<div class="jsFoundUsers">
-</div>
+	<div class="jsFoundUsers">
+	</div>
+</fieldset>

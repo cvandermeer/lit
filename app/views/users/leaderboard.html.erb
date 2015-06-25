@@ -1,7 +1,21 @@
-<%= render 'shared/find_user' %>
+<h2 class="title">Algemeen Klassement</h2>
 
-<p> Klassement | <%= link_to 'Normale vragen', leaderboard_normal_questions_path %> | <%= link_to 'Kies de juiste afbeelding', leaderboard_choose_image_path %> | <%= link_to 'Schrijf het woord', leaderboard_write_word_path %></p>
-<h2>Algemeen Klassement</h2>
+<%# render 'shared/find_user' %>
+
+<ul class='sort'>
+  <li>
+    Sorteren:
+  </li>
+  <li> 
+    <%= link_to 'Normale vragen', leaderboard_normal_questions_path %> 
+  </li>
+  <li>
+    <%= link_to 'Kies de juiste afbeelding', leaderboard_choose_image_path %>
+  </li> 
+  <li>
+    <%= link_to 'Schrijf het woord', leaderboard_write_word_path %>
+  </li>
+</ul>
 
 <table>
   <thead>

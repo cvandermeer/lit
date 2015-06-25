@@ -23,12 +23,7 @@
 		</div>
 
 	</div>
-	<div class="charts-index"> 
-		<i>
-			<%= @user.points %>
-			<%= 'punt' if @user.points == 1  %>
-			<%= 'punten' if @user.points != 1 %>
-		</i>
+	<div class="charts-index">
 		<% if @user.user_results.where(language_id: 1).any? %>
 			<%= easy_as_pie @frysk_score %>
 		<% end %>
