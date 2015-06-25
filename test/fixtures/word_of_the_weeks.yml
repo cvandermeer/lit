@@ -1,5 +1,4 @@
-<% 1000.times do |n| %>
-word_of_the_week_<%= n %>:
+
+word_of_the_week:
   title: Application
-  id: <% n %>
-<% end %>
+  id: <%= Integer(Time.now.strftime('%U')) + 1 %>
