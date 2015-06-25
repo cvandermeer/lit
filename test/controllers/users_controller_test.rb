@@ -10,7 +10,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should get leaderboard' do
     get :leaderboard
-    assert_response :success
+    assert_response :success 
   end
 
   test 'should get leaderboard choose image' do
@@ -34,6 +34,6 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     def set_user
-      @user = users(:one)
+      @user = users(:one) 
     end
 end
