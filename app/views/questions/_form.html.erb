@@ -1,12 +1,12 @@
 <fieldset>
-	<%= error_messages_for @question %>
+	<%= error_messages_for question %>
 
-	<%= nested_form_for @question, html: { :multipart => true } do |f| %>
+	<%= nested_form_for question, html: { :multipart => true } do |f| %>
 		<div class='field'>
 			<%= f.label :image, 'Voeg een afbeelding toe!' %>
 			<div class="imagePreview">
-				<% if @question.image? %>
-	        <%= image_tag @question.image.url(:thumb), class: 'image-preview' %>
+				<% if question.image? %>
+	        <%= image_tag question.image.url(:thumb), class: 'image-preview' %>
 	      <% end %>
       </div>
 			<%= f.file_field :image, class: 'imageUpload' %>
