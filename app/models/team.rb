@@ -8,6 +8,9 @@ class Team < ActiveRecord::Base
 	has_many :users, through: :memberships
 	belongs_to :user
 
+	### DELEGATE ###
+	delegate :name, to: :user, prefix: true
+
 	### VALIDATIONS ###
 	validates :name, presence: true
 	validates :user_id, presence: true

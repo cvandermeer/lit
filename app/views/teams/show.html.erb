@@ -10,11 +10,16 @@
 			<%= link_to 'Team verlaten', current_user.memberships.where(team_id: @team.id).first, method: :delete, data: { confirm: 'Weet je het zeker?' }, class: 'btn-default' %>
 		</li>
 	<% end %>
+	<% if current_user == @team.user %>
+		<li>
+			<%= link_to 'Team aanpassen', edit_team_path %>
+		</li>
+	<% end %>
 	<li>
 		<%= @team.description %>
 	</li>
 	<li>
-		Team leader: <%= @team.user.name %>
+		Team leader: <%= @team.user_name %>
 	</li>
 </ul>
 

@@ -30,11 +30,11 @@ Rails.application.routes.draw do
 
   ### word of the week ###
   resources :word_of_the_weeks, only: [:index, :edit, :update, :show]
-  resources :word_of_the_week_reactions
+  resources :word_of_the_week_reactions, only: [:new, :create]
 
   ### teams ###
-  resources :teams do
-    resources :memberships, only: [:show, :create, :new]
+  resources :teams, except: [:destroy] do
+    resources :memberships, only: [:create, :new]
   end
 
   get 'memberships/:id/accept_membership', to: 'memberships#accept_membership', as: 'accept_membership'

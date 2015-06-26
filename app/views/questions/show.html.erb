@@ -1,10 +1,10 @@
 <div class='question clearfix'>
 
-	<h6><%= @question.category.title %></h6>
+	<h6><%= @question.category_title %></h6>
 
-	<p class="language <%= @question.language.title.downcase %>">
+	<p class="language <%= @question.language_title.downcase %>">
 		<% if @question.category_id == 3 %>
-			Maak het <span><%= @question.language.title %>e</span> woord in letters
+			Maak het <span><%= @question.language_title %>e</span> woord in letters
 		<% elsif @question.category_id == 2 %>
 			Kies de juiste <span>afbeelding</span> bij het woord
 		<% else %>

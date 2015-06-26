@@ -9,6 +9,10 @@ class Question < ActiveRecord::Base
 	belongs_to :language
 	has_many :answers, dependent: :destroy
 
+	### DELEGATE ###
+	delegate :title, to: :category, prefix: true
+	delegate :title, to: :language, prefix: true
+	
 	### CALLBACKS ###
 	after_create :set_correct_answer
 

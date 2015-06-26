@@ -1,36 +1,36 @@
 <div class="coverphoto">
 	<div class='profile-overview'>
-		<% if @user.avatar? %>
+		<% if user.avatar? %>
 			<div class='profile-image'>
-				<%= image_tag @user.avatar.url(:image_cropped) %>
+				<%= image_tag user.avatar.url(:image_cropped) %>
 			</div>
-		<% elsif @user.provider == 'facebook' %>
+		<% elsif user.provider == 'facebook' %>
 		<div class="profile-image facebook-image">
-			<%= image_tag @user.facebook_image_url, class: 'facebook-img' %>
+			<%= image_tag user.facebook_image_url, class: 'facebook-img' %>
 		</div>
 		<% else %>
 		<div class='profile-image'>
-			<%= @user.name.chars.first || @user.email.chars.first  %>
+			<%= user.name.chars.first || user.email.chars.first  %>
 		</div>
 		<% end %>
 		<div class='profile-info'>
-			<% if @user.name %>
-			<h4><%= link_to @user.name, edit_user_registration_path, class: 'edit-icon' %></h4>
-			<h5><%= @user.email %></h5>
+			<% if user.name %>
+			<h4><%= link_to user.name, edit_user_registration_path, class: 'edit-icon' %></h4>
+			<h5><%= user.email %></h5>
 			<% else %>
-				<h4><%= link_to @user.email, edit_user_registration_path, class: 'edit-icon' %></h4>
+				<h4><%= link_to user.email, edit_user_registration_path, class: 'edit-icon' %></h4>
 			<% end %>
 		</div>
 
 	</div>
 	<div class="charts-index">
-		<% if @user.user_results.where(language_id: 1).any? %>
+		<% if user.user_results.where(language_id: 1).any? %>
 			<%= easy_as_pie @frysk_score %>
 		<% end %>
-		<% if @user.user_results.where(language_id: 2).any? %>
+		<% if user.user_results.where(language_id: 2).any? %>
 			<%= easy_as_pie @english_score %>
 		<% end %>
-		<% if @user.user_results.where(language_id: 3).any? %>
+		<% if user.user_results.where(language_id: 3).any? %>
 			<%= easy_as_pie @dutch_score %>
 		<% end %>
 	</div>

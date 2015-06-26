@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-	before_action :set_team, only: [:show]
+	before_action :set_team, only: [:show, :edit, :update]
 
 	def index
 		@teams = Team.all.sort_by {|team| team.total_points }.reverse
@@ -17,6 +17,18 @@ class TeamsController < ApplicationController
 		else
 			render 'new', notice: 'Team aanmaken mislukt'
 		end
+	end
+
+	def edit
+	end
+
+	def update
+		@team.update(team_params)
+    if @team.save
+      redirect_to @team, notice: 'Jouw team is aangepast'
+    else
+      redirect_to @team, notice: 'Aanpassen mislukt'
+    end
 	end
 
 	def show

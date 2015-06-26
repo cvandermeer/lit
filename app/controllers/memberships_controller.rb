@@ -9,12 +9,16 @@ class MembershipsController < ApplicationController
 	end
 
 	def create
-		@membership = Membership.new(membership_params)
-		@membership.team_id = @team.id
-		if @membership.save
-			redirect_to @team, notice: 'Teamuitnodiging verstuurd'
+		if params[:membership]
+			@membership = Membership.new(membership_params)
+			@membership.team_id = @team.id
+			if @membership.save
+				redirect_to @team, notice: 'Teamuitnodiging verstuurd'
+			else
+				redirect_to @team, notice: 'Teamuitnodiging mislukt'
+			end
 		else
-			redirect_to @team, notice: 'Teamuitnodiging mislukt'
+			redirect_to @team, notice: 'Er is niemand uitgenodigd'
 		end
 	end
 
