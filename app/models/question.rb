@@ -23,7 +23,6 @@ class Question < ActiveRecord::Base
 	validates :language_id, presence: true
 	validate :add_least_one_is_present
 	validate :require_two_answers
-	
 
 	def question_defaults
 		self.approved = 0
@@ -34,8 +33,14 @@ class Question < ActiveRecord::Base
 		self.save
 	end
 
-	## UPLOADER ##
+	### UPLOADER ###
   mount_uploader :image, ImageUploader
+
+  ### METHODS ###
+  def user_points
+  	self.user.points = self.user.points + 10
+  	self.user.save
+  end
 
   private
 		def add_least_one_is_present
