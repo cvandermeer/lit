@@ -42,6 +42,10 @@ class Question < ActiveRecord::Base
   	self.user.save
   end
 
+  def self.get_back_one_random_question(val)
+  	where(val, approved: true).offset(rand(Question.where(val, approved: true).count)).first
+  end
+
   private
 		def add_least_one_is_present
     	if category_id != 3

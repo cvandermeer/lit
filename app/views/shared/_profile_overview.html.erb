@@ -24,14 +24,8 @@
 
 	</div>
 	<div class="charts-index">
-		<% if user.user_results.where(language_id: 1).any? %>
-			<%= easy_as_pie frysk_score %>
-		<% end %>
-		<% if user.user_results.where(language_id: 2).any? %>
-			<%= easy_as_pie english_score %>
-		<% end %>
-		<% if user.user_results.where(language_id: 3).any? %>
-			<%= easy_as_pie dutch_score %>
-		<% end %>
+		<%= easy_as_pie frysk_score %>
+		<%= easy_as_pie english_score %>
+		<%= easy_as_pie dutch_score %>
 	</div>
 </div>

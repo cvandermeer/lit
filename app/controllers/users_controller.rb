@@ -3,15 +3,9 @@ class UsersController < ApplicationController
   before_action :check_admin, only: [:make_admin, :index, :destroy]
 
 	def show
-    if @user.user_results.where(language_id: 1).any?
-      @frysk_score = ((@user.user_results.where(language_id: 1, correctly_answered: true).count.to_f / @user.user_results.where(language_id: 1).count.to_f) * 100).round
-    end
-    if @user.user_results.where(language_id: 2).any?
-      @english_score = ((@user.user_results.where(language_id: 2, correctly_answered: true).count.to_f / @user.user_results.where(language_id: 2).count.to_f) * 100).round
-    end
-    if @user.user_results.where(language_id: 3).any?
-      @dutch_score = ((@user.user_results.where(language_id: 3, correctly_answered: true).count.to_f / @user.user_results.where(language_id: 3).count.to_f) * 100).round
-    end
+    @frysk_score = @user.get_back_all(1)
+    @english_score = @user.get_back_all(2)
+    @dutch_score = @user.get_back_all(3)
 	end
 
 	def leaderboard

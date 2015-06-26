@@ -50,6 +50,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_back_all(val)
+    if self.user_results.where(language_id: val).any?
+      ((self.user_results.where(language_id: val, correctly_answered: true).count.to_f / self.user_results.where(language_id: val).count.to_f) * 100).round
+    else
+      0
+    end
+  end
+
   def self.search(search)
     where("name LIKE ?", "%#{search}%")
   end
