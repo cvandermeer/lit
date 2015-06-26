@@ -11,7 +11,7 @@ class MembershipsController < ApplicationController
 	def create
 		if params[:membership]
 			@membership = Membership.new(membership_params)
-			@membership.team_id = @team.id
+			@membership.team = @team
 			if @membership.save
 				redirect_to @team, notice: 'Teamuitnodiging verstuurd'
 			else
@@ -37,14 +37,11 @@ class MembershipsController < ApplicationController
 	end
 
 	def destroy
-		if @membership.team_user_id == current_user.id
-			@membership.destroy
+		if @membership.check_if_team_owner(current_user)
 			@membership.team.destroy
-			redirect_to root_path, notice: 'Team verlaten en verwijderd'
-		else
-			@membership.destroy
-			redirect_to root_path, notice: 'Team verlaten'
 		end
+		@membership.destroy
+		redirect_to root_path, notice: 'Team verlaten'
 	end
 
 	private

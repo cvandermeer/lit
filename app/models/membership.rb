@@ -14,7 +14,13 @@ class Membership < ActiveRecord::Base
 	validates :user_id, presence: true
 	validates :team_id, presence: true
 
+	### METHODS ###
 	def set_default
 		self.points = 0
 	end
+
+	def check_if_team_owner(current_user)
+		self.team.user.id == current_user.id
+	end
+
 end

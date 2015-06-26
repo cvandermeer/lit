@@ -1,0 +1,10 @@
+RemoveUnusedMethodsInModelsCheck: {
+  except_methods: [
+  'User#new_with_session' 
+	]
+}
+RemoveUnusedMethodsInControllersCheck: { except_methods: [
+	'RegistrationsController#account_update_params',
+	'RegistrationsController#update_resource'
+	]
+}
