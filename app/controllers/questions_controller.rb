@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = Question.new(question_params)
-		@question.user_id = current_user.id
+		@question.user = current_user
 		if @question.save
 			redirect_to root_path, notice: 'Vraag aangemaakt'
 		elsif @question.category_id == 1
@@ -61,8 +61,7 @@ class QuestionsController < ApplicationController
 
 	def approve_question
 		@question.approved = true
-		@question.user.points = @question.user.points + 10
-		@question.user.save
+		@question.user_points
 		if @question.save
 			redirect_to questions_unchecked_questions_path
 		end
@@ -73,7 +72,7 @@ class QuestionsController < ApplicationController
 		if answer.id == @question.correct_answer_id
 			current_user.points = current_user.points + 2
 			current_user.memberships.where(accepted: true).each do |m|
-				m.points = m.points + 1 
+				m.points = m.points + 1
 				m.save
 			end
 			current_user.save
@@ -84,7 +83,7 @@ class QuestionsController < ApplicationController
 
 		render json: @question
 	end
-	
+
 	private
 		def set_question
 			@question = Question.find(params[:id])

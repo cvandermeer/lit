@@ -1,7 +1,7 @@
 <fieldset>
-	<%= error_messages_for @question %>
+	<%= error_messages_for question %>
 
-	<%= nested_form_for @question, html: { :multipart => true } do |f| %>
+	<%= nested_form_for question, html: { :multipart => true } do |f| %>
 		<div class='field'>
 			<%= f.label :title, 'Woord van de afbeelding' %>
 			<%= f.text_field :title, placeholder: 'Vul de vraag in!' %>
@@ -11,16 +11,16 @@
 			<%= f.collection_select(:language_id, Language.all, :id, :title) %>
 		</div>
 		<%= f.hidden_field :category_id, value: 2 %>
-		
+
 		<%= f.fields_for :answers do |answer| %>
 			<% if action_name == 'edit' %>
-				<div class="imagePreviewFill" data-image-0='<%= @question.answers.first.image.url(:image_cropped) %>' data-image-1='<%= @question.answers.last.image.url(:image_cropped) %>'></div>
+				<div class="imagePreviewFill" data-image-0='<%= question.answers.first.image.url(:image_cropped) %>' data-image-1='<%= question.answers.last.image.url(:image_cropped) %>'></div>
 			<% end %>
-			<div class='answerfield'> 
+			<div class='answerfield'>
 	      <%= f.label :answer, 'Kies een afbeelding' %>
 	      <div class="imagePreview">
 	      </div>
-				<%= answer.file_field :image, class: 'imageUploadAnswer'  %>
+				<%= answer.file_field :image, class: 'imageUploadAnswer' %>
 				<%= answer.hidden_field :image_cache %>
 			</div>
 		<% end %>

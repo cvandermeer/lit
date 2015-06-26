@@ -1,44 +1,44 @@
 <h2 class='title'>Registreren</h2>
-<div class="login-box clearfix">  
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'clearfix'}) do |f| %>
-      <%= devise_error_messages! %>
-   
-      <div class="field">
-        <div class="email-icon"> </div>
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, placholder: 'Email adress' %>
-      </div>
+<div class="login-box clearfix">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'clearfix'}) do |f| %>
+    <%= devise_error_messages! %>
 
-      <div class="field">
-        <div class="email-icon"> </div>
-        <%= f.label :name %>
-        <%= f.text_field :name, placholder: 'Naam/Achternaam' %>
-      </div>
+    <div class="field">
+      <div class="email-icon"> </div>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, placholder: 'Email adress' %>
+    </div>
 
-      <div class="field">
-        <div class="key-icon top-fix"> </div>
-        <%= f.label 'Wachtwoord', :password %>
-        <% if @validatable %>
-        <em>(minimale lengte van: <%= @minimum_password_length %>)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+    <div class="field">
+      <div class="email-icon"> </div>
+      <%= f.label :name %>
+      <%= f.text_field :name, placholder: 'Naam/Achternaam' %>
+    </div>
 
-      <div class="field">
-        <div class="key-icon"> </div>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+    <div class="field">
+      <div class="key-icon top-fix"> </div>
+      <%= f.label 'Wachtwoord', :password %>
+      <% if @validatable %>
+      <em>(minimale lengte van: <%= @minimum_password_length %>)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
 
-      <div class="actions">
-        <%= f.submit "Registreren" %>
-      </div>
+    <div class="field">
+      <div class="key-icon"> </div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-      <%- if controller_name != 'sessions' %>
-        <%= link_to "Inloggen", new_session_path(resource_name), class: 'link-btn' %>
-      <% end -%>
+    <div class="actions">
+      <%= f.submit "Registreren" %>
+    </div>
 
-    <% end %>
+    <%- if controller_name != 'sessions' %>
+      <%= link_to "Inloggen", new_session_path(resource_name), class: 'link-btn' %>
+    <% end -%>
+
+  <% end %>
 
   <%= render "devise/shared/links" %>
 </div>

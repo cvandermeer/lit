@@ -8,12 +8,15 @@ class Team < ActiveRecord::Base
 	has_many :users, through: :memberships
 	belongs_to :user
 
+	### DELEGATE ###
+	delegate :name, to: :user, prefix: true
+
 	### VALIDATIONS ###
 	validates :name, presence: true
 	validates :user_id, presence: true
 	
 	## UPLOADER ##
-  mount_uploader :picture, ImageUploader 
+  mount_uploader :picture, ImageUploader
 
   def subscribe_leader
   	Membership.create(user_id: self.user.id, team_id: self.id, accepted: true)

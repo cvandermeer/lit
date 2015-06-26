@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :recoverable, :trackable
-  devise :database_authenticatable, :registerable, 
+  devise :database_authenticatable, :registerable,
           :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   ### RELATIONS ###
@@ -18,14 +18,14 @@ class User < ActiveRecord::Base
   after_create :user_defaults
   before_destroy :remove_teams
 
+  ### METHODS ###
   def remove_teams
     Team.where(user_id: self.id).each do |t|
       t.destroy
     end
   end
 
-
-  def user_defaults	
+  def user_defaults
   	if self.admin == nil
   		self.admin = false
       self.points = 0
@@ -45,13 +45,21 @@ class User < ActiveRecord::Base
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
+        user.email = data["email"] unless user.email?
       end
     end
   end
 
+  def get_back_all(val)
+    if self.user_results.where(language_id: val).any?
+      ((self.user_results.where(language_id: val, correctly_answered: true).count.to_f / self.user_results.where(language_id: val).count.to_f) * 100).round
+    else
+      0
+    end
+  end
+
   def self.search(search)
-    where("name LIKE ?", "%#{search}%") 
+    where("name LIKE ?", "%#{search}%")
   end
 
   ## UPLOADER ##

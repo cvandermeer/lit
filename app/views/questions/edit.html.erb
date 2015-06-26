@@ -1,7 +1,7 @@
 <% if @question.category_id == 1 %>
-	<%= render 'form' %>
+	<%= render 'form', question: @question %>
 <% elsif @question.category_id == 2 %>
-	<%= render 'choose_image_form' %>
+	<%= render 'choose_image_form', question: @question %>
 <% else %>
-	<%= render 'write_word_form' %>
+	<%= render 'write_word_form', question: @question %>
 <% end %>

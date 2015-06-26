@@ -9,12 +9,16 @@ class MembershipsController < ApplicationController
 	end
 
 	def create
-		@membership = Membership.new(membership_params)
-		@membership.team_id = @team.id
-		if @membership.save
-			redirect_to @team, notice: 'Teamuitnodiging verstuurd'
+		if params[:membership]
+			@membership = Membership.new(membership_params)
+			@membership.team = @team
+			if @membership.save
+				redirect_to @team, notice: 'Teamuitnodiging verstuurd'
+			else
+				redirect_to @team, notice: 'Teamuitnodiging mislukt'
+			end
 		else
-			redirect_to @team, notice: 'Teamuitnodiging mislukt'
+			redirect_to @team, notice: 'Er is niemand uitgenodigd'
 		end
 	end
 
@@ -33,14 +37,11 @@ class MembershipsController < ApplicationController
 	end
 
 	def destroy
-		if @membership.team.user_id == current_user.id
-			@membership.destroy
+		if @membership.check_if_team_owner(current_user)
 			@membership.team.destroy
-			redirect_to root_path, notice: 'Team verlaten en verwijderd'
-		else
-			@membership.destroy
-			redirect_to root_path, notice: 'Team verlaten'
 		end
+		@membership.destroy
+		redirect_to root_path, notice: 'Team verlaten'
 	end
 
 	private
@@ -53,7 +54,7 @@ class MembershipsController < ApplicationController
 		@membership = Membership.find(params[:id])
 	end
 
-	def set_team 
+	def set_team
 		@team = Team.find(params[:team_id])
 	end
 end

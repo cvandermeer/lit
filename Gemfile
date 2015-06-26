@@ -44,7 +44,7 @@ gem 'easy_as_pie'
 
 group :development, :test do
   gem 'byebug'
-  # Byebug geeft foutmelding weer voor het debuggen van de applicatie 
+  # Byebug geeft foutmelding weer voor het debuggen van de applicatie
 
   gem 'web-console', '~> 2.0'
   # Web console is een debugging tool
@@ -63,11 +63,14 @@ group :development, :test do
     # Zodra er een bestand is opgeslagen worden de tests uitgevoerd
 
   gem 'guard-minitest'
-  # Filteren van de test output 
+  # Filteren van de test output
+
+  gem "rails_best_practices"
+  # Best way to write your code
 end
 
 group :production do
-  gem 'mysql2' 
+  gem 'mysql2'
     # Mysql is de online productie database
 
   gem 'capistrano', '~> 3.2.1'

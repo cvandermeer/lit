@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603134037) do
+ActiveRecord::Schema.define(version: 20150626063121) do
 
   create_table "answers", force: :cascade do |t|
     t.string  "title"
     t.integer "question_id"
     t.string  "image"
   end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150603134037) do
     t.integer "points"
   end
 
+  add_index "memberships", ["user_id", "team_id"], name: "index_memberships_on_user_id_and_team_id"
+
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
@@ -46,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150603134037) do
     t.string   "image"
   end
 
+  add_index "questions", ["category_id", "language_id", "user_id"], name: "index_questions_on_category_id_and_language_id_and_user_id"
+
   create_table "teams", force: :cascade do |t|
     t.string  "name"
     t.string  "description"
@@ -54,12 +60,16 @@ ActiveRecord::Schema.define(version: 20150603134037) do
     t.integer "points"
   end
 
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id"
+
   create_table "user_results", force: :cascade do |t|
     t.integer "category_id"
     t.integer "language_id"
     t.boolean "correctly_answered"
     t.integer "user_id"
   end
+
+  add_index "user_results", ["category_id", "language_id", "user_id"], name: "index_user_results_on_category_id_and_language_id_and_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
@@ -84,6 +94,9 @@ ActiveRecord::Schema.define(version: 20150603134037) do
     t.integer  "word_of_the_week_id"
     t.datetime "created_at"
   end
+
+  add_index "word_of_the_week_reactions", ["user_id"], name: "index_word_of_the_week_reactions_on_user_id"
+  add_index "word_of_the_week_reactions", ["word_of_the_week_id"], name: "index_word_of_the_week_reactions_on_word_of_the_week_id"
 
   create_table "word_of_the_weeks", force: :cascade do |t|
     t.string "title"

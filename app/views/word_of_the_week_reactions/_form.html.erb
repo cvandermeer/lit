@@ -1,6 +1,6 @@
 
 <fieldset>
-	<%= form_for(@word_of_the_week_reaction) do |f| %>
+	<%= form_for(word_of_the_week_reaction) do |f| %>
 	  <%= f.label :title, 'Reageren' %>
 	  <%= f.text_field :title, placeholder: 'reageren...' %>
 	  <%= f.hidden_field(:word_of_the_week_id, :value => params[:id]) %>
