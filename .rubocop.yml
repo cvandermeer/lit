@@ -7,8 +7,6 @@ AllCops:
     - 'script/**/*'
     - 'test/**/*'
     - 'bin/**/*'
-    - 'app/helpers/*'
-    - 'app/controllers/**'
     - 'Guardfile'
     - 'Capfile'
 Documentation:
