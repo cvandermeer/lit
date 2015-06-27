@@ -16,24 +16,28 @@ class WordOfTheWeeksController < ApplicationController
   def update
     @word_of_the_week.update(word_of_the_week_params)
     if @word_of_the_week.save
-      redirect_to word_of_the_weeks_path, notice: 'Woord van week ' + @word_of_the_week.id.to_s + ' aangepast'
+      redirect_to word_of_the_weeks_path,
+                  notice: 'Woord van
+                  week ' + @word_of_the_week.id.to_s + '
+                  aangepast'
     else
       redirect_to word_of_the_weeks_path, notice: 'Aanpassen mislukt'
     end
   end
 
   private
-    def set_word_of_the_week
-      @word_of_the_week = WordOfTheWeek.find(params[:id])
-    end
 
-    def word_of_the_week_params
-      params.require(:word_of_the_week).permit(:title, :description)
-    end
+  def set_word_of_the_week
+    @word_of_the_week = WordOfTheWeek.find(params[:id])
+  end
 
-    def check_admin
-      if !current_user.admin == true
-        redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!'
-      end
-    end
+  def word_of_the_week_params
+    params.require(:word_of_the_week).permit(:title, :description)
+  end
+
+  def check_admin
+    redirect_to root_path,
+                notice: 'Je hebt hier niet genoeg
+                rechten voor!' unless current_user.admin
+  end
 end

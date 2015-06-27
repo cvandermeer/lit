@@ -14,7 +14,9 @@ class WordOfTheWeekReactionsController < ApplicationController
   end
 
   private
-    def word_of_the_week_reaction_params
-      params.require(:word_of_the_week_reaction).permit(:title, :word_of_the_week_id)
-    end
+
+  def word_of_the_week_reaction_params
+    params.require(:word_of_the_week_reaction).permit(:title,
+                                                      :word_of_the_week_id)
+  end
 end

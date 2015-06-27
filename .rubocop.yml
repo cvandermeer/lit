@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'test/**/*'
+    - 'bin/**/*'
+    - 'app/helpers/*'
+    - 'app/controllers/**'
+    - 'Guardfile'
+    - 'Capfile'
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120

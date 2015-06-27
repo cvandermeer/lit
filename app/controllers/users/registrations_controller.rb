@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
- 	before_filter :configure_permitted_parameters
+  before_filter :configure_permitted_parameters
 
   protected
 
@@ -8,7 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:name, :avatar, :avatar_cache, :email, :password, :password_confirmation, :facebook_image_url)
+    params.require(:user).permit(:name, :avatar,
+                                 :avatar_cache, :email,
+                                 :password, :password_confirmation,
+                                 :facebook_image_url)
   end
 
   protected
