@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :recoverable, :trackable
   devise :database_authenticatable, :registerable,
-          :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+          :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   ### RELATIONS ###
   has_many :questions
@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
   end
 
   def user_defaults
-    if self.admin == nil
+    if admin.nil?
       self.admin = false
       self.points = 0
-      self.save
+      save
     end
   end
 
@@ -44,8 +44,8 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] unless user.email?
+      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        user.email = data['email'] unless user.email?
       end
     end
   end

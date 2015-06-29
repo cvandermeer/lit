@@ -1,5 +1,4 @@
 class Membership < ActiveRecord::Base
-
   ### CALLBACKS ###
   before_create :set_default
 
@@ -22,5 +21,4 @@ class Membership < ActiveRecord::Base
   def check_if_team_owner(current_user)
     self.team.user.id == current_user.id
   end
-
 end

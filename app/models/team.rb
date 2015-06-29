@@ -1,5 +1,4 @@
 class Team < ActiveRecord::Base
-
   ### CALLBACKS ###
   after_create :subscribe_leader
 
@@ -14,7 +13,7 @@ class Team < ActiveRecord::Base
   ### VALIDATIONS ###
   validates :name, presence: true
   validates :user_id, presence: true
-  
+
   ## UPLOADER ##
   mount_uploader :picture, ImageUploader
 

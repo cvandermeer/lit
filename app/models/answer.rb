@@ -1,5 +1,4 @@
 class Answer < ActiveRecord::Base
-
   ### RELATIONS ###
   belongs_to :question
 
@@ -8,7 +7,4 @@ class Answer < ActiveRecord::Base
 
   ## UPLOADER ##
   mount_uploader :image, ImageUploader
-
-  private
-
 end
