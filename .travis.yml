@@ -3,5 +3,5 @@ rvm:
  - "2.2.0"
 script:
  - 'bundle exec rails_best_practices'
- - 'rubocop'
+ - 'bundle exec rubocop'
  - 'rake'
