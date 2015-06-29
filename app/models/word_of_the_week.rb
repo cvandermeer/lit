@@ -6,7 +6,7 @@ class WordOfTheWeek < ActiveRecord::Base
   validates :title, presence: true
 
   ### METHODS ###
-  def self.get_back_this_week
-  	find(Time.now.strftime("%U").to_i + 1)
+  def self.this_week
+    find(Time.now.strftime('%U').to_i + 1)
   end
 end

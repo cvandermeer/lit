@@ -2,15 +2,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :make_admin, :destroy]
   before_action :check_admin, only: [:make_admin, :index, :destroy]
 
-	def show
+  def show
     @frysk_score = @user.get_back_all(1)
     @english_score = @user.get_back_all(2)
     @dutch_score = @user.get_back_all(3)
-	end
+  end
 
-	def leaderboard
-		@users = User.all.order(:points).reverse
-	end
+  def leaderboard
+    @users = User.all.order(:points).reverse
+  end
 
   def leaderboard_normal_questions
     @users = User.all.order(:points).reverse
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
     @users = User.all.order(:points).reverse
   end
 
-	def invites
-		@memberships = current_user.memberships.where(accepted: nil)
-	end
+  def invites
+    @memberships = current_user.memberships.where(accepted: nil)
+  end
 
   def index
     @users = User.all.order(:name)
@@ -45,14 +45,11 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def check_admin
-      if !current_user.admin == true
-        redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!'
-      end
-    end
-
+  def check_admin
+    redirect_to root_path, notice: 'Je hebt hier niet genoeg rechten voor!' unless current_user.admin
+  end
 end

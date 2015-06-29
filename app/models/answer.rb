@@ -1,14 +1,10 @@
 class Answer < ActiveRecord::Base
+  ### RELATIONS ###
+  belongs_to :question
 
-	### RELATIONS ###
-	belongs_to :question
-
-	### VALIDATIONS ###
+  ### VALIDATIONS ###
   # Look in the question model
 
-	## UPLOADER ##
+  ## UPLOADER ##
   mount_uploader :image, ImageUploader
-
-  private
-
 end

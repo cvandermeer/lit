@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 
 gem 'sass-rails', '~> 5.0'
-# Sass-rails gem biedt officiële integratie voor Ruby on Rails projecten met de Sass stylesheet taal.
+# Sass-rails gem biedt officieel integratie voor Ruby on Rails projecten met de Sass stylesheet taal.
 
 gem 'uglifier', '>= 1.3.0'
 # Uglifier minimaliseert Javascript bestanden
@@ -56,26 +56,28 @@ group :development, :test do
   # Sqlite is een light weight database
 
   gem 'minitest-reporters'
-    # Visuele test output
+  # Visuele test output
 
   gem 'guard'
   gem 'mini_backtrace'
-    # Zodra er een bestand is opgeslagen worden de tests uitgevoerd
+  # Zodra er een bestand is opgeslagen worden de tests uitgevoerd
 
   gem 'guard-minitest'
   # Filteren van de test output
 
-  gem "rails_best_practices"
+  gem 'rails_best_practices'
   # Best way to write your code
+
+  gem 'rubocop'
 end
 
 group :production do
   gem 'mysql2'
-    # Mysql is de online productie database
+  # Mysql is de online productie database
 
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-rails', '~> 1.1'
-    # Voor het online zetten van de server
+  # Voor het online zetten van de server
 
   gem 'exception_notification'
   # Verstuurd notificatie als er een error voor komt in de applicatie

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :recoverable, :trackable
   devise :database_authenticatable, :registerable,
-          :rememberable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+          :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   ### RELATIONS ###
   has_many :questions
@@ -26,17 +26,17 @@ class User < ActiveRecord::Base
   end
 
   def user_defaults
-  	if self.admin == nil
-  		self.admin = false
+    if admin.nil?
+      self.admin = false
       self.points = 0
-  		self.save
-  	end
+      save
+    end
   end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name
       user.facebook_image_url = auth.info.image + '?type=large'
     end
@@ -44,22 +44,24 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] unless user.email?
+      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        user.email = data['email'] unless user.email?
       end
     end
   end
 
   def get_back_all(val)
-    if self.user_results.where(language_id: val).any?
-      ((self.user_results.where(language_id: val, correctly_answered: true).count.to_f / self.user_results.where(language_id: val).count.to_f) * 100).round
+    if user_results.where(language_id: val).any?
+      ((user_results.where(language_id: val,
+                           correctly_answered: true).count.to_f /
+      user_results.where(language_id: val).count.to_f) * 100).round
     else
       0
     end
   end
 
-  def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+  def self.search(*)
+    where('name LIKE ?', '%#{*}%')
   end
 
   ## UPLOADER ##
