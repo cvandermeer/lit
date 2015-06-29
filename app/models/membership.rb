@@ -17,8 +17,4 @@ class Membership < ActiveRecord::Base
   def set_default
     self.points = 0
   end
-
-  def check_if_team_owner(current_user)
-    self.team.user.id == current_user.id
-  end
 end

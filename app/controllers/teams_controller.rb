@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    redirect_to @team, notice: 'Je bent geen team leider' if @team.user_id != current_user.id
   end
 
   def update

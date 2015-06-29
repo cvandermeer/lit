@@ -25,12 +25,11 @@ class Question < ActiveRecord::Base
 
   def question_defaults
     self.approved = 0
-    self.user = current_user
   end
 
   def set_correct_answer
-    self.update_attributes(correct_answer_id: self.answers.first.id)
-    self.save
+    update_attributes(correct_answer_id: answers.first.id)
+    save
   end
 
   ### UPLOADER ###
@@ -38,8 +37,8 @@ class Question < ActiveRecord::Base
 
   ### METHODS ###
   def user_points
-    self.user.points = self.user.points + 10
-    self.user.save
+    user.points = user.points + 10
+    user.save
   end
 
   def self.get_back_one_random_question(val)
@@ -62,7 +61,7 @@ class Question < ActiveRecord::Base
     if category_id != 3
       errors.add(:base, 'Geef minstens twee antwoorden') if answers.size < 2
     elsif answers.size == 0
-       errors.add(:base, 'Geef het woord dat bij de afbeelding hoort')
-     end
+      errors.add(:base, 'Geef het woord dat bij de afbeelding hoort')
+    end
   end
 end
