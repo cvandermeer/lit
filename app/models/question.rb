@@ -25,6 +25,7 @@ class Question < ActiveRecord::Base
 
   def question_defaults
     self.approved = 0
+    self.user = current_user
   end
 
   def set_correct_answer
