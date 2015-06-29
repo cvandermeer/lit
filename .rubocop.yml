@@ -5,7 +5,6 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
-    - 'test/**/*'
     - 'bin/**/*'
     - 'Guardfile'
     - 'Capfile'

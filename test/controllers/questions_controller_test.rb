@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class QuestionsControllerTest < ActionController::TestCase
-  setup :login_user, :set_question 
+  setup :login_user, :set_question
 
   test 'should get new' do
     get :new
@@ -10,9 +10,9 @@ class QuestionsControllerTest < ActionController::TestCase
 
   # test 'should be able to create question' do
   #   assert_difference('Question.count') do
-  #     post :create, question: {title: @question.title, 
-  #                              answer: @question.answer, 
-  #                              user_id: @question.user, 
+  #     post :create, question: {title: @question.title,
+  #                              answer: @question.answer,
+  #                              user_id: @question.user,
   #                              category_id: @question.category,
   #                              language_id: @question.language
   #                             }
@@ -27,16 +27,17 @@ class QuestionsControllerTest < ActionController::TestCase
   end
 
   test 'should get new question link' do
-    get(:show, {id: @question})
+    get :show, id: @question
     assert_response :success
   end
 
   private
-    def login_user
-      sign_in users(:one)
-    end
 
-    def set_question
-      @question = questions(:question1)
-    end
+  def login_user
+    sign_in users(:one)
+  end
+
+  def set_question
+    @question = questions(:question1)
+  end
 end
