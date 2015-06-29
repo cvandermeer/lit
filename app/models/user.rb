@@ -20,17 +20,13 @@ class User < ActiveRecord::Base
 
   ### METHODS ###
   def remove_teams
-    Team.where(user_id: self.id).each do |t|
-      t.destroy
-    end
+    Team.where(user_id: id).destroy_all
   end
 
   def user_defaults
-    if admin.nil?
-      self.admin = false
-      self.points = 0
-      save
-    end
+    self.admin = false if admin.nil?
+    self.points = 0
+    save
   end
 
   def self.from_omniauth(auth)

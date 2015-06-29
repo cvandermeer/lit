@@ -2,7 +2,6 @@ require 'test_helper'
 
 class WordOfTheWeeksControllerTest < ActionController::TestCase
   setup :login_user, :set_word_of_the_week
- 
 
   test 'should get index' do
     get :index
@@ -20,12 +19,12 @@ class WordOfTheWeeksControllerTest < ActionController::TestCase
   end
 
   private
-    def login_user 
-      sign_in users(:one)
-    end 
 
-    def set_word_of_the_week
-      @word_of_the_week = word_of_the_weeks(:word_of_the_week)
-    end
+  def login_user
+    sign_in users(:one)
+  end
 
+  def set_word_of_the_week
+    @word_of_the_week = word_of_the_weeks(:word_of_the_week)
+  end
 end

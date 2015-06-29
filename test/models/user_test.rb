@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'should not create user without a name' do
-  	user = User.new(email: 'admin@gmail.com')
-  	assert_not user.save, 'User can\'t be saved without a name'
+    user = User.new(email: 'admin@gmail.com')
+    assert_not user.save, 'User can\'t be saved without a name'
   end
 end

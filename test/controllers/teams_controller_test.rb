@@ -9,7 +9,8 @@ class TeamsControllerTest < ActionController::TestCase
   end
 
   private
-    def login_user
-      sign_in users(:one)
-    end
+
+  def login_user
+    sign_in users(:one)
+  end
 end

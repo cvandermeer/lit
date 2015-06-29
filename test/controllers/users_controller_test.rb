@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup :login_user, :set_user
- 
+
   test 'should get show' do
     get :show, id: @user.id
     assert_response :success
@@ -10,7 +10,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should get leaderboard' do
     get :leaderboard
-    assert_response :success 
+    assert_response :success
   end
 
   test 'should get leaderboard choose image' do
@@ -29,11 +29,12 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   private
-    def login_user 
-      sign_in users(:one)
-    end
 
-    def set_user
-      @user = users(:one) 
-    end
+  def login_user
+    sign_in users(:one)
+  end
+
+  def set_user
+    @user = users(:one)
+  end
 end

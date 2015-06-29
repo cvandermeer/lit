@@ -18,10 +18,10 @@ class Team < ActiveRecord::Base
   mount_uploader :picture, ImageUploader
 
   def subscribe_leader
-    Membership.create(user_id: self.user.id, team_id: self.id, accepted: true)
+    Membership.create(user_id: user.id, team_id: id, accepted: true)
   end
 
   def total_points
-    self.memberships.sum(:points)
+    memberships.sum(:points)
   end
 end
