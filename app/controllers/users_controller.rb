@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, notice: 'Gebruiker verwijderd!'
+    redirect_to root_path, notice: 'Gebruiker verwijderd!'
   end
 
   private

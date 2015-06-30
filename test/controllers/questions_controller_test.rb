@@ -18,6 +18,13 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should destroy question' do
+    assert_difference('Question.count', -1) do
+      delete :destroy, id: @question.id
+    end
+    assert_redirected_to questions_unchecked_questions_path
+  end
+
   private
 
   def login_user
