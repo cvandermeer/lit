@@ -20,12 +20,12 @@ class TeamsControllerTest < ActionController::TestCase
     assert_redirected_to Team.last
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @team
     assert_response :success
   end
 
-  test "should update team" do
+  test 'should update team' do
     patch :update, id: @team, team: { name: @team.name }
     assert_redirected_to @team
   end

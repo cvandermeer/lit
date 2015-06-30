@@ -5,7 +5,9 @@ class WordOfTheWeekReactionsControllerTest < ActionController::TestCase
 
   test 'should be able to create word of the week reaction' do
     assert_difference('WordOfTheWeekReaction.count') do
-      post :create, word_of_the_week_reaction: { title: 'My reaction', word_of_the_week_id: @word_of_the_week.id, user_id: @user.id }
+      post :create, word_of_the_week_reaction: { title: 'My reaction',
+                                                 word_of_the_week_id: @word_of_the_week.id,
+                                                 user_id: @user.id }
     end
     assert_redirected_to @word_of_the_week
   end
