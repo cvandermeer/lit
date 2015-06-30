@@ -5,4 +5,6 @@ class WordOfTheWeekReaction < ActiveRecord::Base
 
   ### VALIDATIONS ###
   validates :title, presence: true
+  validates :user_id, presence: true
+  validates :word_of_the_week_id, presence: true
 end

@@ -28,6 +28,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should destroy user' do
+    assert_difference('User.count', -1) do
+      delete :destroy, id: @user.id
+    end
+    assert_redirected_to root_path
+  end
+
   private
 
   def login_user
