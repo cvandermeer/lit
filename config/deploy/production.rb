@@ -1,1 +1,1 @@
-server '188.226.198.98', user: 'deploy', roles: %w{web app db}
+server '188.226.198.98', user: 'deploy', roles: %w{web app db}, port: 2855
