@@ -1,8 +1,8 @@
 lock '3.2.1'
 
-set :application, 'lit'
+set :application, 'switsj'
 set :repo_url, 'git@github.com:cvandermeer/lit.git'
-set :deploy_to, '/u/apps/lit_production'
+set :deploy_to, '/u/apps/switsj_production'
 set :ssh_options, {
   forward_agent: true
 }
