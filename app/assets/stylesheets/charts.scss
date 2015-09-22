@@ -1,7 +1,7 @@
 .charts-index {
 	background-color: white;
 	border-radius: 5px;
-	width: 95%;
+	width: 100%;
 	height: 140px;
 	margin: center;
   	box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
@@ -11,8 +11,22 @@
   }
   .chart{
     float:left;
-    margin-left:2%;
     margin-top:2%;
+  }
+
+  @media screen and (min-width: 700px) {
+    .centerdiv{
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    div.chart.easyPieChart{
+      width:50px!important;
+      canvas{
+        width:50px;
+      }
+    }
   }
 }
 
