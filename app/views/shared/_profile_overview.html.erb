@@ -10,7 +10,7 @@
 		</div>
 		<% else %>
 		<div class='profile-image'>
-			<%= user.name.chars.first || user.email.chars.first  %>
+			<%= user.name.chars.first || user.email.chars.first %>
 		</div>
 		<% end %>
 		<div class='profile-info'>
@@ -28,6 +28,11 @@
 			<%= easy_as_pie frysk_score %>
 			<%= easy_as_pie english_score %>
 			<%= easy_as_pie dutch_score %>
+			<div class='scorenames'>
+				<div class='scorename friestext'%>Fries</div>
+				<div class='scorename engelstext'%>Engels</div>
+				<div class='scorename nederlandstext'%>Nederlands</div>
+			</div>
 		</div>
 	</div>
 </div>

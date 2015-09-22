@@ -2,6 +2,7 @@
 	background-color: white;
 	border-radius: 5px;
 	width: 100%;
+  position:relative;
 	height: 140px;
 	margin: center;
   	box-shadow: 1px 2px 3px rgba(0,0,0,0.4);
@@ -20,12 +21,43 @@
       margin: 0 auto;
     }
   }
+  
+
+  .scorename{
+    position:absolute;
+    bottom:10px;
+  }
+
+  .scorenames{
+    left:235px;
+    height:100px;
+  }
+  .friestext{
+    margin-left:30px;
+  }
+  .engelstext{
+    margin-left:135px;
+  }
+  .nederlandstext{
+    margin-left:235px;
+  }
+
   @media screen and (max-width: 400px) {
     div.chart.easyPieChart{
       width:50px!important;
+      margin-left:25px;
       canvas{
         width:50px;
       }
+    }
+    .friestext{
+    margin-left:10px;
+    }
+    .engelstext{
+      margin-left:75px;
+    }
+    .nederlandstext{
+      margin-left:140px;
     }
   }
 }
